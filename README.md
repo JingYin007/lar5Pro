@@ -16,3 +16,28 @@
 # 二、使用
 
 - XXXXXXXXXXXXXX
+
+
+# 注意
+
+## ①. `.gitignore` 文件的影响
+
+- 因为Git 使用的普遍性，此文件可以进行目录的设置，
+如此一来便可以避免一部分不需要同步上传的文件/夹
+
+- 举例，最初git下载框架代码时的设置信息如下：
+```
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+```
+- 注意，也会有个别的文件夹分别有自己的配置文件，可自行修改，
+以保证代码和文件的同步性
