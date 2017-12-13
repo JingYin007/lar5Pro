@@ -3,8 +3,10 @@
 ## ①. 项目名称
 - lar5Pro
 
-## ②. 使用框架
-- laravel 5.5*
+## ②. 运行环境
+- 框架：       laravel 5.5*
+- PHP版本：    php7
+- composer版本：   Composer version 1.5.5
 
 ## ③. 上传目的
 

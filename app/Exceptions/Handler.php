@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Foundation\Testing\HttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,6 +49,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        /* 错误页面 */
+        if ($exception) {
+            $code = $exception->getStatusCode();
+            return response()->view('error.' . $code, [], $code);
+        }
         return parent::render($request, $exception);
     }
 }
