@@ -19,6 +19,11 @@
 
 - XXXXXXXXXXXXXX
 
+## ①. 数据库信息配置
+- 初次使用代码，需要更改对应的数据库信息
+把 `.env` 文件中的 DB_HOST、DB_PORT、DB_DATABASE、DB_USERNAME、DB_PASSWORD；  
+改为自己实际的数据库链接；
+
 
 # 注意
 
