@@ -19,12 +19,24 @@
 
 - XXXXXXXXXXXXXX
 
-## ①. 数据库信息配置
+## ①. 创建新的应用程序密钥
+```shell
+php artisan key:generate
+```
+## ②. 数据库信息配置
+
 - 初次使用代码，需要更改对应的数据库信息
-把 `.env` 文件中的 DB_HOST、DB_PORT、DB_DATABASE、DB_USERNAME、DB_PASSWORD；  
-改为自己实际的数据库链接；
 
+编辑`.env`文件
 
+```
+CACHE_DRIVER=array
+
+DB_HOST=YOUR_DATABASE_HOST
+DB_DATABASE=YOUR_DATABASE_NAME
+DB_USERNAME=YOUR_DATABASE_USERNAME
+DB_PASSWORD=YOUR_DATABASE_PASSWORD
+```
 # 注意
 
 ## ①. `.gitignore` 文件的影响
@@ -54,3 +66,5 @@ composer install
 
 - 注意，也会有个别的文件夹分别有自己的配置文件，可自行修改，
 以保证代码和文件的同步性
+
+
