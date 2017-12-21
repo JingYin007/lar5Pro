@@ -37,6 +37,23 @@ DB_DATABASE=YOUR_DATABASE_NAME
 DB_USERNAME=YOUR_DATABASE_USERNAME
 DB_PASSWORD=YOUR_DATABASE_PASSWORD
 ```
+-  添加自动加载
+```shell
+composer dump-autoload
+```
+
+- 运行数据库迁移
+```shell
+php artisan migrate
+```
+
+- 运行数据填充
+```shell
+php artisan db:seed
+```
+
+
+
 # 注意
 
 ## ①. `.gitignore` 文件的影响
