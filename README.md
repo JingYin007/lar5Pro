@@ -32,12 +32,13 @@
 - 因为Git 使用的普遍性，此文件可以进行目录的设置，
 如此一来便可以避免一部分不需要同步上传的文件/夹
 
-- 举例，最初git下载框架代码时的设置信息如下：
+- 举例，最初 git 下载框架代码时的设置信息如下：
 ```
 /node_modules
 /public/hot
 /public/storage
 /storage/*.key
+/vendor
 /.idea
 /.vagrant
 Homestead.json
