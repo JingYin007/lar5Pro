@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use Illuminate\Mail\Mailer;
 
 class TestController extends Controller
@@ -10,6 +11,21 @@ class TestController extends Controller
     public function __construct(Mailer $mailer)
     {
         $this->mailer = $mailer;
+    }
+    public function index($name){
+        var_dump($name);
+    }
+    public function update(Request $request,$name){
+
+        var_dump($name);
+        var_dump($request->input('name'));
+        $url = $request->path();
+        var_dump($url) ;
+        $url = $request->url();
+        var_dump($url) ;
+        // With Query String...
+        $url = $request->fullUrl();
+        var_dump($url) ;
     }
     /**
      * 发送邮件
