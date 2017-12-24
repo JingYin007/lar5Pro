@@ -23,7 +23,7 @@
     <!--mainbody start-->
     <div id="mainbody">
         <div id="logo">
-            <a href="index.html"></a>
+            <a href="{{url('/')}}"></a>
         </div>
         <!--navigation start-->
         <div id="navigation">
