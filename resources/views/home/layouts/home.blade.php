@@ -22,7 +22,7 @@
     <!--mainbody start-->
     <div id="mainbody">
         <div id="logo">
-            <a href="{{url('/')}}"></a>
+            <a href="{{url('/')}}"><span class="user-name">moTzxx</span></a>
         </div>
         <!--navigation start-->
         <div id="navigation">
@@ -32,7 +32,7 @@
                     <li>|</li>
                     <li><a href="{{url('about')}}"><span>About</span></a></li>
                     <li>|</li>
-                    <li><a href="{{url('work')}}"><span>Work</span></a></li>
+                    <li><a href="{{url('work')}}"><span>Photos</span></a></li>
                     <li>|</li>
                     <li><a href="{{url('contact')}}" class="active"><span>Contact</span></a></li>
                 </ul>
@@ -51,7 +51,7 @@
 <!--footer start-->
 <div id="footer">
     <p>
-        <span><a href="#">Copyright</a> © EGrappler - 你若盛开，清风自来</span>
+        <span><a href="#">Copyright</a> © moTzxx - 你若盛开，清风自来</span>
     </p>
     <p>
         <span>All Rights Reserved.</span></p>

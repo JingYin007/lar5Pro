@@ -1,26 +1,9 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 /**
  * 测试
  */
 Route::any('mail', 'TestController@mail');
-
-
-
 
 
 // Home 模块
@@ -31,26 +14,18 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('work', 'IndexController@work');
     Route::get('contact', 'IndexController@contact');
 });
-
-
-
-
-
-
-
-
+/*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
 
 
 
 
 Route::any('test/{name}','TestController@index');
-
 Route::any('update/{name}','TestController@update');
 
 
 
 
-/*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
+/*-------------------还是一条奇怪的分界线------------------------还是为了让你奇怪！-----------------------------*/
 /**
  * 使用 namespace 方法将相同的 PHP 命名空间分配给路由组的中所有的控制器
  * // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
@@ -60,8 +35,27 @@ Route::namespace('Admin')->group(function () {
     Route::prefix('admin')->group(function () {
         // 匹配包含 "/admin/users" 的 URL
         Route::get('user', 'UserController@index');
+        Route::get('index', 'IndexController@index');
+        Route::get('charts', 'IndexController@charts');
+        Route::get('tables', 'IndexController@tables');
+        Route::get('panels', 'IndexController@panels');
+        Route::get('elements', 'IndexController@elements');
+        Route::get('icons', 'IndexController@icons');
+        Route::get('notifications', 'IndexController@notifications');
+        Route::get('typography', 'IndexController@typography');
+
+        Route::get('page_login', 'IndexController@page_login');
+        Route::get('page_profile', 'IndexController@page_profile');
+        Route::get('page_lock', 'IndexController@page_lock');
     });
 });
+
+
+
+
+/*-------------------又是一条奇怪的分界线------------------------又是为了让你奇怪！-----------------------------*/
+
+
 
 
 /**
