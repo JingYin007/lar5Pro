@@ -23,6 +23,26 @@ class IndexController extends Controller
         return view('home.index.index', $assign);
     }
 
+
+    public function about(){
+        return view('home.index.about');
+    }
+    public function work(){
+        return view('home.index.work');
+    }
+    public function contact(){
+        return view('home.index.contact');
+    }
+
+
+
+
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *

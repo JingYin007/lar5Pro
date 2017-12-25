@@ -14,35 +14,38 @@
     return view('welcome');
 });*/
 
+/**
+ * 测试
+ */
+Route::any('mail', 'TestController@mail');
+
+
+
+
+
 // Home 模块
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'IndexController@index');
+    Route::get('home', 'IndexController@index');
+    Route::get('about', 'IndexController@about');
+    Route::get('work', 'IndexController@work');
+    Route::get('contact', 'IndexController@contact');
 });
 
 
-Route::any('mail', 'TestController@mail');
 
-Route::get('greeting', function () {
-    return view('home.greeting', ['name' => 'James']);
-});
 
-Route::get('blade', function () {
-    return view('layouts.child');
-});
+
+
+
+
+
 
 
 
 Route::any('test/{name}','TestController@index');
 
 Route::any('update/{name}','TestController@update');
-
-
-
-
-
-
-
-
 
 
 
