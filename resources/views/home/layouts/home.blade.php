@@ -14,7 +14,6 @@
             $('.quake-slider').quake({ thumbnails: false, frameWidth: 600, frameHeight: 609 });
         });
     </script>
-    @yield('work-js')
     <!--slider end-->
 </head>
 <body>
