@@ -12,7 +12,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('home', 'IndexController@index');
     Route::get('about', 'IndexController@about');
     Route::get('gallery', 'IndexController@gallery');
-    Route::get('single', 'IndexController@single');
+    Route::get('article', 'IndexController@article');
     Route::get('shortcodes', 'IndexController@shortcodes');
 
     Route::get('contact', 'IndexController@contact');

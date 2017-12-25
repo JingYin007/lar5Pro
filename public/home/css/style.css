@@ -1276,6 +1276,11 @@ ul.grid-part {
 .single-middle {
     margin-top: 2em;
 }
+.blog-content{
+    padding-top: 30px;
+    padding-right: 1.5em;
+    margin: 4em 0em 5em 2em;
+}
 .top-blog p a {
     text-decoration: none;
     color: #0dc5dd;
@@ -1999,9 +2004,7 @@ h5.act a,h5.race a,h5.sport a,h5.arc a{
     width:100%;
     margin: 0.5em 0em 0em 0em;
 }
-.single-middle {
-    margin-top: 1em;
-}
+
 .gallery-grid {
     width: 100%;
     margin-bottom: 21px;

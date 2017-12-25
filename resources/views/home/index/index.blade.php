@@ -33,29 +33,29 @@
                     <div class="game-grid-left">
                         <div class="grid1">
                             <h5 class="act">
-                                <a href="{{url('single')}}">Action</a></h5>
-                            <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">Action</a></h5>
+                            <a href="{{url('article')}}">
                                 <img src="{{asset('home/images/c1.jpg')}}" class="img-responsive" alt=""/></a>
                             <div class="grid1-info">
-                                <h4><a href="{{url('single')}}">Watch Dogs</a></h4>
+                                <h4><a href="{{url('article')}}">Watch Dogs</a></h4>
                                 <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
                             </div>
                             <div class="more">
-                                <a href="{{url('single')}}">Read more</a>
+                                <a href="{{url('article')}}">Read more</a>
                             </div>
                         </div>
                         <div class="grid2">
-                            <h5 class="race"><a href="{{url('single')}}">Racing</a></h5>
-                            <a href="{{url('single')}}">
+                            <h5 class="race"><a href="{{url('article')}}">Racing</a></h5>
+                            <a href="{{url('article')}}">
                                 <img src="{{asset('home/images/c2.jpg')}}"
                                      class="img-responsive" alt=""/>
                             </a>
                             <div class="grid1-info">
-                                <h4><a href="{{url('single')}}">Monster Racing</a></h4>
+                                <h4><a href="{{url('article')}}">Monster Racing</a></h4>
                                 <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
                             </div>
                             <div class="more">
-                                <a href="{{url('single')}}">Read more</a>
+                                <a href="{{url('article')}}">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -63,28 +63,28 @@
                     <div class="game-grid-right">
                         <div class="grid3">
                             <h5 class="sport">
-                                <a href="{{url('single')}}">Sports</a></h5>
-                            <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">Sports</a></h5>
+                            <a href="{{url('article')}}">
                                 <img src="{{asset('home/images/c3.jpg')}}" class="img-responsive" alt=""/>
                             </a>
                             <div class="grid1-info">
-                                <h4><a href="{{url('single')}}">FIFA 2015</a></h4>
+                                <h4><a href="{{url('article')}}">FIFA 2015</a></h4>
                                 <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
                             </div>
                             <div class="more">
-                                <a href="{{url('single')}}">Read more</a>
+                                <a href="{{url('article')}}">Read more</a>
                             </div>
                         </div>
                         <div class="grid4">
-                            <h5 class="arc"><a href="{{url('single')}}">Arcade</a></h5>
-                            <a href="{{url('single')}}">
+                            <h5 class="arc"><a href="{{url('article')}}">Arcade</a></h5>
+                            <a href="{{url('article')}}">
                                 <img src="{{asset('home/images/c4.jpg')}}" class="img-responsive" alt=""/></a>
                             <div class="grid1-info">
-                                <h4><a href="{{url('single')}}">Skylanders</a></h4>
+                                <h4><a href="{{url('article')}}">Skylanders</a></h4>
                                 <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
                             </div>
                             <div class="more">
-                                <a href="{{url('single')}}">Read more</a>
+                                <a href="{{url('article')}}">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -108,33 +108,33 @@
                     <div role="tabpanel" class="tab-pane active re-pad2" id="home">
                         <div class="game1">
                             <div class="col-md-3 tab-pic">
-                                <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">
                                     <img src="{{asset('home/images/tr1.jpg')}}" alt="/" class="img-responsive"></a>
                             </div>
                             <div class="col-md-9 tab-pic-info">
-                                <h4><a href="{{url('single')}}">Angry Birds</a></h4>
+                                <h4><a href="{{url('article')}}">Angry Birds</a></h4>
                                 <p>Lorem Ipsum is simply dummy text of the printing industry.</p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="game1">
                             <div class="col-md-3 tab-pic">
-                                <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">
                                     <img src="{{asset('home/images/tr3.jpg')}}" alt="/" class="img-responsive"></a>
                             </div>
                             <div class="col-md-9 tab-pic-info">
-                                <h4><a href="{{url('single')}}">Vice City GTA</a></h4>
+                                <h4><a href="{{url('article')}}">Vice City GTA</a></h4>
                                 <p>Lorem Ipsum is simply dummy text of the printing industry.</p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="game1">
                             <div class="col-md-3 tab-pic">
-                                <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">
                                     <img src="{{asset('home/images/tr2.jpg')}}" alt="/" class="img-responsive"></a>
                             </div>
                             <div class="col-md-9 tab-pic-info">
-                                <h4><a href="{{url('single')}}">Call Of Duty</a></h4>
+                                <h4><a href="{{url('article')}}">Call Of Duty</a></h4>
                                 <p>Lorem Ipsum is simply dummy text of the printing industry.</p>
                             </div>
                             <div class="clearfix"></div>
@@ -143,33 +143,33 @@
                     <div role="tabpanel" class="tab-pane re-pad2" id="profile">
                         <div class="game-post">
                             <div class="col-md-3 tab-pic">
-                                <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">
                                     <img src="{{asset('home/images/tr4.jpg')}}" alt="/" class="img-responsive"></a>
                             </div>
                             <div class="col-md-9 tab-post-info">
-                                <h4><a href="{{url('single')}}">IronMan</a></h4>
+                                <h4><a href="{{url('article')}}">IronMan</a></h4>
                                 <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2015 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="game-post">
                             <div class="col-md-3 tab-pic">
-                                <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">
                                     <img src="{{asset('home/images/tr5.jpg')}}" alt="/" class="img-responsive"></a>
                             </div>
                             <div class="col-md-9 tab-post-info">
-                                <h4><a href="{{url('single')}}">God Of War</a></h4>
+                                <h4><a href="{{url('article')}}">God Of War</a></h4>
                                 <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2015 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="game-post">
                             <div class="col-md-3 tab-pic">
-                                <a href="{{url('single')}}">
+                                <a href="{{url('article')}}">
                                     <img src="{{asset('home/images/tr6.jpg')}}" alt="/" class="img-responsive"></a>
                             </div>
                             <div class="col-md-9 tab-post-info">
-                                <h4><a href="{{url('single')}}">Need For Speed</a></h4>
+                                <h4><a href="{{url('article')}}">Need For Speed</a></h4>
                                 <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2015 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
                             </div>
                             <div class="clearfix"></div>

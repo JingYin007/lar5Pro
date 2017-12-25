@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\model\Article;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -33,8 +35,9 @@ class IndexController extends Controller
     public function contact(){
         return view('home.index.contact');
     }
-    public function single(){
-        return view('home.index.single');
+    public function article(){
+        $data = Article::find(1);
+        return view('home.index.article',['article'=>$data]);
     }
     public function shortcodes(){
         return view('home.index.shortcodes');

@@ -6,48 +6,30 @@
     <div class="single">
         <div class="blog-to">
 
-            <img class="img-responsive sin-on" src="{{asset('home/images/sin1.jpg')}}" alt="" />
+            <img class="img-responsive sin-on" src="{{asset('home/images/sin1.jpg')}}"
+                 alt="" />
             <div class="blog-top">
                 <div class="blog-left">
                     <b>23</b>
                     <span>July</span>
                 </div>
                 <div class="top-blog">
-                    <a class="fast" href="#">It is a long established fact that a reader will be distracted </a>
-                    <p>Posted by <a href="#">Admin</a> in <a href="#">General</a> | <a href="#">10 Comments</a></p>
-                    <p class="sed">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada purus a convallis dictum. Phasellus sodales varius diam, non sagittis lectus. Morbi id magna ultricies ipsum condimentum scelerisque vel quis felis. Donec et purus nec leo interdum sodales nec sit amet magna.</p>
-                    <div class="col-md-6 md-in">
-                        <ul class="grid-part">
-                            <li><a href="#"><i class="sign"> </i>Sed ut perspiciatis unde omnis</a></li>
-                            <li><a href="#"><i class="sign"> </i>Lorem ipsum dolor sit amet,  </a></li>
-                            <li><a href="#"><i class="sign"> </i>Sed ut perspiciatis unde omnis</a></li>
-                            <li><a href="#"><i class="sign"> </i>Lorem ipsum dolor sit amet,  </a></li>
-                            <li><a href="#"><i class="sign"> </i>Sed ut perspiciatis unde omnis</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 md-in">
-                        <ul class="grid-part">
-                            <li><a href="#"><i class="sign"> </i>Sed ut perspiciatis unde omnis</a></li>
-                            <li><a href="#"><i class="sign"> </i>Lorem ipsum dolor sit amet,  </a></li>
-                            <li><a href="#"><i class="sign"> </i>Sed ut perspiciatis unde omnis</a></li>
-                            <li><a href="#"><i class="sign"> </i>Lorem ipsum dolor sit amet,  </a></li>
-                            <li><a href="#"><i class="sign"> </i>Sed ut perspiciatis unde omnis</a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"> </div>
+                    <a class="fast" href="#">{{$article['title']}} </a>
+                    <p>Posted by
+                        <a href="#">Admin</a> in
+                        <a href="#">General</a> |
+                        <a href="#">10 Comments</a> |
+                        <span class="created_time">{{$article['created_at']}}</span>
+                    </p>
+
                 </div>
-                <div class="clearfix"> </div>
+
             </div>
         </div>
-
-
-
+        <div class="blog-content">
+            dfsdfsdfsdfsdfsdfsdfsdffggfhsgfh {{$article['content']}}
+        </div>
         <div class="single-middle">
-
             <h3>3 Comments</h3>
             <div class="media">
                 <div class="media-left">
