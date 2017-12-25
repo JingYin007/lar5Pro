@@ -27,11 +27,20 @@ class IndexController extends Controller
     public function about(){
         return view('home.index.about');
     }
-    public function work(){
-        return view('home.index.work');
+    public function gallery(){
+        return view('home.index.gallery');
     }
     public function contact(){
         return view('home.index.contact');
+    }
+    public function single(){
+        return view('home.index.single');
+    }
+    public function shortcodes(){
+        return view('home.index.shortcodes');
+    }
+    public function review(){
+        return view('home.index.review');
     }
 
 

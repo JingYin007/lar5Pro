@@ -11,8 +11,12 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'IndexController@index');
     Route::get('home', 'IndexController@index');
     Route::get('about', 'IndexController@about');
-    Route::get('work', 'IndexController@work');
+    Route::get('gallery', 'IndexController@gallery');
+    Route::get('single', 'IndexController@single');
+    Route::get('shortcodes', 'IndexController@shortcodes');
+
     Route::get('contact', 'IndexController@contact');
+    Route::get('review', 'IndexController@review');
 });
 /*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
 

@@ -1,63 +1,129 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
+    <title>Home</title>
+
+    <link href="{{asset('home/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('home/css/style.css')}}" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{{asset('home/css/lightbox.css')}}">
+
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script type='text/javascript' src="{{asset('home/js/jquery-1.11.1.min.js')}}"></script>
+    <!-- Custom Theme files -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Titillium+Web:400,600,700,300' rel='stylesheet' type='text/css'>
+    <!-- Custom Theme files -->
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>John Donga Portfolio->Home</title>
-    <link href="{{asset('home/style/style.css')}}" rel="stylesheet" type="text/css" />
-    <!--slider start-->
-    <link href="{{asset('home/style/quake.slider.css')}}" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="{{asset('home/js/jquery.min.js')}}"></script>
-    <script src="{{asset('home/js/quake.slider-min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('home/js/template.js')}}" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.quake-slider').quake({ thumbnails: false, frameWidth: 600, frameHeight: 609 });
-        });
-    </script>
-    <!--slider end-->
+    <meta name="keywords" content="Game Spot Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
 </head>
 <body>
-<!--wrapper start-->
-<div id="wrapper">
-    <!--mainbody start-->
-    <div id="mainbody">
-        <div id="logo">
-            <a href="{{url('/')}}"><span class="user-name">moTzxx</span></a>
-        </div>
-        <!--navigation start-->
-        <div id="navigation">
-            <div class="nav">
-                <ul>
-                    <li><a href="{{url('/')}}"><span>Home</span></a></li>
-                    <li>|</li>
-                    <li><a href="{{url('about')}}"><span>About</span></a></li>
-                    <li>|</li>
-                    <li><a href="{{url('work')}}"><span>Photos</span></a></li>
-                    <li>|</li>
-                    <li><a href="{{url('contact')}}" class="active"><span>Contact</span></a></li>
-                </ul>
+<!-- header -->
+<div class="banner">
+    <div class="container">
+        <div class="banner_head_top">
+            <div class="logo">
+                <h1>
+                    <a href="{{url('/')}}">Game
+                        <span class="glyphicon glyphicon-knight" aria-hidden="true"></span>
+                        <span>Spot</span>
+                    </a>
+                </h1>
             </div>
+            <div class="top-menu">
+                <div class="content white">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle"
+                                    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!--/navbar header-->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active">
+                                    <a href="{{url('/')}}">Home</a></li>
+                                <li>
+                                    <a href="{{url('about')}}">About</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Reviews<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{url('review')}}">Review 1</a></li>
+                                        <li><a href="{{url('review')}}">Review 2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{url('gallery')}}">Gallery</a></li>
+                                <li><a href="{{url('shortcodes')}}">Shortcodes</a></li>
+                                <li><a href="{{url('contact')}}">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!--/navbar collapse-->
+                    </nav>
+                    <!--/navbar-->
+                </div>
+                <div class="clearfix"></div>
+                <script type="text/javascript" src="{{asset('home/js/bootstrap-3.1.1.min.js')}}"></script>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        <!--content start-->
-        @yield('content')
-        <!--content end-->
     </div>
-    <!--mainbody end-->
 </div>
 
-<!--wrapper end-->
-<div class="clearfix">
-</div>
-<!--footer start-->
-<div id="footer">
-    <p>
-        <span><a href="#">Copyright</a> © moTzxx - 你若盛开，清风自来</span>
-    </p>
-    <p>
-        <span>All Rights Reserved.</span></p>
-    <div class="clearfix">
+@yield('content')
+<script src="{{asset('home/js/lightbox-plus-jquery.min.js')}}"></script>
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="footer-grids">
+            <div class="col-md-6 news-ltr">
+                <h4>Newsletter</h4>
+                <p>Aenean sagittis est eget elit pulvinar cursus. Lorem ipsum consectetur adipiscing elit. Phasellus non purus at risus consequat finibus.</p>
+                <form>
+                    <input type="text" class="text" value="Enter Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter Email';}">
+                    <input type="submit" value="Subscribe">
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h3>Categories</h3>
+                <ul class="ftr-list">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Racing</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Simulation</a></li>
+                    <li><a href="#">Bike</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 ftr-grid">
+                <h3>Platform</h3>
+                <ul class="ftr-list">
+                    <li><a href="#">Pc</a></li>
+                    <li><a href="#">Ps4</a></li>
+                    <li><a href="#">XBOX 360</a></li>
+                    <li><a href="#">XBOX ONE</a></li>
+                    <li><a href="#">PSP</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
     </div>
 </div>
-<!--footer end-->
+<!---->
+<div class="copywrite">
+    <div class="container">
+        <p>Copyright &copy; moTzxx 你若盛开 清风自来</p>
+    </div>
+</div>
+<!---->
+
 </body>
 </html>

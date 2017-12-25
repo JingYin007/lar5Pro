@@ -1,91 +1,47 @@
 @extends('home.layouts.home')
 
 @section('content')
-    <div class="main">
+    <div class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="map">
+                <h4>How to find us :</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.684442427422!2d80.23489400000001!3d13.055746999999991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52665faca71f3d%3A0x4eb15438d7a22677!2sFrench+Loaf!5e0!3m2!1sen!2sin!4v1433740002194" style="border:0"></iframe>
 
-        <!--contact_page start-->
-        <div class="contact_page">
-            <!--contact_items start-->
-            <div class="contact_items">
-                <!--grey_bar start-->
-                <div class="grey_bar">
-                    <!--breadcrumbs start-->
-                    <div id="breadcrumbs">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li>» </li>
-                            <li>Contact</li>
-                        </ul>
-                    </div>
-                    <!--breadcrumbs end-->
-                    <h2>
-                        Contact Us
-                    </h2>
-                </div>
-                <!--grey_bar end-->
-                <h2>
-                    Drop Us A Line</h2>
-                <br />
-                <p>
-                    Cras nunc mi, facilisis nec malesuada eu, egestas eu libero. Sed semper suscipit
-                    nulla. Cras sed eros at urna aliquet pharetra id ut augue. Curabitur tincidunt vulputate
-                    ultricies. Donec vehicula sodales suscipit. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Aenean lectus tellus, consectetur auctor porttitor pulvinar, sollicitudin
-                    vel nisi. Vivamus congue iaculis est nec condimentum. Suspendisse velit risus, euismod
-                    vel blandit id, laoreet a quam.</p>
-                <div class="formblock">
-                    <input name="name" type="text" id="name" onclick="this.value=''" value="Name" />
-                </div>
-                <div class="formblock">
-                    <input name="email" type="text" id="email" onclick="this.value=''" value="Email" />
-                </div>
-                <div class="formblock">
-                    <textarea name="message" id="message" cols="" rows="" onclick="this.value=''" class="textarea">Message</textarea>
-                    <div class="clearfix">
-                    </div>
-                    <br />
-                    <div class="send_btn" id="send-message">
-                        <a href="#">Send</a>
-                    </div>
-                    <img src="{{asset('home/images/sending.gif')}}" id="img-sending" alt="sending message..." />
-                    <div id="mail-send-msg">
-                    </div>
-                </div>
             </div>
-            <!--contact_items end-->
-            <!--contact_sidebar end-->
-            <div class="contact_sidebar">
-                <!--address start-->
-                <div id="address">
-                    <h2>
-                        Our Address</h2>
+            <div class="address">
+                <div class="col-md-4 address-grids">
+                    <h4>Address :</h4>
                     <ul>
-                        <li>1600 Amphihair Parkveiw</li>
-                        <li>Mountain View, CA 94043</li>
-                        <li>
-                            <br />
+                        <li><p>Eiusmod Tempor inc<br>
+                                St Dolore Place,<br>
+                                Kingsport 56777</p>
                         </li>
-                        <li>Email: <a href="#">admin@egrappler.com</a></li>
-                        <li>Website: <a href="#">http://www.egrappler.com</a></li>
-                        <li>Phone: 1-800-123-4567</li>
-                        <li>Fax: 1-800-123-4567</li>
                     </ul>
                 </div>
-                <!--address end-->
-                <div class="clearfix">
+                <div class="col-md-4 address-grids">
+                    <h4>Phone :</h4>
+                    <p>+2 123 456 789</p>
+                    <p>+2 987 654 321</p>
                 </div>
-                <!--map start-->
-                <div class="map">
-                    <iframe width="260" height="240" frameborder="0" scrolling="no" marginheight="0"
-                            marginwidth="0" src="http://maps.google.be/maps?f=q&amp;source=s_q&amp;hl=nl&amp;geocode=&amp;q=Apple+Inc,+Infinite+Loop,+Cupertino,+Calif,+United+States&amp;aq=0&amp;sll=50.805935,4.432983&amp;sspn=8.007705,23.939209&amp;vpsrc=6&amp;ie=UTF8&amp;hq=Apple+Inc,&amp;hnear=Infinite+Loop,+Cupertino,+California+95014,+Verenigde+Staten&amp;ll=37.329662,-122.031112&amp;spn=0.006295,0.006295&amp;output=embed">
-                    </iframe>
+                <div class="col-md-4 address-grids">
+                    <h4>Email :</h4>
+                    <p><a href="mailto:example@email.com">mail@example.com</a></p>
                 </div>
-                <!--map end-->
+                <div class="clearfix"> </div>
             </div>
-            <!--contact_sidebar end-->
+            <div class="contact-form">
+                <h4>Contact Form</h4>
+                <form>
+                    <input type="text" placeholder="Name" required="">
+                    <input type="email" placeholder="Email" required="">
+                    <input type="text" placeholder="Telephone" required="">
+                    <textarea placeholder="Message" required=""></textarea>
+                    <button class="btn1 btn-1 btn-1b">Submit</button>
+                </form>
+            </div>
         </div>
-        <!--contact_page end-->
-
     </div>
+    <!-- //contact -->
 
 @endsection
