@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Home</title>
+    <title>主页</title>
 
     <link href="{{asset('home/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('home/css/style.css')}}" rel='stylesheet' type='text/css' />
@@ -18,8 +18,6 @@
     <meta name="keywords" content="Game Spot Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-
 </head>
 <body>
 <!-- header -->
@@ -28,9 +26,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="banner_head_top">
             <div class="logo">
                 <h1>
-                    <a href="{{url('/')}}">Game
+                    <a href="{{url('/')}}">Hi~
                         <span class="glyphicon glyphicon-knight" aria-hidden="true"></span>
-                        <span>Spot</span>
+                        <span>moTzxx</span>
                     </a>
                 </h1>
             </div>
@@ -50,19 +48,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li class="active">
-                                    <a href="{{url('/')}}">Home</a></li>
+                                    <a href="{{url('/')}}">首页</a></li>
                                 <li>
-                                    <a href="{{url('about')}}">About</a></li>
+                                    <a href="{{url('about')}}">简介</a></li>
                                 <li class="dropdown">
-                                    <a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Reviews<b class="caret"></b></a>
+                                    <a href="#" class="scroll dropdown-toggle"
+                                       data-toggle="dropdown">回顾<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{url('review')}}">Review 1</a></li>
-                                        <li><a href="{{url('review')}}">Review 2</a></li>
+                                        <li><a href="{{url('review')}}">历史</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{url('gallery')}}">Gallery</a></li>
-                                <li><a href="{{url('shortcodes')}}">Shortcodes</a></li>
-                                <li><a href="{{url('contact')}}">Contact</a></li>
+                                <li><a href="{{url('gallery')}}">精图</a></li>
+                                <li><a href="{{url('shortcodes')}}">图标</a></li>
+                                <li><a href="{{url('contact')}}">联系</a></li>
                             </ul>
                         </div>
                         <!--/navbar collapse-->

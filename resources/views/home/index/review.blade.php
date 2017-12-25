@@ -4,7 +4,6 @@
 @section('content')
     <div class="review">
         <div class="container">
-            <h2>Reviews</h2>
             <div class="review-sec">
                 <div class="review-grids">
                     <div class="col-md-6 revw">
