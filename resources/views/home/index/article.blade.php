@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="blog-content">
-            dfsdfsdfsdfsdfsdfsdfsdffggfhsgfh {{$article['content']}}
+           {{$article['content']}}
         </div>
         <div class="single-middle">
             <h3>3 Comments</h3>
