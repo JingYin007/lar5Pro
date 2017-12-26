@@ -84,4 +84,9 @@ composer install
 - 注意，也会有个别的文件夹分别有自己的配置文件，可自行修改，
 以保证代码和文件的同步性
 
+## ②. 参考命令
+- 数据库迁移 参考：
+```
+php artisan make:migration create_users_table
+```
 
