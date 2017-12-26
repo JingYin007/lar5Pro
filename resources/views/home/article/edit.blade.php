@@ -26,31 +26,13 @@
                 </div>
                 <!---->
                 <div class="single-bottom blog-content">
-                    <textarea cols="77" rows="6" name="content">
-                        {{$article['content']}}
-                    </textarea>
-
-
-                    {{--<div class="col-sm-10">
-                    @include('vendor.UEditor.head')
                     <!-- 加载编辑器的容器 -->
-                        <script id="container" name="content" type="text/plain" style='width:100%;height:300px;'>
-                            {!! html_entity_decode($article->content) !!}
-                        </script>
-                        <!-- 实例化编辑器 -->
-                        <script type="text/javascript">
-                        var ue = UE.getEditor('container');
-                        ue.ready(function(){
-                            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
-                        });
-                        </script>
-                    </div>--}}
-
-
+                    <script id="container" name="content" type="text/plain">
+                        {{$article['content']}}
+                    </script>
                     <input class="submit-article" type="submit" value="修改" >
                 </div>
-            </div>
+                </div>
         </form>
     </div>
-
 @endsection
