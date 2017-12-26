@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3
+class ComposerStaticInitbdb68b1d40cbf2bd8377d6ec0e68a5bf
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -13,8 +13,8 @@ class ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '841780ea2e1d6545ea3a253239d59c05' => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu/functions.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
     );
@@ -3673,10 +3673,10 @@ class ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb3311cf4e7002344440c5cc46f0467f3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbdb68b1d40cbf2bd8377d6ec0e68a5bf::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbdb68b1d40cbf2bd8377d6ec0e68a5bf::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbdb68b1d40cbf2bd8377d6ec0e68a5bf::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbdb68b1d40cbf2bd8377d6ec0e68a5bf::$classMap;
 
         }, null, ClassLoader::class);
     }

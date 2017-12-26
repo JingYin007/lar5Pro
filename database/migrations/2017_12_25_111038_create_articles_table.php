@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration
             $table->text('content')->comment('文章内容');
             $table->tinyInteger('is_delete')->default(0)->comment('删除标记');
             //$table->softDeletes(); //	加入 deleted_at 字段用于软删除操作。
-            $table->engine = 'InnoDB';
+            //$table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
         });
