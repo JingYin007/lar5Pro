@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {
+    private $articleModel;
+    public function __construct()
+    {
+        $this->articleModel = new Article();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +22,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $article = [];
-        $assign = [
-            'category_id' => 'index',
-            'article' => $article,
-            'tagName' => ''
-        ];
+        $data = $this->articleModel->getArticleList();
+        $assign = ['list' => $data,'active'=>'active'];
         return view('home.index.index', $assign);
     }
 
@@ -35,10 +37,7 @@ class IndexController extends Controller
     public function contact(){
         return view('home.index.contact');
     }
-    public function article(){
-        $data = Article::find(1);
-        return view('home.index.article',['article'=>$data]);
-    }
+
     public function shortcodes(){
         return view('home.index.shortcodes');
     }

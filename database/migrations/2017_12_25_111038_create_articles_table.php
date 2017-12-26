@@ -21,6 +21,8 @@ class CreateArticlesTable extends Migration
             $table->string('keywords',30)->default('')->comment('关键词');
             $table->timestamps();
             $table->integer('sort')->default(0)->comment('排序标识 越大越靠前');
+            $table->string('abstract')->nullable()->comment('文章摘要');
+            $table->string('picture',25)->nullable()->comment('文章配图');
             $table->text('content')->comment('文章内容');
             $table->tinyInteger('is_delete')->default(0)->comment('删除标记');
             //$table->softDeletes(); //	加入 deleted_at 字段用于软删除操作。

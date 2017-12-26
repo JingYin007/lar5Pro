@@ -5,6 +5,7 @@
 
     <link href="{{asset('home/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('home/css/style.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('home/css/zhang.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{asset('home/css/lightbox.css')}}">
 
     <!-- jQuery (necessary JavaScript plugins) -->
@@ -47,20 +48,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!--/navbar header-->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class="active">
-                                    <a href="{{url('/')}}">首页</a></li>
-                                <li>
-                                    <a href="{{url('about')}}">简介</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="scroll dropdown-toggle"
-                                       data-toggle="dropdown">回顾<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{url('review')}}">历史</a></li>
-                                    </ul>
+                                <li class="
+                                @php
+                                    echo url()->current()=='http://lar5pro.com'? 'active':'';
+                                @endphp
+                                        ">
+                                    <a href="{{url('/')}}">首页</a>
                                 </li>
-                                <li><a href="{{url('gallery')}}">精图</a></li>
-                                <li><a href="{{url('shortcodes')}}">图标</a></li>
-                                <li><a href="{{url('contact')}}">联系</a></li>
+                                <li class="
+                                @php
+                                    echo strpos(url()->current(),'about')? 'active':'';
+                                @endphp
+                                        "><a href="{{url('about')}}">简介</a></li>
+                                <li class="
+                                @php
+                                    echo (strpos(url()->current(),'review')||strpos(url()->current(),'article'))? 'active':'';
+                                @endphp
+                                "><a href="{{url('review')}}">文章</a></li>
+                                <li class="
+                                @php
+                                    echo strpos(url()->current(),'gallery')? 'active':'';
+                                @endphp
+                                        "><a href="{{url('gallery')}}">精图</a></li>
+                                <li class="
+                                @php
+                                    echo strpos(url()->current(),'shortcodes')? 'active':'';
+                                @endphp
+                                        "><a href="{{url('shortcodes')}}">图标</a></li>
+                                <li class="
+                                @php
+                                    echo strpos(url()->current(),'contact')? 'active':'';
+                                @endphp
+                                        "><a href="{{url('contact')}}">联系</a></li>
                             </ul>
                         </div>
                         <!--/navbar collapse-->

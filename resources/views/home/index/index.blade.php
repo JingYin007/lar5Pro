@@ -24,71 +24,34 @@
                             <a href="{{url('about')}}">Read more</a>
                         </div>
                         <div class="info-pic">
-                            <img src="{{asset('home/images/ps.png')}}" class="img-responsive" alt=""/>
+                            <img src="{{asset('home/images/ps.png')}}"
+                                 class="img-responsive " alt=""/>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="games-grids">
+                    @foreach($list as $vo)
                     <div class="game-grid-left">
-                        <div class="grid1">
+                        <div class="grid1 div-index-grid">
                             <h5 class="act">
-                                <a href="{{url('article')}}">Action</a></h5>
-                            <a href="{{url('article')}}">
-                                <img src="{{asset('home/images/c1.jpg')}}" class="img-responsive" alt=""/></a>
-                            <div class="grid1-info">
-                                <h4><a href="{{url('article')}}">Watch Dogs</a></h4>
-                                <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
+                                <a href="{{url('article/'.$vo['id'])}}">Action</a></h5>
+                            <a href="{{url('article/'.$vo['id'])}}">
+                                <img src="{{asset($vo['picture'])}}"
+                                     class="img-responsive index-img-responsive" alt=""/></a>
+                            <div class="grid1-info index-grid1-info">
+                                <h4>
+                                    <a href="{{url('article/'.$vo['id'])}}">{{$vo['title']}}</a>
+                                </h4>
+                                <p>{{$vo['abstract']}}</p>
                             </div>
                             <div class="more">
-                                <a href="{{url('article')}}">Read more</a>
-                            </div>
-                        </div>
-                        <div class="grid2">
-                            <h5 class="race"><a href="{{url('article')}}">Racing</a></h5>
-                            <a href="{{url('article')}}">
-                                <img src="{{asset('home/images/c2.jpg')}}"
-                                     class="img-responsive" alt=""/>
-                            </a>
-                            <div class="grid1-info">
-                                <h4><a href="{{url('article')}}">Monster Racing</a></h4>
-                                <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
-                            </div>
-                            <div class="more">
-                                <a href="{{url('article')}}">Read more</a>
+                                <a href="{{url('article/'.$vo['id'])}}">Read more</a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
-                    <div class="game-grid-right">
-                        <div class="grid3">
-                            <h5 class="sport">
-                                <a href="{{url('article')}}">Sports</a></h5>
-                            <a href="{{url('article')}}">
-                                <img src="{{asset('home/images/c3.jpg')}}" class="img-responsive" alt=""/>
-                            </a>
-                            <div class="grid1-info">
-                                <h4><a href="{{url('article')}}">FIFA 2015</a></h4>
-                                <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
-                            </div>
-                            <div class="more">
-                                <a href="{{url('article')}}">Read more</a>
-                            </div>
-                        </div>
-                        <div class="grid4">
-                            <h5 class="arc"><a href="{{url('article')}}">Arcade</a></h5>
-                            <a href="{{url('article')}}">
-                                <img src="{{asset('home/images/c4.jpg')}}" class="img-responsive" alt=""/></a>
-                            <div class="grid1-info">
-                                <h4><a href="{{url('article')}}">Skylanders</a></h4>
-                                <p>Integer ut leo vitae nibh cursus aliquetr Sed, condimentum bibendum nibh accumsan vel.</p>
-                            </div>
-                            <div class="more">
-                                <a href="{{url('article')}}">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
             <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>

@@ -5,18 +5,36 @@
  */
 Route::any('mail', 'TestController@mail');
 
-
 // Home 模块
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'IndexController@index');
     Route::get('home', 'IndexController@index');
     Route::get('about', 'IndexController@about');
     Route::get('gallery', 'IndexController@gallery');
-    Route::get('article', 'IndexController@article');
     Route::get('shortcodes', 'IndexController@shortcodes');
 
     Route::get('contact', 'IndexController@contact');
-    Route::get('review', 'IndexController@review');
+
+
+
+
+
+
+    Route::get('article/{id?}', 'ArticleController@index');
+    Route::get('article/edit/{id?}', 'ArticleController@edit');
+    Route::post('article/store', 'ArticleController@store');
+    Route::get('review', 'ArticleController@lists');
+
+
+
+
+
+
+
+
+
+
+
 });
 /*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
 
@@ -73,5 +91,4 @@ Route::resource('photo', 'PhotoController', ['only' => [
 Route::resource('photo', 'PhotoController', ['except' => [
     'create', 'store', 'update', 'destroy'
 ]]);
-
 

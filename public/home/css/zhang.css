@@ -1,0 +1,34 @@
+.article-clearfix{
+    margin-bottom: 30px;
+}
+.img-head_portrait{
+    width: 88px;
+    height: 88px;
+}
+.comment-time{
+    float: right;
+    margin: 0.7em 0 0em;
+    font-size: 0.9em;
+    color: #999;
+    line-height: 1.8em;
+}
+.div-index-grid{
+    margin-bottom: 15px;
+}
+.index-img-responsive{
+    height: 260px;
+}
+.index-grid1-info{
+    height: 180px;
+}
+.span-article-edit{
+    margin-left: 5px;
+    font-weight: 700;
+    color: #0e566c;
+}
+.edit-title{
+    width: 50%;
+}
+.submit-article{
+    float: right;
+}

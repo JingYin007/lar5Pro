@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id')->comment('User 主键');
             $table->string('user_name',25)->default('')->comment('用户名');
             $table->string('password',50)->default('')->comment('登录密码');
-            $table->string('head_portrait',20)->default('')->comment('头像');
+            $table->string('head_portrait',50)->default('')->comment('头像');
             $table->tinyInteger('age')->default(0)->comment('年龄');
             $table->string('signature',50)->nullable()->comment('个性签名');
             $table->timestamps();
