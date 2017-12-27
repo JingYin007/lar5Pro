@@ -12,8 +12,8 @@ class TestController extends Controller
     {
         $this->mailer = $mailer;
     }
-    public function index($name){
-        var_dump($name);
+    public function index(){
+       return view('test');
     }
     public function update(Request $request,$name){
 

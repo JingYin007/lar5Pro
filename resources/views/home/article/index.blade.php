@@ -27,7 +27,9 @@
                 </div>
             </div>
             <div class="blog-content">
-                {{$article['content']}}
+                @php
+                    echo htmlspecialchars_decode($article['content']);
+                @endphp
             </div>
             <div class="single-middle">
                 <h3>See Comments</h3>

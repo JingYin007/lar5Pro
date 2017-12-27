@@ -60,6 +60,7 @@ class ArticleController extends Controller
         ];
         $data = $request->except('_token','article_id');
         $this->model->updateData($map, $data);
+
         return redirect()->back();
 
     }

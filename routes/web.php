@@ -41,7 +41,7 @@ Route::group(['namespace' => 'Home'], function () {
 
 
 
-Route::any('test/{name}','TestController@index');
+Route::any('test','TestController@index');
 Route::any('update/{name}','TestController@update');
 
 
@@ -92,3 +92,7 @@ Route::resource('photo', 'PhotoController', ['except' => [
     'create', 'store', 'update', 'destroy'
 ]]);
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

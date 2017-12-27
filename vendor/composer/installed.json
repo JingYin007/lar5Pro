@@ -2345,55 +2345,6 @@
         ]
     },
     {
-        "name": "stevenyangecho/laravel-u-editor",
-        "version": "v1.4.2",
-        "version_normalized": "1.4.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/stevenyangecho/laravel-u-editor.git",
-            "reference": "e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/stevenyangecho/laravel-u-editor/e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9.zip",
-            "reference": "e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9",
-            "shasum": ""
-        },
-        "require": {
-            "ext-fileinfo": "*",
-            "illuminate/support": "5.*",
-            "php": ">=5.4.0",
-            "qiniu/php-sdk": "7.*"
-        },
-        "time": "2017-06-21T06:29:09+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Stevenyangecho\\UEditor\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Steven Yang",
-                "email": "yqmking@163.com"
-            }
-        ],
-        "description": "UEditor for laravel5. Support i18n. UEditor is a Rich Text Web Editor From Baidu.",
-        "keywords": [
-            "laravel",
-            "laravel-u-editor",
-            "laravel5 web text editor",
-            "steven yang",
-            "stevenyangecho",
-            "ueditor"
-        ]
-    },
-    {
         "name": "filp/whoops",
         "version": "2.1.14",
         "version_normalized": "2.1.14.0",
@@ -4136,6 +4087,55 @@
             "phpunit",
             "testing",
             "xunit"
+        ]
+    },
+    {
+        "name": "stevenyangecho/laravel-u-editor",
+        "version": "v1.4.2",
+        "version_normalized": "1.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stevenyangecho/laravel-u-editor.git",
+            "reference": "e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/stevenyangecho/laravel-u-editor/e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9.zip",
+            "reference": "e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9",
+            "shasum": ""
+        },
+        "require": {
+            "ext-fileinfo": "*",
+            "illuminate/support": "5.*",
+            "php": ">=5.4.0",
+            "qiniu/php-sdk": "7.*"
+        },
+        "time": "2017-06-21T06:29:09+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Stevenyangecho\\UEditor\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Steven Yang",
+                "email": "yqmking@163.com"
+            }
+        ],
+        "description": "UEditor for laravel5. Support i18n. UEditor is a Rich Text Web Editor From Baidu.",
+        "keywords": [
+            "laravel",
+            "laravel-u-editor",
+            "laravel5 web text editor",
+            "steven yang",
+            "stevenyangecho",
+            "ueditor"
         ]
     }
 ]

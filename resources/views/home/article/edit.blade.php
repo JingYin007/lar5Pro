@@ -27,12 +27,17 @@
                 <!---->
                 <div class="single-bottom blog-content">
                     <!-- 加载编辑器的容器 -->
-                    <script id="container" name="content" type="text/plain">
-                        {{$article['content']}}
+                    <script id="ue-container" name="content"  type="text/plain">
+                        @php
+                            echo htmlspecialchars_decode($article['content']);
+                        @endphp
                     </script>
-                    <input class="submit-article" type="submit" value="修改" >
+                    <p class="p-submit">
+                        <input class="submit-article" type="submit" value="修改" >
+                    </p>
                 </div>
                 </div>
         </form>
     </div>
+    @include('home.layouts.ueditor-js')
 @endsection

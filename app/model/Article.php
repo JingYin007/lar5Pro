@@ -36,6 +36,7 @@ class Article extends Model
                 ->orderBy('view', 'desc')
                 ->get();
         }
+
         return $res->toArray();
     }
 
@@ -43,6 +44,9 @@ class Article extends Model
 
         $this
             ->where('id',$map['id'])
-            ->update($data);
+            ->update([
+                'title' => $data['title'],
+                'content' => $data['content'],
+            ]);
     }
 }
