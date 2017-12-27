@@ -301,8 +301,11 @@ class Uploader
         $oriName = preg_replace("/[\|\?\"\<\>\/\*\\\\]+/", '', $oriName);
         $format = str_replace("{filename}", $oriName, $format);
 
-        //替换随机字符串
-        $randNum = rand(1, 10000000000) . rand(1, 10000000000);
+        //TODO 替换随机字符串  数值太大可能导致部分环境报错
+        $randNum = rand(100000, 10000000) . rand(100000, 10000000);
+        //也可用使用md5()或两者的组合
+        $randNum = base64_encode($randNum);
+
         if (preg_match("/\{rand\:([\d]*)\}/i", $format, $matches)) {
             $format = preg_replace("/\{rand\:[\d]*\}/i", substr($randNum, 0, $matches[1]), $format);
         }
