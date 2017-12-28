@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Mail\Mailer;
 use App\Http\Controllers\Controller;
 use \Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -27,6 +28,10 @@ class EmailController extends Controller
         }
         //TODO  $tag 判断发送是否成功，进行后续代码开发
         return view('mail',['title' => '你若盛开，清风自来','author' => '木心']);
+    }
+
+    public function test(){
+
     }
 
     /**
