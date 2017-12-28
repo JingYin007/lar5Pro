@@ -1082,7 +1082,7 @@ h2.typoh2{
     display: inline-block;
     background: none;
     border: 1.5px solid #CBCBCB;
-    width: 31.9%;
+    width: 52%;
     outline: none;
     padding: 10px 15px 10px 15px;
     font-size: .9em;
@@ -1094,13 +1094,14 @@ h2.typoh2{
     display: inline-block;
     background: none;
     border: 1.5px solid #CBCBCB;
-    width: 32%;
+    width: 52%;
     outline: none;
     padding: 10px 15px 10px 15px;
     font-size: .9em;
     font-weight: 400;
     color: #111111;
-    margin: 0 1.25em;
+    margin-bottom: 1.5em;
+    /*margin: 0 1.25em;*/
 }
 .contact-form textarea {
     background: none;
@@ -1320,7 +1321,7 @@ p.sed {
 }
 @media (max-width: 1280px){
     .banner {
-        min-height: 700px;
+        /*min-height: 700px;*/
     }
     .social {
         margin-top: 10em;

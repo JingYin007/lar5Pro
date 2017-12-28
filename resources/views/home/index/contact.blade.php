@@ -3,41 +3,21 @@
 @section('content')
     <div class="contact">
         <div class="container">
-            <h2>Contact</h2>
-            <div class="map">
-                <h4>How to find us :</h4>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.684442427422!2d80.23489400000001!3d13.055746999999991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52665faca71f3d%3A0x4eb15438d7a22677!2sFrench+Loaf!5e0!3m2!1sen!2sin!4v1433740002194" style="border:0"></iframe>
+            <div class="map div-email">
+                <img class="img-email" src="{{asset('images/email.jpg')}}">
+            </div>
+            <div class="contact-form div-form-email">
+                <h4>Please Email To Me</h4>
+                <form id="form-email" method="post" action="{{url('api/email/send')}}">
+                    {{ csrf_field() }}
+                    <input type="email" name="addr" placeholder="Email Addr" required="">
+                    <input type="text" name="subject" placeholder="Subject" required="">
 
-            </div>
-            <div class="address">
-                <div class="col-md-4 address-grids">
-                    <h4>Address :</h4>
-                    <ul>
-                        <li><p>Eiusmod Tempor inc<br>
-                                St Dolore Place,<br>
-                                Kingsport 56777</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4 address-grids">
-                    <h4>Phone :</h4>
-                    <p>+2 123 456 789</p>
-                    <p>+2 987 654 321</p>
-                </div>
-                <div class="col-md-4 address-grids">
-                    <h4>Email :</h4>
-                    <p><a href="mailto:example@email.com">mail@example.com</a></p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="contact-form">
-                <h4>Contact Form</h4>
-                <form>
-                    <input type="text" placeholder="Name" required="">
-                    <input type="email" placeholder="Email" required="">
-                    <input type="text" placeholder="Telephone" required="">
-                    <textarea placeholder="Message" required=""></textarea>
-                    <button class="btn1 btn-1 btn-1b">Submit</button>
+                    <textarea placeholder="Content" name="content" required=""></textarea>
+                    <input type="radio" name="type" checked="checked" value="text"> 纯文字 &nbsp;&nbsp;
+                    <input type="radio" name="type" value="html"> 当前页面
+                    <br>
+                    <button class="btn1 btn-1 btn-1b btn-submit-email">Send</button>
                 </form>
             </div>
         </div>

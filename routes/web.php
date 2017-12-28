@@ -3,7 +3,7 @@
 /**
  * 测试
  */
-Route::any('mail', 'TestController@mail');
+
 
 // Home 模块
 Route::group(['namespace' => 'Home'], function () {
@@ -36,15 +36,6 @@ Route::group(['namespace' => 'Home'], function () {
 
 
 });
-/*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
-
-
-
-
-Route::any('test','TestController@index');
-Route::any('update/{name}','TestController@update');
-
-
 
 
 /*-------------------还是一条奇怪的分界线------------------------还是为了让你奇怪！-----------------------------*/
@@ -71,6 +62,23 @@ Route::namespace('Admin')->group(function () {
         Route::get('page_lock', 'IndexController@page_lock');
     });
 });
+
+
+/*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
+
+Route::namespace('Api')->group(function (){
+    Route::prefix('api')->group(function (){
+        Route::any('email/send', 'EmailController@send');
+    });
+
+});
+
+
+
+
+
+
+
 
 
 

@@ -37,3 +37,16 @@
     margin-top: 16px;
     margin-right: -2.5em;
 }
+.div-email{
+    float: left;
+    width: 250px;
+}
+.div-email .img-email{
+    width: 330px;
+}
+.div-form-email{
+    margin-left: 350px;
+}
+.btn-submit-email{
+    float: right;
+}
