@@ -41,8 +41,6 @@ class ArticleController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id){
-
-            showMsg(1);
             $article = $this->model->getArticleByID($id);
             $comments = $this->comment_model->getComment($id);
             return view('home.article.edit',
