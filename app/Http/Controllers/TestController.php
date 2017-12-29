@@ -7,7 +7,6 @@ class TestController extends Controller
 {
 
     public function index(){
-        var_dump('ss');
        return view('test');
     }
 

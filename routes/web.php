@@ -104,3 +104,4 @@ Route::resource('photo', 'PhotoController', ['except' => [
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::any('test', 'TestController@index');
