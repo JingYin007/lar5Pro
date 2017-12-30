@@ -8,8 +8,8 @@
     <meta name="Author" content="moTzxx" />
 
     <!-- load layui -->
-    @include('layouts.layui')
-    <!-- 加载公共文件  -->
+@include('layouts.layui')
+<!-- 加载公共文件  -->
     <link  href="{{asset('cms/css/style.css')}}" rel="stylesheet">
     <script type='text/javascript' src="{{asset('cms/js/moZhang.js')}}" ></script>
 </head>
@@ -19,13 +19,16 @@
     <div class="layui-header">
         <div class="layui-logo">moTzxx 后台布局</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item">
+        <ul class="layui-nav layui-layout-left ">
+            <li class="layui-nav-item " >
                 <span class="menu-switch open"></span>
             </li>
             <li class="layui-nav-item"><a href="">控制台</a></li>
-            <li class="layui-nav-item"><a href="">商品管理</a></li>
-            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="">消息<span class="layui-badge">9</span></a>
+            </li>
+
+            <li class="layui-nav-item" ><a href="">商品管理</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>
                 <dl class="layui-nav-child">
@@ -43,12 +46,18 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">消息<span class="layui-badge">9</span></a></dd>
+
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="">退了</a></li>
         </ul>
     </div>
+
+
+
+
 
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
@@ -83,8 +92,15 @@
             </ul>
         </div>
     </div>
-
     <div class="layui-body">
+            <ul class="layui-tab-title">
+                <li class="layui-this">网站设置</li>
+                <li class="layui-btn layui-icon layui-unselect">
+                     <b>动态管理</b>
+                    <i class="layui-unselect layui-tab-close" data-id="1">ဆ</i>
+                </li>
+                <li>权限分配</li>
+            </ul>
         <!-- 内容主体区域 -->
         @include('test')
         <div style="padding: 15px;">内容主体区域</div>
@@ -92,7 +108,7 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
+        © moTzxx.com - 底部固定区域
     </div>
 </div>
 </body>

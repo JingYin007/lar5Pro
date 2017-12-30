@@ -24,6 +24,30 @@
 <br>
 <button class="layui-btn layui-btn-radius layui-btn-normal" id="btn">标准按钮</button>
 <button class="layui-btn layui-btn-radius layui-btn-danger" id="btn2">警告按钮</button>
+
+
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">移动：6/12 | 平板：6/12 | 桌面：4/12</div>
+        </div>
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+            <div class="grid-demo layui-bg-red">移动：6/12 | 平板：6/12 | 桌面：4/12</div>
+        </div>
+        <div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+            <div class="grid-demo layui-bg-blue">移动：4/12 | 平板：12/12 | 桌面：4/12</div>
+        </div>
+        <div class="layui-col-xs4 layui-col-sm7 layui-col-md8">
+            <div class="grid-demo layui-bg-green">移动：4/12 | 平板：7/12 | 桌面：8/12</div>
+        </div>
+        <div class="layui-col-xs4 layui-col-sm5 layui-col-md4">
+            <div class="grid-demo layui-bg-black">移动：4/12 | 平板：5/12 | 桌面：4/12</div>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 <script>
 
