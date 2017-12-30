@@ -1,0 +1,43 @@
+.layui-side-scroll .user-info {
+    width: 200px;
+    height: auto;
+    padding: 0px;
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+.layui-side-scroll .user-info .photo-view {
+    display: block;
+    width: 76px;
+    height: 76px;
+    margin-left: 50px;
+    padding: 0px;
+}
+.layui-side-scroll .user-info .photo-view img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 4px solid #44576B;
+}
+.layui-side-scroll .user-info p {
+    display: block;
+    width: 100%;
+    height: 25px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 15px;
+}
+.layui-header .menu-switch{
+    display: block;
+    width: 27px;
+    height: 30px;
+    margin-left: -20px;
+
+    background: url(../images/menu.png) center center no-repeat;
+    background-color: #ffffff;
+    background-size: 100%;
+    cursor: pointer;
+}

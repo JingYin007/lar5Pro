@@ -46,7 +46,7 @@
 
     <!-- 加载所需模块 -->
     layui.use(['laypage', 'layedit','element'],
-        function(laypage, layedit){
+        function(laypage, layedit,element){
             //使用分页
             laypage();
             //建立编辑器
