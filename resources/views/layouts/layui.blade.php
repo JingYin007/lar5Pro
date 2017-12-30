@@ -2,7 +2,8 @@
 <!--采用模块化方式-->
 <script type="text/javascript" src="{{asset('layui/layui.js')}}"></script>
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="{{asset('home/js/jquery-1.11.1.min.js')}}"></script>
+<script type='text/javascript' src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+{{--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>--}}
 
 <!-- 关于layUI的配置 可使用“dialog.fun()”调用 -->
 <script>
