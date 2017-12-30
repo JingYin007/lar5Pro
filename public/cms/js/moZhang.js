@@ -11,21 +11,34 @@ $(document).ready(function () {
         var layui_footer = $(".layui-layout-admin .layui-footer");
         leftView.animate({width: 'toggle'});
         if(hidden){
-            layui_body.animate({
-                left:parseInt(layui_body.css('left'),200) == 200 ? +layui_body.outerWidth() : 200
-            });
-            layui_footer.animate({
-                left:parseInt(layui_footer.css('left'),200) == 200 ? +layui_footer.outerWidth() : 200
-            });
+            //如果当前 左侧导航栏是隐藏状态
+            slide_leftView(layui_body,1);
+            slide_leftView(layui_footer,1);
         }else {
-            layui_body.animate({
-                left:parseInt(layui_body.css('left'),10) == 0 ? -layui_body.outerWidth() : 0
-            });
-            layui_footer.animate({
-                left:parseInt(layui_footer.css('left'),10) == 0 ? -layui_footer.outerWidth() : 0
-            });
+            //如果当前 左侧导航栏是显示状态
+            slide_leftView(layui_body,0);
+            slide_leftView(layui_footer,0);
         }
     });
 
+
+
+
+
+
+
+
 });
 
+/**
+ * 控制左侧导航栏 显示/隐藏
+ * @param viewTag 对应标签
+ * @param tag 1：显示  0：隐藏
+ */
+function slide_leftView(viewTag,tag) {
+    if (tag){
+        viewTag.animate({left:parseInt(viewTag.css('left'),200) == 200 ? + viewTag.outerWidth() : 200});
+    }else {
+        viewTag.animate({left:parseInt(viewTag.css('left'),10) == 0 ? - viewTag.outerWidth() : 0});
+    }
+}
