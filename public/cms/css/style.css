@@ -35,9 +35,28 @@
     width: 27px;
     height: 30px;
     margin-left: -20px;
-
     background: url(../images/menu.png) center center no-repeat;
     background-color: #ffffff;
     background-size: 100%;
     cursor: pointer;
+}
+.layui-tab-title{
+    border-bottom: 3px solid #009688;
+    width: 100%;
+}
+
+.iframe-body{
+    width:100%;
+    height: 92%;
+    frameborder:0;
+    scrolling:no;
+}
+.layui-tab-title .title-selected{
+    background-color: #009688;
+    color: white;
+    font-weight: 600;
+}
+.layui-nav-item .img-FullScreen{
+    width: 19px;
+    height: 19px;
 }

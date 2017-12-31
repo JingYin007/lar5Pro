@@ -1,145 +1,129 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>主页</title>
+    <meta charset="UTF-8">
+    <title>moTzxx-CMS</title>
+    <meta name="keywords" content="moTzxx-CMS" />
+    <meta name="description" content="moTzxx-CMS Version:1.0" />
+    <meta name="Author" content="moTzxx" />
 
-    <link href="{{asset('home/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
-    <link href="{{asset('home/css/style.css')}}" rel='stylesheet' type='text/css' />
-    <link href="{{asset('home/css/zhang.css')}}" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="{{asset('home/css/lightbox.css')}}">
-
-    <!-- jQuery (necessary JavaScript plugins) -->
-    <script type='text/javascript' src="{{asset('home/js/jquery-1.11.1.min.js')}}"></script>
-    <!-- Custom Theme files -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Titillium+Web:400,600,700,300' rel='stylesheet' type='text/css'>
-    <!-- Custom Theme files -->
-    <!--//theme-style-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Game Spot Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- load layui -->
+@include('layouts.layui')
+<!-- 加载公共文件  -->
+    <link  href="{{asset('cms/css/style.css')}}" rel="stylesheet">
+    <script type='text/javascript' src="{{asset('cms/js/moZhang.js')}}" ></script>
 </head>
-<body>
-<!-- header -->
-<div class="banner">
-    <div class="container">
-        <div class="banner_head_top">
-            <div class="logo">
-                <h1>
-                    <a href="{{url('/')}}">Hi~
-                        <span class="glyphicon glyphicon-knight" aria-hidden="true"></span>
-                        <span>moTzxx</span>
-                    </a>
-                </h1>
-            </div>
-            <div class="top-menu">
-                <div class="content white">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle"
-                                    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <!--/navbar header-->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li class="
-                                @php
-                                    echo url()->current()=='http://lar5pro.com'? 'active':'';
-                                @endphp
-                                        ">
-                                    <a href="{{url('/')}}">首页</a>
-                                </li>
-                                <li class="
-                                @php
-                                    echo strpos(url()->current(),'about')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('about')}}">简介</a></li>
-                                <li class="
-                                @php
-                                    echo (strpos(url()->current(),'review')||strpos(url()->current(),'article'))? 'active':'';
-                                @endphp
-                                "><a href="{{url('review')}}">文章</a></li>
-                                <li class="
-                                @php
-                                    echo strpos(url()->current(),'gallery')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('gallery')}}">精图</a></li>
-                                <li class="
-                                @php
-                                    echo strpos(url()->current(),'shortcodes')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('shortcodes')}}">图标</a></li>
-                                <li class="
-                                @php
-                                    echo strpos(url()->current(),'contact')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('contact')}}">联系</a></li>
-                            </ul>
-                        </div>
-                        <!--/navbar collapse-->
-                    </nav>
-                    <!--/navbar-->
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-header">
+        <div class="layui-logo">moTzxx 后台布局</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left ">
+            <li class="layui-nav-item " >
+                <span class="menu-switch open"></span>
+            </li>
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item">
+                <a href="">消息<span class="layui-badge">9</span></a>
+            </li>
+
+            <li class="layui-nav-item" ><a href="">商品管理</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item" >
+                <a href="#" id="FullScreen">
+                    <img class="img-FullScreen" src="{{asset('cms/images/fullscreen.png')}}">
+                    <span>全屏</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="{{asset('cms/images/user.jpg')}}" class="layui-nav-img">
+                    moTzxx
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">消息<span class="layui-badge">9</span></a></dd>
+
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退了</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <div class="user-info">
+                <div class="photo-view">
+                    <img src="{{asset('cms/images/user.jpg')}}">
                 </div>
-                <div class="clearfix"></div>
-                <script type="text/javascript" src="{{asset('home/js/bootstrap-3.1.1.min.js')}}"></script>
+                <p>moTzxx 您好，欢迎登录！</p>
             </div>
-            <div class="clearfix"></div>
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
         </div>
     </div>
-</div>
+    <div class="layui-body">
+        <ul class="layui-tab-title">
+            <li class="layui-this title-selected">
+                <i class="layui-icon">&#xe68e;</i>
+                主页
+            </li>
+            <li class="layui-this" url="{{url('test')}}">
+                <span>动态管理</span>
+                <i class="layui-icon  layui-tab-close">ဆ</i>
+            </li>
+            <li class="layui-this" url="{{url('about')}}">
+                <span>权限分配</span>
+                <i class="layui-icon  layui-tab-close">ဆ</i>
+            </li>
+        </ul>
+        <!-- 内容主体区域 -->
 
-@yield('content')
-<script src="{{asset('home/js/lightbox-plus-jquery.min.js')}}"></script>
+            {{--@include('home.index.about')--}}
+            <iframe class="iframe-body"
+                    src="{{url('contact')}}">
+            </iframe>
 
-<!-- footer -->
-<div class="footer">
-    <div class="container">
-        <div class="footer-grids">
-            <div class="col-md-6 news-ltr">
-                <h4>Newsletter</h4>
-                <p>Aenean sagittis est eget elit pulvinar cursus. Lorem ipsum consectetur adipiscing elit. Phasellus non purus at risus consequat finibus.</p>
-                <form>
-                    <input type="text" class="text" value="Enter Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter Email';}">
-                    <input type="submit" value="Subscribe">
-                    <div class="clearfix"></div>
-                </form>
-            </div>
-            <div class="col-md-3 ftr-grid">
-                <h3>Categories</h3>
-                <ul class="ftr-list">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Racing</a></li>
-                    <li><a href="#">Adventure</a></li>
-                    <li><a href="#">Simulation</a></li>
-                    <li><a href="#">Bike</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 ftr-grid">
-                <h3>Platform</h3>
-                <ul class="ftr-list">
-                    <li><a href="#">Pc</a></li>
-                    <li><a href="#">Ps4</a></li>
-                    <li><a href="#">XBOX 360</a></li>
-                    <li><a href="#">XBOX ONE</a></li>
-                    <li><a href="#">PSP</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div>
     </div>
 </div>
-<!---->
-<div class="copywrite">
-    <div class="container">
-        <p>Copyright &copy; moTzxx 你若盛开 清风自来</p>
-    </div>
-</div>
-<!---->
 </body>
+<script>
+
+</script>
 </html>
