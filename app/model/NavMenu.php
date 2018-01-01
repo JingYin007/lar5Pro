@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class NavMenu extends Model
 {
-    public function getList(){
+    /**
+     * 获取当前管理员权限下的 导航菜单
+     * @return mixed
+     */
+    public function getNavMenusShow(){
         $res = $this
             ->select('*')
             ->where('id','>',0)
@@ -24,6 +28,20 @@ class NavMenu extends Model
                 ->toArray();
             $res[$key]['child'] = $childRes;
         }
+        return $res;
+    }
+
+    /**
+     * 获取全部可修改状态的 导航菜单数据
+     * @return mixed
+     */
+    public function getAllNavMenus(){
+        $res = $this
+            ->select('*')
+            ->where('id','>',0)
+            ->where('status',0)
+            ->get()
+            ->toArray();
         return $res;
     }
 }

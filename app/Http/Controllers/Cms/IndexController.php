@@ -18,7 +18,7 @@ class IndexController extends Controller
      * CMS 后台初始页
      */
     public function index(){
-        $menuList = $this->menuModel->getList();
+        $menuList = $this->menuModel->getNavMenusShow();
         //var_dump($menuList);
         return view('cms.index',['menus'=>$menuList]);
     }

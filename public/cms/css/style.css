@@ -64,3 +64,15 @@
 .layui-logo span{
     color:white ;
 }
+.table-body{
+    margin-left: 5px;
+}
+.table-body th,.table-body td{
+    text-align:center;
+}
+.div-menu-search{
+    float: left;
+}
+.div-menu-search .layui-icon{
+    float: right;
+}

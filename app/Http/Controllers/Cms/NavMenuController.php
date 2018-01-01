@@ -20,7 +20,7 @@ class NavMenuController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
-        $list = $this->menuModel->getList();
-        return view('cms.menu.index');
+        $list = $this->menuModel->getAllNavMenus();
+        return view('cms.menu.index',['menus'=>$list]);
     }
 }
