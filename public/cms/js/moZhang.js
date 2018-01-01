@@ -29,8 +29,15 @@ $(document).ready(function () {
             var url = $(this).attr('url');
             $(".layui-body .iframe-body").attr('src',url);
         }
+    });
+
+    $(".layui-side-scroll .a-to-Url").click(function () {
+        var action = $(this).attr('action');
+        $(".layui-body .iframe-body").attr('src',action);
 
     });
+
+
 
     // 全屏切换
     $("#FullScreen").click(function () {

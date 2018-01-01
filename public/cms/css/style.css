@@ -43,6 +43,7 @@
 .layui-tab-title{
     border-bottom: 3px solid #009688;
     width: 100%;
+    margin: -1px -1px;
 }
 
 .iframe-body{
@@ -59,4 +60,7 @@
 .layui-nav-item .img-FullScreen{
     width: 19px;
     height: 19px;
+}
+.layui-logo span{
+    color:white ;
 }

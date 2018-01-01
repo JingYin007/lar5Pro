@@ -28,8 +28,9 @@ Route::group(['namespace' => 'Cms'], function () {
 
     //路由前缀#
     Route::prefix('cms')->group(function () {
-        // 匹配包含 "/admin/users" 的 URL
         Route::get('index', 'IndexController@index');
+        Route::get('home', 'IndexController@home');
+        Route::get('menu', 'NavMenuController@index');
     });
 });
 
