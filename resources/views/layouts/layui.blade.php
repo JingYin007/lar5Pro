@@ -49,9 +49,9 @@
     layui.use(['laypage', 'layedit','element'],
         function(laypage, layedit,element){
             //使用分页
-            laypage();
+            //laypage();
             //建立编辑器
-            layedit.build();
+            //layedit.build();
         });
     <!-- end 加载所需模块 -->
 </script>

@@ -1,6 +1,7 @@
 @extends('cms.layouts.cms')
 @section('body-content')
-    <form class="layui-form form-opNavMenu" action="post">
+    <form class="layui-form form-opNavMenu" method="POST"
+          action="{{url('api/upload/img_file')}}" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="layui-form-item">
             <label class="layui-form-label">导航标题：</label>
@@ -10,22 +11,11 @@
             <div class="layui-form-mid layui-word-aux">请七个字以内</div>
         </div>
 
-        {{--<div class="layui-form-item">
+        <div class="layui-form-item">
             <label class="layui-form-label">个性图标：</label>
-                <div class="layui-upload">
-                    <button type="button" class="layui-btn btn_upload_img" value="{{csrf_token()}}">上传图片</button>
-                        <img class="layui-upload-img img-upload-view">
-                        <p id="demoText"></p>
-                </div>
-        </div>--}}
-
-
-
-
-        <div class="layui-upload">
-            <button type="file" class="layui-btn" id="test1">上传图片</button>
-            <div class="layui-upload-list">
-                <img class="layui-upload-img" id="demo1">
+            <div class="layui-upload">
+                <input type="file" name="upload_img" class="layui-btn btn_upload_img">上传图片</input>
+                <img class="layui-upload-img img-upload-view" >
                 <p id="demoText"></p>
             </div>
         </div>
@@ -74,39 +64,45 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button class="layui-btn" type="submit" lay-submit lay-filter="formDemo">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
     </form>
+
+
+
+
+
+
 @endsection
 
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
-    <script>
-        layui.use(['form', 'upload'], function(){
-            var $ = layui.jquery
-                ,upload = layui.upload;
-
+    <script>/*
+        layui.use('upload', function(){
+            var upload = layui.upload;
             //普通图片上传
             var uploadInst = upload.render({
-                elem: '#test1'
-                , type : 'images'
-                ,method:'get'
-                ,exts: 'zip|rar|7z|ini|jpg|png' //设置一些后缀，用于演示前端验证和后端的验证
+                elem: '.btn_upload_img'
+                ,type : 'images'
+                ,method:'POST'
+                ,exts: 'jpg|png|gif' //设置一些后缀，用于演示前端验证和后端的验证
+                //,auto:false //选择图片后是否直接上传
+                //,accept:'images' //上传文件类型
                 ,url: '/api/upload/img_file'//http://127.0.0.1:81/xxxxxxxThinkPHP/Home/index		//这里是两个版本的上传地址
                 ,before: function(obj){
                     //预读本地文件示例，不支持ie8
                     obj.preview(function(index, file, result){
-                        $('#demo1').attr('src', result); //图片链接（base64）
+                        $('.img-upload-view').attr('src', result); //图片链接（base64）
                     });
                 }
                 ,done: function(res){
                     //如果上传失败
-                    if(res.code == 500){
-                        return layer.msg('上传失败，'+res.msg);
+                    if(res.status == 0){
+                        return layer.msg('上传失败');
                     }else{//上传成功
-                        layer.msg('上传成功，'+res.data.src);
+                        layer.msg('上传成功:'+res.data.src);
                     }
                 }
                 ,error: function(){
@@ -121,7 +117,7 @@
 
         });
 
-    </script>
+    */</script>
 @endsection
 
 

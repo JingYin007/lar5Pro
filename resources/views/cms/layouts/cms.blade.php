@@ -16,49 +16,6 @@
 </div>
 
 <script>
-    //Demo
-    /*layui.use('form', function(){
-        var form = layui.form;
-        //监听提交
-        form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
-        });
-    });*/
-
-
-
-    /*layui.use('upload', function() {
-        /!*var $ = layui.jquery
-            , upload = layui.upload;*!/
-        var upload = layui.upload;
-        //普通图片上传
-        upload.render({
-            elem: '.btn_upload_img'
-            , url: '/api/upload/img_file'
-            , method:'get'
-            , data:{id: 123, abc: 'xxx'}
-            , before: function (obj) {
-                //预读本地文件示例，不支持ie8
-                obj.preview(function (index, file, result) {
-                    $('.img-upload-view').attr('src', result); //图片链接（base64）
-                });
-            }
-            , done: function (res) {
-                //如果上传失败
-                if (res.status == 0) {
-                    return layer.msg('上传失败');
-                }else {
-                    return layer.msg('上传成功');
-                }
-                //上传成功
-            }
-        });
-    });*/
-
-
-
-
 
 </script>
 </body>

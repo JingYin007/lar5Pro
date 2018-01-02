@@ -72,7 +72,7 @@ Route::namespace('Admin')->group(function () {
 Route::namespace('Api')->group(function (){
     Route::prefix('api')->group(function (){
         Route::any('email/send', 'EmailController@send');
-        Route::any('upload/img_file', 'UploadController@img_file');
+        Route::post('upload/img_file', 'UploadController@img_file');
     });
 
 });

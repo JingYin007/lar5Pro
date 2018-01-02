@@ -50,7 +50,7 @@
 
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
-    <script>
+    {{--<script>
         layui.use(['laypage', 'layer'], function() {
             var laypage = layui.laypage
                 , layer = layui.layer;
@@ -63,5 +63,5 @@
                 }
             });
         });
-    </script>
+    </script>--}}
 @endsection
