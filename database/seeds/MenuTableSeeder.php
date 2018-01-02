@@ -19,6 +19,7 @@ class MenuTableSeeder extends Seeder
         $db->name = '后台首页';
         $db->parent_id = 0;
         $db->action = 'cms/home';
+        $db->icon = '/cms/images/icon/home.png';
         $db->created_at = time();
         $db->updated_at = time();
         $db->list_order = 0;
@@ -30,6 +31,7 @@ class MenuTableSeeder extends Seeder
         $db->name = '菜单管理';
         $db->parent_id = 0;
         $db->action = '';
+        $db->icon = '/cms/images/icon/menu_icon.png';
         $db->created_at = time();
         $db->updated_at = time();
         $db->list_order = 2;
@@ -41,6 +43,7 @@ class MenuTableSeeder extends Seeder
         $db->name = '菜单列表';
         $db->parent_id = 2;
         $db->action = 'cms/menu';
+        $db->icon = '/cms/images/icon/menu_list.png';
         $db->created_at = time();
         $db->updated_at = time();
         $db->list_order = 0;

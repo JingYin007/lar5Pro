@@ -43,14 +43,15 @@ $(document).ready(function () {
             document.fullscreenElement ||
             document.mozFullScreenElement ||
             document.webkitFullscreenElement;
+
         if (fullscreenElement == null) {
             entryFullScreen();
             $("#FullScreen span").html('退出全屏');
-            $(".layui-nav-item .img-FullScreen").attr('src','../cms/images/fullscreen_exit.png')
+            $(".layui-nav-item .img-FullScreen").attr('src','../cms/images/icon/fullscreen_exit.png')
         } else {
             exitFullScreen();
             $("#FullScreen span").html('全屏');
-            $(".layui-nav-item .img-FullScreen").attr('src','../cms/images/fullscreen.png')
+            $(".layui-nav-item .img-FullScreen").attr('src','../cms/images/icon/fullscreen.png')
         }
     });
 

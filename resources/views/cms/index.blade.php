@@ -42,8 +42,9 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item" >
                 <a href="#" id="FullScreen">
-                    <img class="img-FullScreen" src="{{asset('cms/images/fullscreen.png')}}">
-                    <span>&nbsp;全屏</span></a>
+                    <img class="img-FullScreen" src="{{asset('cms/images/icon/fullscreen.png')}}">
+                    <span>&nbsp;全屏</span>
+                </a>
             </li>
             <li class="layui-nav-item">
                 <!-- 天气信息 -->
@@ -82,13 +83,18 @@
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 @foreach($menus as $menu)
                     <li class="layui-nav-item">
-                        @if($menu['child'])
-                            <a href="javascript:;">{{$menu['name']}}</a>
+
+                    @if($menu['child'])
+                            <a href="javascript:;">
+                                <i class="layui-icon"><img src="{{$menu['icon']}}"/></i>
+                                {{$menu['name']}}</a>
                             <dl class="layui-nav-child">
                                 @foreach($menu['child'] as $vo)
                                     <dd>
                                         <a class="a-to-Url mul-to-Url" href="javascript:;"
-                                           action="{{url($vo['action'])}}">{{$vo['name']}}
+                                           action="{{url($vo['action'])}}">
+                                            <i class="layui-icon"><img src="{{$vo['icon']}}"/></i>
+                                            {{$vo['name']}}
                                         </a>
                                     </dd>
                                     {{--<dd><a href="">超链接</a></dd>--}}
@@ -96,7 +102,9 @@
                             </dl>
                         @else
                             <a class="a-to-Url single-to-Url" href="javascript:;"
-                               action="{{url($menu['action'])}}">{{$menu['name']}}
+                               action="{{url($menu['action'])}}">
+                                <i class="layui-icon"><img src="{{$menu['icon']}}"/></i>
+                                {{$menu['name']}}
                             </a>
                         @endif
                     </li>

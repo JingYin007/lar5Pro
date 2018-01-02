@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Cms'], function () {
         Route::get('index', 'IndexController@index');
         Route::get('home', 'IndexController@home');
         Route::get('menu', 'NavMenuController@index');
+        Route::get('menu/add', 'NavMenuController@add');
     });
 });
 
@@ -71,6 +72,7 @@ Route::namespace('Admin')->group(function () {
 Route::namespace('Api')->group(function (){
     Route::prefix('api')->group(function (){
         Route::any('email/send', 'EmailController@send');
+        Route::any('upload/img_file', 'UploadController@img_file');
     });
 
 });

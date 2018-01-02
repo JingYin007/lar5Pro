@@ -35,7 +35,7 @@
     width: 27px;
     height: 30px;
     margin-left: -20px;
-    background: url(../images/menu.png) center center no-repeat;
+    background: url(../images/icon/menu.png) center center no-repeat;
     background-color: #ffffff;
     background-size: 100%;
     cursor: pointer;
@@ -58,15 +58,13 @@
     font-weight: 600;
 }
 .layui-nav-item .img-FullScreen{
-    width: 19px;
-    height: 19px;
+    width: 28px;
+    height: 28px;
 }
 .layui-logo span{
     color:white ;
 }
-.table-body{
-    margin-left: 5px;
-}
+
 .table-body th,.table-body td{
     text-align:center;
 }
@@ -79,3 +77,24 @@
 .layui-nav-child .mul-to-Url{
     margin-left: 10px;
 }
+.layui-icon img{
+    width: 22px;
+    margin-right: 3px;
+}
+.td-menu img{
+    width: 30px;
+}
+.div-body-show{
+    margin: 5px 5px;
+}
+.form-opNavMenu{
+    padding: 10px 0px;
+    background-color: #eeeeee;
+}
+.form-opNavMenu .img-upload-view{
+    width: 50px;
+    margin-left: 50px;
+}
+
+
+

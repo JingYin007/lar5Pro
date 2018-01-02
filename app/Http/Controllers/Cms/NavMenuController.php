@@ -23,4 +23,8 @@ class NavMenuController extends Controller
         $list = $this->menuModel->getAllNavMenus();
         return view('cms.menu.index',['menus'=>$list]);
     }
+
+    public function add(){
+        return view('cms.menu.add');
+    }
 }
