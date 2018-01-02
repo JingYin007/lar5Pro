@@ -37,8 +37,6 @@ $(document).ready(function () {
 
     });
 
-
-
     // 全屏切换
     $("#FullScreen").click(function () {
         var fullscreenElement =
@@ -56,6 +54,15 @@ $(document).ready(function () {
         }
     });
 
+    $(".mul-to-Url").click(function () {
+        var all_nav = $('.layui-nav-child').parent();
+        all_nav.removeClass('layui-nav-itemed');
+        $(this).parent().parent().parent().addClass('layui-nav-itemed');
+    });
+    $(".single-to-Url").click(function () {
+        var all_nav = $('.layui-nav-item');
+        all_nav.removeClass('layui-nav-itemed');
+    });
 
 
 

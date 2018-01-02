@@ -27,6 +27,7 @@
         <th>action</th>
         <th>父级ID</th>
         <th>排序</th>
+        <th>创建时间</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -38,6 +39,7 @@
         <td>{{$vo['action']}}</td>
         <td>{{$vo['parent_id']}}</td>
         <td>{{$vo['list_order']}}</td>
+        <td>{{$vo['created_at']}}</td>
         <td>
             <div class="layui-btn-group">
                 <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>

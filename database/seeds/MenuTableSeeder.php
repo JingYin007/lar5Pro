@@ -32,7 +32,7 @@ class MenuTableSeeder extends Seeder
         $db->action = '';
         $db->created_at = time();
         $db->updated_at = time();
-        $db->list_order = 0;
+        $db->list_order = 2;
         $db->status = 0;
         $db->save();
 

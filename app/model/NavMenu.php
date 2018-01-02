@@ -17,6 +17,7 @@ class NavMenu extends Model
             ->where('id','>',0)
             ->where('parent_id',0)
             ->where('status',0)
+            ->orderBy('list_order','desc')
             ->get()
             ->toArray();
         foreach ($res as $key => $value){
@@ -24,6 +25,7 @@ class NavMenu extends Model
             $childRes = $this
                 ->where('parent_id',$parent_id)
                 ->where('status',0)
+                ->orderBy('list_order','desc')
                 ->get()
                 ->toArray();
             $res[$key]['child'] = $childRes;
@@ -40,6 +42,7 @@ class NavMenu extends Model
             ->select('*')
             ->where('id','>',0)
             ->where('status',0)
+            ->orderBy('created_at','desc')
             ->get()
             ->toArray();
         return $res;

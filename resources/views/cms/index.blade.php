@@ -36,28 +36,7 @@
                 </dl>
             </li>
 
-            <li class="layui-nav-item">
-                <!-- 天气信息 -->
-                <div class="weather" pc>
-                    <div id="tp-weather-widget"></div>
-                    <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-                    <script>tpwidget("init", {
-                            "flavor": "slim",
-                            "location": "WX4FBXXFKE4F",
-                            "geolocation": "enabled",
-                            "language": "zh-chs",
-                            "unit": "c",
-                            "theme": "chameleon",
-                            "container": "tp-weather-widget",
-                            "bubble": "disabled",
-                            "alarmType": "badge",
-                            "color": "#FFFFFF",
-                            "uid": "U9EC08A15F",
-                            "hash": "039da28f5581f4bcb5c799fb4cdfb673"
-                        });
-                        tpwidget("show");</script>
-                </div>
-            </li>
+
         </ul>
 
         <ul class="layui-nav layui-layout-right">
@@ -66,7 +45,10 @@
                     <img class="img-FullScreen" src="{{asset('cms/images/fullscreen.png')}}">
                     <span>&nbsp;全屏</span></a>
             </li>
-
+            <li class="layui-nav-item">
+                <!-- 天气信息 -->
+                @include('layouts.weather')
+            </li>
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="{{asset('cms/images/user.jpg')}}" class="layui-nav-img">
@@ -101,15 +83,21 @@
                 @foreach($menus as $menu)
                     <li class="layui-nav-item">
                         @if($menu['child'])
-                            <a class="a-to-Url" href="javascript:;">{{$menu['name']}}</a>
+                            <a href="javascript:;">{{$menu['name']}}</a>
                             <dl class="layui-nav-child">
                                 @foreach($menu['child'] as $vo)
-                                    <dd><a class="a-to-Url" href="javascript:;" action="{{url($vo['action'])}}">{{$vo['name']}}</a></dd>
+                                    <dd>
+                                        <a class="a-to-Url mul-to-Url" href="javascript:;"
+                                           action="{{url($vo['action'])}}">{{$vo['name']}}
+                                        </a>
+                                    </dd>
                                     {{--<dd><a href="">超链接</a></dd>--}}
                                 @endforeach
                             </dl>
                         @else
-                            <a class="a-to-Url" href="javascript:;" action="{{url($menu['action'])}}">{{$menu['name']}}</a>
+                            <a class="a-to-Url single-to-Url" href="javascript:;"
+                               action="{{url($menu['action'])}}">{{$menu['name']}}
+                            </a>
                         @endif
                     </li>
                 @endforeach
