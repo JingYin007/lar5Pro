@@ -10,6 +10,9 @@ class UploadController extends Controller
     //
     public function img_file(Request $request){
         $res = $_FILES;
+        if (!$res) {
+            $res = ['src' => 'jjj.jpg'];
+        }
 
         return showMsg(1,'Success',$res);
     }
