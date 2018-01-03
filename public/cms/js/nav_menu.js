@@ -8,10 +8,9 @@ function opNavMenu(op_url,tag) {
     layer.open({
         type: 2,
         title: title,
-        shadeClose: true,
-        shade: false,
         maxmin: true, //开启最大化最小化按钮
-        area: ['893px', '600px'],
-        content: [op_url, 'no'],
+        area: ['70%', '75%'],
+        content: op_url, //可以出现滚动条
+        //content: [op_url, 'no'], //如果你不想让iframe出现滚动条
     });
 }
