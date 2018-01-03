@@ -18,7 +18,6 @@
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
                 <img class="layui-upload-img img-upload-view" >
-                <p id="demoText"></p>
             </div>
         </div>
 
@@ -71,11 +70,18 @@
         </div>
     </form>
 
+
+
+
+
+
 @endsection
 
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
     <script>
+
+
         layui.use('upload', function(){
             var upload = layui.upload;
             var tag_token = $(".tag_token").val();
