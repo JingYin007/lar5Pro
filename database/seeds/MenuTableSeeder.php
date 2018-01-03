@@ -16,18 +16,6 @@ class MenuTableSeeder extends Seeder
         DB::table('nav_menus')->delete();
         $db = new NavMenu();
         $db->id = 1;
-        $db->name = '后台首页';
-        $db->parent_id = 0;
-        $db->action = 'cms/home';
-        $db->icon = '/cms/images/icon/home.png';
-        $db->created_at = time();
-        $db->updated_at = time();
-        $db->list_order = 0;
-        $db->status = 0;
-        $db->save();
-
-        $db = new NavMenu();
-        $db->id = 2;
         $db->name = '菜单管理';
         $db->parent_id = 0;
         $db->action = '';
@@ -39,9 +27,9 @@ class MenuTableSeeder extends Seeder
         $db->save();
 
         $db = new NavMenu();
-        $db->id = 3;
+        $db->id = 2;
         $db->name = '菜单列表';
-        $db->parent_id = 2;
+        $db->parent_id = 1;
         $db->action = 'cms/menu';
         $db->icon = '/cms/images/icon/menu_list.png';
         $db->created_at = time();

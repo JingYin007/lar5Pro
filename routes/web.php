@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Cms'], function () {
         Route::get('index', 'IndexController@index');
         Route::get('home', 'IndexController@home');
         Route::get('menu', 'NavMenuController@index');
-        Route::get('menu/add', 'NavMenuController@add');
+        Route::any('menu/add', 'NavMenuController@add');
     });
 });
 
@@ -76,7 +76,6 @@ Route::namespace('Api')->group(function (){
     });
 
 });
-
 
 
 

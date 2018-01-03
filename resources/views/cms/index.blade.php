@@ -67,9 +67,6 @@
     </div>
 
 
-
-
-
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <div class="user-info">
@@ -81,9 +78,16 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                {{--后台首页 可以写死！--}}
+                <li class="layui-nav-item">
+                    <a class="a-to-Url single-to-Url" href="javascript:;"
+                       action="{{url('cms/home')}}">
+                        <i class="layui-icon"><img src="/cms/images/icon/home.png"/></i>
+                        后台首页
+                    </a>
+                </li>
                 @foreach($menus as $menu)
                     <li class="layui-nav-item">
-
                     @if($menu['child'])
                             <a href="javascript:;">
                                 <i class="layui-icon"><img src="{{$menu['icon']}}"/></i>

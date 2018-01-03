@@ -47,4 +47,15 @@ class NavMenu extends Model
             ->toArray();
         return $res;
     }
+    public function addNavMenu($data){
+        $this->name = $data['name'];
+        $this->parent_id = $data['parent_id'];
+        $this->action = $data['action'];
+        $this->icon = $data['icon']?$data['icon']:'';
+        $this->created_at = time();
+        $this->updated_at = time();
+        $this->list_order = $data['list_order'];
+        $this->status = $data['status'];
+        $this->save();
+    }
 }

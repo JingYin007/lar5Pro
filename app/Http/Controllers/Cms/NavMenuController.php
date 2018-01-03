@@ -24,7 +24,18 @@ class NavMenuController extends Controller
         return view('cms.menu.index',['menus'=>$list]);
     }
 
-    public function add(){
-        return view('cms.menu.add');
+    public function add(Request $request){
+        $Tag = $request->getMethod();
+        $rootMenus = $this->menuModel->getNavMenusShow();
+        if ($Tag == 'POST'){
+            $input = $request->except('_token');
+            $this->menuModel->addNavMenu($input);
+            return redirect()->back();
+        }else{
+
+            return view('cms.menu.add',[
+                'rootMenus'=>$rootMenus,
+            ]);
+        }
     }
 }

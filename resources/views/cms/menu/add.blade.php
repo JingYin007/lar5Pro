@@ -1,7 +1,7 @@
 @extends('cms.layouts.cms')
 @section('body-content')
     <form class="layui-form form-opNavMenu" method="POST"
-          action="{{url('api/upload/img_file')}}">
+          action="{{url('cms/menu/add')}}">
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
             <label class="layui-form-label">导航标题：</label>
@@ -17,18 +17,21 @@
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
-                <img class="layui-upload-img img-upload-view" >
+                <img class="layui-upload-img img-upload-view"
+                     src="{{asset('cms/images/icon/nav_default.png')}}">
             </div>
         </div>
 
-
+        <input type="hidden" name="icon" class="menu-icon"
+               value="{{asset('cms/images/icon/nav_default.png')}}">
         <div class="layui-form-item">
             <label class="layui-form-label">父级导航：</label>
             <div class="layui-form-mid">
                 <select name="parent_id" lay-verify="required">
                     <option value="0">根级导航</option>
-                    <option value="1">文章管理</option>
-                    <option value="2">菜单管理</option>
+                    @foreach($rootMenus as $vo)
+                        <option value="{{$vo['id']}}">{{$vo['name']}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -36,9 +39,10 @@
         <div class="layui-form-item">
             <label class="layui-form-label">action：</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="text" name="action" required lay-verify="required"
+                       autocomplete="off" class="layui-input">
             </div>
-            <div class="layui-form-mid layui-word-aux">(example:cms/menu)</div>
+            <div class="layui-form-mid layui-word-aux">(example:cms/menu)根级导航不需写</div>
         </div>
 
         <div class="layui-form-item">
@@ -56,12 +60,7 @@
                 <input type="radio" name="status" value="-1" title="删除">
             </div>
         </div>
-        <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">文本域</label>
-            <div class="layui-input-block">
-                <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
-            </div>
-        </div>
+
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" type="submit" lay-submit lay-filter="formDemo">立即提交</button>
@@ -71,16 +70,11 @@
     </form>
 
 
-
-
-
-
 @endsection
 
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
     <script>
-
 
         layui.use('upload', function(){
             var upload = layui.upload;
@@ -101,11 +95,10 @@
                     });
                 }
                 ,done: function(res){
-                    //如果上传失败
-                    if(res.status == 0){
-                        return layer.msg('上传失败');
-                    }else{//上传成功
-                        layer.msg('上传成功');
+                    dialog.tip(res.message);
+                    //如果上传成功
+                    if(res.status ==1){
+                        $('.menu-icon').val(res.data.url);
                     }
                 }
                 ,error: function(){
