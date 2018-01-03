@@ -64,11 +64,10 @@
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" type="submit" lay-submit lay-filter="formDemo">立即提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
     </form>
-
 
 @endsection
 
@@ -99,6 +98,8 @@
                     //如果上传成功
                     if(res.status ==1){
                         $('.menu-icon').val(res.data.url);
+                        /*window.parent.location.reload();
+                        parent.layer.close(index);*/
                     }
                 }
                 ,error: function(){

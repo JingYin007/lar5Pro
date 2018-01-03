@@ -15,7 +15,6 @@ class UploadController extends Controller
             $date = date('Ymd');
             $path = $request->file('file')->store('public/images/'.$date);
             if ($path){
-
                 $path = '/storage'.explode('public',$path)[1];
                 $status = 1;
                 $data['url'] = $path;

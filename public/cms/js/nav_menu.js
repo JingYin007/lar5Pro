@@ -7,6 +7,7 @@ function opNavMenu(op_url,tag) {
     }
     layer.open({
         type: 2,
+        moveOut: true,
         title: title,
         maxmin: true, //开启最大化最小化按钮
         area: ['70%', '75%'],
