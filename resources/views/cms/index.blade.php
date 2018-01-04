@@ -117,20 +117,20 @@
         </div>
     </div>
     <div class="layui-body">
-    {{--<ul class="layui-tab-title">
-        <li class="layui-this title-selected">
+    <ul class="layui-tab-title">
+        <li class="layui-this title-selected" url="{{url('cms/home')}}">
             <i class="layui-icon">&#xe68e;</i>
             主页
         </li>
-        <li class="layui-this" url="{{url('test')}}">
-            <span>动态管理</span>
+        {{--<li class="layui-this" url="{{url('test')}}">
+            <span>测试页面</span>
             <i class="layui-icon  layui-tab-close">ဆ</i>
+        </li>--}}
+        <li class="layui-this refreshThis refresh">
+            <span>刷新当前页</span>
+            <i class="layui-icon  layui-tab-close">&#x1002</i>
         </li>
-        <li class="layui-this" url="{{url('about')}}">
-            <span>权限分配</span>
-            <i class="layui-icon  layui-tab-close">ဆ</i>
-        </li>
-    </ul>--}}
+    </ul>
     <!-- 内容主体区域 -->
 
         {{--@include('home.index.about')--}}
@@ -141,4 +141,17 @@
     </div>
 </div>
 </body>
+<script>
+    $(".refresh").click(function () {
+        if($(this).hasClass("refreshThis")){
+            $(this).removeClass("refreshThis");
+            $(".layui-layout-admin .layui-body").find("iframe")[0].contentWindow.location.reload(true);
+            setTimeout(function(){
+                $(".refresh").addClass("refreshThis");
+            },2000);
+        }else{
+            layer.msg("您的刷新速度太快，还是等两秒再刷新吧！");
+        }
+    });
+</script>
 </html>

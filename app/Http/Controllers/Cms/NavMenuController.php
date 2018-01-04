@@ -30,11 +30,27 @@ class NavMenuController extends Controller
         if ($Tag == 'POST'){
             $input = $request->except('_token');
             $this->menuModel->addNavMenu($input);
-            return redirect()->back();
+            return showMsg(1,'添加成功');
         }else{
-
             return view('cms.menu.add',[
                 'rootMenus'=>$rootMenus,
+            ]);
+        }
+    }
+    public function edit(Request $request,$id){
+        $Tag = $request->getMethod();
+        $rootMenus = $this->menuModel->getNavMenusShow();
+        $menuData = $this->menuModel->getAllNavMenus($id);
+        if ($Tag == 'POST'){
+            //TODO 修改对应的菜单
+            $input = $request->except('_token');
+            $opID = $input['id'];
+            $tag = $this->menuModel->editNavMenu($opID,$input);
+            return showMsg($tag,'修改成功');
+        }else{
+            return view('cms.menu.edit',[
+                'rootMenus' => $rootMenus,
+                'menuData' => $menuData
             ]);
         }
     }

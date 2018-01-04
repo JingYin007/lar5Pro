@@ -35,16 +35,28 @@ class NavMenu extends Model
 
     /**
      * 获取全部可修改状态的 导航菜单数据
+     * @param null $id 导航菜单 ID 标识
      * @return mixed
      */
-    public function getAllNavMenus(){
-        $res = $this
-            ->select('*')
-            ->where('id','>',0)
-            ->where('status',0)
-            ->orderBy('created_at','desc')
-            ->get()
-            ->toArray();
+    public function getAllNavMenus($id = null){
+        if ($id){
+            $res = $this
+                ->select('nav_menus.*','nm2.name as parent_name')
+                ->join('nav_menus as nm2', 'nav_menus.parent_id', '=', 'nm2.id')
+                ->where('nav_menus.id',$id)
+                ->where('nav_menus.status',0)
+                ->orderBy('nav_menus.created_at','desc')
+                ->first()
+                ->toArray();
+        }else{
+            $res = $this
+                ->select('*')
+                ->where('id','>',0)
+                ->where('status',0)
+                ->orderBy('created_at','desc')
+                ->get()
+                ->toArray();
+        }
         return $res;
     }
     public function addNavMenu($data){
@@ -57,5 +69,19 @@ class NavMenu extends Model
         $this->list_order = $data['list_order'];
         $this->status = $data['status'];
         $this->save();
+    }
+
+    public function editNavMenu($id,$data){
+        $tag = $this
+            ->where('id',$id)
+            ->update([
+                'name' => $data['name'],
+                'icon' => $data['icon'],
+                'list_order' => $data['list_order'],
+                'parent_id' => $data['parent_id'],
+                'action' => $data['action'],
+                'status' => $data['status'],
+            ]);
+        return $tag;
     }
 }

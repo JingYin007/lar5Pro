@@ -32,6 +32,7 @@ Route::group(['namespace' => 'Cms'], function () {
         Route::get('home', 'IndexController@home');
         Route::get('menu', 'NavMenuController@index');
         Route::any('menu/add', 'NavMenuController@add');
+        Route::any('menu/edit/{id?}', 'NavMenuController@edit');
     });
 });
 

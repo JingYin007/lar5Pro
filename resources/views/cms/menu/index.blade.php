@@ -2,7 +2,8 @@
 
 @section('body-content')
 
-    <button class="layui-btn layui-btn-normal" onclick="opNavMenu('{{url('cms/menu/add')}}','add')">
+    <button class="layui-btn layui-btn-normal"
+            onclick="opNavMenu('{{url('cms/menu/add')}}','add')">
         <i class="layui-icon" >&#xe608;</i> 添加导航
     </button>
     <table class="layui-table table-body" lay-even="" lay-skin="row">
@@ -36,8 +37,13 @@
                 <td>{{$vo['created_at']}}</td>
                 <td>
                     <div class="layui-btn-group">
-                        <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-                        <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+                        <button class="layui-btn layui-btn-sm"
+                                onclick="opNavMenu('{{url('cms/menu/edit/'.$vo['id'])}}','edit')">
+                            <i class="layui-icon"></i>
+                        </button>
+                        <button class="layui-btn layui-btn-sm">
+                            <i class="layui-icon"></i>
+                        </button>
                     </div>
                 </td>
             </tr>

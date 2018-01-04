@@ -5,7 +5,9 @@
         <div class="layui-form-item">
             <label class="layui-form-label">导航标题：</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="name" required lay-verify="required"
+                       value="{{$menuData['name']}}"
+                       placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">请七个字以内</div>
         </div>
@@ -16,20 +18,23 @@
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
-                <img class="layui-upload-img img-upload-view"
-                     src="{{asset('cms/images/icon/nav_default.png')}}">
+                <img class="layui-upload-img img-upload-view" src="{{$menuData['icon']}}">
             </div>
         </div>
 
-        <input type="hidden" name="icon" class="menu-icon"
-               value="{{asset('cms/images/icon/nav_default.png')}}">
+        <input type="hidden" class="post-url" value="{{url('cms/menu/edit/0')}}">
+        <input type="hidden" name="id" value="{{$menuData['id']}}">
+        <input type="hidden" name="icon" class="menu-icon" value="{{$menuData['icon']}}">
         <div class="layui-form-item">
             <label class="layui-form-label">父级导航：</label>
             <div class="layui-form-mid">
                 <select name="parent_id" lay-verify="required">
-                    <option value="0">根级导航</option>
+                    {{--<option value="0">根级导航</option>--}}
+                    <option value="{{$menuData['parent_id']}}">{{$menuData['parent_name']}}</option>
                     @foreach($rootMenus as $vo)
-                        <option value="{{$vo['id']}}">{{$vo['name']}}</option>
+                        @if($vo['id'] != $menuData['parent_id'] && $vo['id']!=$menuData['id'])
+                            <option value="{{$vo['id']}}">{{$vo['name']}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -39,6 +44,7 @@
             <label class="layui-form-label">action：</label>
             <div class="layui-input-inline">
                 <input type="text" name="action" required lay-verify="required"
+                       value="{{$menuData['action']}}"
                        autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">(example:cms/menu)根级导航不需写</div>
@@ -47,7 +53,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">排序：</label>
             <div class="layui-input-inline">
-                <input type="number" name="list_order" value="0" required lay-verify="required"
+                <input type="number" name="list_order"
+                       value="{{$menuData['list_order']}}" required lay-verify="required"
                        placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">(数字越大，排序越靠前)</div>
@@ -62,9 +69,9 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="addNewNavMenu()"
-                        lay-submit lay-filter="formDemo">添加</button>
-                <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
+                <button class="layui-btn" type="button" onclick="editNavMenu()"
+                        lay-submit lay-filter="formDemo">提交</button>
+                <button type="reset"  class="layui-btn layui-btn-primary">离开</button>
             </div>
         </div>
     </form>
@@ -75,9 +82,11 @@
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
     <script>
 
-        function addNewNavMenu() {
+        function editNavMenu() {
             var postData = $(".form-opNavMenu").serialize();
-            var toUrl = "{{url('cms/menu/add')}}";
+            var toUrl = "{{url('cms/menu/edit//')}}";
+            var toUrl = $(".post-url").val();
+            //layer.msg(toUrl);
             ToPostDeal(toUrl,postData);
         }
 
