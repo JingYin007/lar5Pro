@@ -71,7 +71,7 @@
             <div class="layui-input-block div-form-op">
                 <button class="layui-btn" type="button" onclick="editNavMenu()"
                         lay-submit lay-filter="formDemo">提交</button>
-                <button type="reset"  class="layui-btn layui-btn-primary">离开</button>
+                <button type="reset" onclick="leftPage()"  class="layui-btn layui-btn-primary">离开</button>
             </div>
         </div>
     </form>
@@ -84,13 +84,12 @@
 
         function editNavMenu() {
             var postData = $(".form-opNavMenu").serialize();
-            var toUrl = "{{url('cms/menu/edit//')}}";
             var toUrl = $(".post-url").val();
-            //layer.msg(toUrl);
             ToPostDeal(toUrl,postData);
         }
+        function leftPage() {
 
-
+        }
         layui.use('upload', function(){
             var upload = layui.upload;
             var tag_token = $(".tag_token").val();

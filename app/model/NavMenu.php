@@ -72,16 +72,24 @@ class NavMenu extends Model
     }
 
     public function editNavMenu($id,$data){
-        $tag = $this
-            ->where('id',$id)
-            ->update([
-                'name' => $data['name'],
-                'icon' => $data['icon'],
-                'list_order' => $data['list_order'],
-                'parent_id' => $data['parent_id'],
-                'action' => $data['action'],
-                'status' => $data['status'],
-            ]);
+        $opTag = isset($data['tag']) ? $data['tag']:'edit';
+        if($opTag == 'del'){
+            $tag = $this
+                ->where('id',$id)
+                ->update(['status' => -1]);
+        }else{
+            $tag = $this
+                ->where('id',$id)
+                ->update(
+                    [
+                        'name' => $data['name'],
+                        'icon' => $data['icon'],
+                        'list_order' => $data['list_order'],
+                        'parent_id' => $data['parent_id'],
+                        'action' => $data['action'],
+                        'status' => $data['status'],
+                    ]);
+        }
         return $tag;
     }
 }

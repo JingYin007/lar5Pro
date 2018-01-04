@@ -14,7 +14,7 @@ class CreateNavMenusTable extends Migration
     public function up()
     {
         Schema::create('nav_menus', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->comment('navMenu 主键');;
             $table->string('name',20)->default('')->comment('菜单名称');
             $table->integer('parent_id')->default(0)->comment('父级菜单ID');
             $table->string('action',30)->default('')->comment('action地址（etc:admin/home）');

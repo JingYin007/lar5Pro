@@ -48,6 +48,7 @@ class NavMenuController extends Controller
             $tag = $this->menuModel->editNavMenu($opID,$input);
             return showMsg($tag,'修改成功');
         }else{
+
             return view('cms.menu.edit',[
                 'rootMenus' => $rootMenus,
                 'menuData' => $menuData

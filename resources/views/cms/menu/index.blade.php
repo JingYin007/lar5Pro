@@ -27,7 +27,7 @@
         </thead>
         <tbody>
         @foreach($menus as $vo)
-            <tr>
+            <tr class="tr-menu-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
                 <td>{{$vo['name']}}</td>
                 <td class="td-menu"><img src="{{$vo['icon']}}"></td>
@@ -41,7 +41,8 @@
                                 onclick="opNavMenu('{{url('cms/menu/edit/'.$vo['id'])}}','edit')">
                             <i class="layui-icon"></i>
                         </button>
-                        <button class="layui-btn layui-btn-sm">
+                        <button class="layui-btn layui-btn-sm"
+                                onclick="delNavMenu('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                     </div>
@@ -50,6 +51,7 @@
         @endforeach
         </tbody>
     </table>
+    <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
 
     <div id="demo1"></div>
 @endsection
@@ -70,4 +72,14 @@
             });
         });
     </script>--}}
+    <script>
+        function delNavMenu(id) {
+            var toUrl = "{{url('cms/menu/edit/0')}}";
+            ToDelNavMenu(id,toUrl);
+        }
+    </script>
+
+
+
+
 @endsection
