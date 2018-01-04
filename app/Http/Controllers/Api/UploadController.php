@@ -13,11 +13,11 @@ class UploadController extends Controller
         $data = [];
         if ($request->method()== 'POST') {
             $date = date('Ymd');
-            $path = $request->file('file')->store('public/images/'.$date);
+            $path = $request->file('file')->store('', 'upload');
             if ($path){
-                $path = '/storage'.explode('public',$path)[1];
+                $fileUrl = '/upload/image/'.$date.'/'.$path;
                 $status = 1;
-                $data['url'] = $path;
+                $data['url'] = $fileUrl;
                 $message = '上传成功';
             }else{
                 $message = "上传失败";
