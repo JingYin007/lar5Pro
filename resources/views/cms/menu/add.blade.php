@@ -1,18 +1,20 @@
 @extends('cms.layouts.cms')
 @section('body-content')
-    <form class="layui-form form-opNavMenu">
+    <form class="layui-form form-opNavMenu layui-form-pane">
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
             <label class="layui-form-label">导航标题：</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="name" required lay-verify="required"
+                       placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">请七个字以内</div>
         </div>
 
+
         <div class="layui-form-item">
             <label class="layui-form-label">个性图标：</label>
-            <div class="layui-upload">
+            <div class="layui-upload layui-input-inline">
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
@@ -25,7 +27,7 @@
                value="{{asset('cms/images/icon/nav_default.png')}}">
         <div class="layui-form-item">
             <label class="layui-form-label">父级导航：</label>
-            <div class="layui-form-mid">
+            <div class="layui-input-block">
                 <select name="parent_id" lay-verify="required">
                     <option value="0">根级导航</option>
                     @foreach($rootMenus as $vo)
@@ -56,7 +58,7 @@
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
                 <input type="radio" name="status" value="0" title="正常" checked>
-                <input type="radio" name="status" value="-1" title="删除">
+                <input type="radio" name="status" value="-1" disabled="" title="无效">
             </div>
         </div>
 

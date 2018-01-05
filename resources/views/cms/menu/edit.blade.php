@@ -1,6 +1,6 @@
 @extends('cms.layouts.cms')
 @section('body-content')
-    <form class="layui-form form-opNavMenu">
+    <form class="layui-form form-opNavMenu layui-form-pane">
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
             <label class="layui-form-label">导航标题：</label>
@@ -14,7 +14,7 @@
 
         <div class="layui-form-item">
             <label class="layui-form-label">个性图标：</label>
-            <div class="layui-upload">
+            <div class="layui-upload layui-input-inline">
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
@@ -27,7 +27,7 @@
         <input type="hidden" name="icon" class="menu-icon" value="{{$menuData['icon']}}">
         <div class="layui-form-item">
             <label class="layui-form-label">父级导航：</label>
-            <div class="layui-form-mid">
+            <div class="layui-input-block">
                 <select name="parent_id" lay-verify="required">
                     {{--<option value="0">根级导航</option>--}}
                     <option value="{{$menuData['parent_id']}}">{{$menuData['parent_name']}}</option>
@@ -63,7 +63,7 @@
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
                 <input type="radio" name="status" value="0" title="正常" checked>
-                <input type="radio" name="status" value="-1" title="删除">
+                <input type="radio" name="status" value="-1" title="无效">
             </div>
         </div>
 
@@ -71,7 +71,7 @@
             <div class="layui-input-block div-form-op">
                 <button class="layui-btn" type="button" onclick="editNavMenu()"
                         lay-submit lay-filter="formDemo">提交</button>
-                <button type="reset" onclick="leftPage()"  class="layui-btn layui-btn-primary">离开</button>
+                <button type="reset" class="layui-btn layui-btn-primary">放弃</button>
             </div>
         </div>
     </form>
@@ -81,15 +81,13 @@
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
     <script>
-
+        //菜单修改按钮的点击事件
         function editNavMenu() {
             var postData = $(".form-opNavMenu").serialize();
             var toUrl = $(".post-url").val();
             ToPostDeal(toUrl,postData);
         }
-        function leftPage() {
 
-        }
         layui.use('upload', function(){
             var upload = layui.upload;
             var tag_token = $(".tag_token").val();

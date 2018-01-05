@@ -38,27 +38,61 @@ class NavMenu extends Model
      * @param null $id 导航菜单 ID 标识
      * @return mixed
      */
-    public function getAllNavMenus($id = null){
-        if ($id){
+    public function getNavMenuByID($id = null){
+        $res = $this
+            ->select('nav_menus.*','nm2.name as parent_name')
+            ->join('nav_menus as nm2', 'nav_menus.parent_id', '=', 'nm2.id')
+            ->where('nav_menus.id',$id)
+            ->first();
+
+        return $res->toArray();
+    }
+
+    public function getNavMenusCount($search = null){
+        if ($search){
+            //如果有查询限制
             $res = $this
-                ->select('nav_menus.*','nm2.name as parent_name')
-                ->join('nav_menus as nm2', 'nav_menus.parent_id', '=', 'nm2.id')
-                ->where('nav_menus.id',$id)
-                ->where('nav_menus.status',0)
-                ->orderBy('nav_menus.created_at','desc')
-                ->first()
-                ->toArray();
+                ->select('*')
+                ->where(
+                    [
+                        ['id','>',0],
+                        ['status','=',0],
+                        ['name','like','%'.$search.'%'],
+                    ])
+                //->orWhere('action','like','%'.$search.'%')
+                ->orderBy('list_order','desc')
+                ->orderBy('created_at','desc')
+                ->count();
         }else{
             $res = $this
                 ->select('*')
                 ->where('id','>',0)
                 ->where('status',0)
+                ->orderBy('list_order','desc')
                 ->orderBy('created_at','desc')
-                ->get()
-                ->toArray();
+                ->count();
         }
         return $res;
     }
+    public function getNavMenusForPage($curr_page,$limit,$search = null){
+        $res = $this
+            ->select('*')
+            ->where(
+                [
+                    ['id','>',0],
+                    ['status','=',0],
+                    ['name','like','%'.$search.'%'],
+                ])
+            //->orWhere('action','like','%'.$search.'%')
+            ->orderBy('list_order','desc')
+            ->orderBy('created_at','desc')
+            ->offset($limit*($curr_page - 1))
+            ->limit($limit)
+            ->get()
+            ->toArray();
+        return $res;
+    }
+
     public function addNavMenu($data){
         $this->name = $data['name'];
         $this->parent_id = $data['parent_id'];

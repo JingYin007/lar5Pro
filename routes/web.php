@@ -30,9 +30,11 @@ Route::group(['namespace' => 'Cms'], function () {
     Route::prefix('cms')->group(function () {
         Route::get('index', 'IndexController@index');
         Route::get('home', 'IndexController@home');
-        Route::get('menu', 'NavMenuController@index');
+        Route::any('menu', 'NavMenuController@index');
         Route::any('menu/add', 'NavMenuController@add');
         Route::any('menu/edit/{id?}', 'NavMenuController@edit');
+        Route::post('menu/ajaxOpForPage', 'NavMenuController@ajaxOpForPage');
+
     });
 });
 
