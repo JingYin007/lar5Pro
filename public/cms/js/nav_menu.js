@@ -49,7 +49,7 @@ function ToPostDeal(toUrl,postData) {
  * 删除导航菜单
  * @param id 菜单ID
  * @param toUrl 请求 URL
- * @constructor
+ * @constructor 
  */
 function ToDelNavMenu(id,toUrl) {
     var tag_token = $(".tag_token").val();
