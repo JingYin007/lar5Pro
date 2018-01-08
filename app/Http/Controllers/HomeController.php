@@ -29,7 +29,4 @@ class HomeController extends Controller
     public function admin(){
         return view('home');
     }
-    public function cms(){
-        return view('home');
-    }
 }

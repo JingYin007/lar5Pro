@@ -43,16 +43,6 @@ Route::group(['namespace' => 'Cms'], function () {
 
 
 
-
-/*-------------------还就是一条奇怪的分界线------------------------还就是为了让你奇怪！-----------------------------*/
-
-Route::get('cms', function () {
-    return 'Hello World';
-});
-
-
-
-
 /*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
 
 Route::namespace('Api')->group(function (){
@@ -92,7 +82,8 @@ Route::resource('photo', 'PhotoController', ['except' => [
 
 Auth::routes();
 
+/*-------------------还就是一条奇怪的分界线------------------------还就是为了让你奇怪！-----------------------------*/
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::any('test', 'TestController@index');
-
 
