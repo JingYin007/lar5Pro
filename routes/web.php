@@ -4,7 +4,6 @@
  * 测试
  */
 
-
 // Home 模块
 Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'IndexController@index');
@@ -24,6 +23,10 @@ Route::group(['namespace' => 'Home'], function () {
 
 
 /*-------------------还是一条奇怪的分界线------------------------还是为了让你奇怪！-----------------------------*/
+/**
+ * 使用 namespace 方法将相同的 PHP 命名空间分配给路由组的中所有的控制器
+ * // 在 "App\Http\Controllers\Cms" 命名空间下的控制器
+ */
 Route::group(['namespace' => 'Cms'], function () {
 
     //路由前缀#
@@ -43,31 +46,11 @@ Route::group(['namespace' => 'Cms'], function () {
 
 /*-------------------还就是一条奇怪的分界线------------------------还就是为了让你奇怪！-----------------------------*/
 
-
-
-/**
- * 使用 namespace 方法将相同的 PHP 命名空间分配给路由组的中所有的控制器
- * // 在 "App\Http\Controllers\Admin" 命名空间下的控制器
- */
-Route::namespace('Admin')->group(function () {
-    //路由前缀#
-    Route::prefix('admin')->group(function () {
-        // 匹配包含 "/admin/users" 的 URL
-        Route::get('user', 'UserController@index');
-        Route::get('index', 'IndexController@index');
-        Route::get('charts', 'IndexController@charts');
-        Route::get('tables', 'IndexController@tables');
-        Route::get('panels', 'IndexController@panels');
-        Route::get('elements', 'IndexController@elements');
-        Route::get('icons', 'IndexController@icons');
-        Route::get('notifications', 'IndexController@notifications');
-        Route::get('typography', 'IndexController@typography');
-
-        Route::get('page_login', 'IndexController@page_login');
-        Route::get('page_profile', 'IndexController@page_profile');
-        Route::get('page_lock', 'IndexController@page_lock');
-    });
+Route::get('cms', function () {
+    return 'Hello World';
 });
+
+
 
 
 /*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
