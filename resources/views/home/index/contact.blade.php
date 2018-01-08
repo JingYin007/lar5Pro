@@ -5,7 +5,7 @@
         <div class="container">
 
             <div class="map div-email">
-                <img class="img-email" src="{{asset('images/congQianMan.jpg')}}">
+                <img class="img-email" src="{{asset('home/images/congQianMan.jpg')}}">
             </div>
             <div class="contact-form div-form-email">
                 <h4>可以发送邮件哦！</h4>

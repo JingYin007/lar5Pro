@@ -37,7 +37,12 @@ class IndexController extends Controller
     public function review(){
         return view('home.index.review');
     }
-
+    public function email(){
+        $title = '从前慢';
+        $author = '冰心';
+        return view('home.index.mail',
+            ['title'=>$title,'author'=>$author]);
+    }
 
 
 

@@ -15,6 +15,8 @@ Route::group(['namespace' => 'Home'], function () {
     Route::post('article/store', 'ArticleController@store');
     Route::get('review', 'ArticleController@lists');
 
+    Route::get('email', 'IndexController@email');
+
 });
 
 
