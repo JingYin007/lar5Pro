@@ -4,27 +4,17 @@
 @section('content')
     <!---->
     <div class="content">
-        <div class="welcome">
-            <div class="container">
-                <div class="welcome-info">
-                    <h3>Welcome</h3>
-                    <h4>Lorem ipsum dolor sit amet consectetur adipiscing elit.</h4>
-                    <p>Morbi condimentum imperdiet placerat. Nullam in nisl eget turpis convallis venenatis. Cras cursus elementum justo nec bibendum. Donec quis nisi cursus, vestibulum elit eget, sagittis ligula.</p>
-                </div>
-            </div>
-        </div>
         <!---->
         <div class="container">
             <div class="col-md-8 content-left">
                 <div class="information">
-                    <h4>Information</h4>
+                    <h4>一言一语</h4>
                     <div class="information_grids">
                         <div class="info">
-                            <p>" Etiam ante arcu, vestibulum diam. Curabitur quis lectus. Pellentesque dictum odio velit.</p>
-                            <a href="{{url('about')}}">Read more</a>
+                            <p>"谁的青春不迷茫，其实我们都一样！"</p>
                         </div>
                         <div class="info-pic">
-                            <img src="{{asset('home/images/ps.png')}}"
+                            <img src="{{asset('home/images/ps.jpg')}}"
                                  class="img-responsive " alt=""/>
                         </div>
                         <div class="clearfix"></div>

@@ -70,26 +70,6 @@
 
             </div>
             <!---->
-            <div class="single-bottom">
-
-                <h3>Leave a Comment</h3>
-                <form>
-                    <div class="col-md-4 comment">
-                        <input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
-                    </div>
-                    <div class="col-md-4 comment">
-                        <input type="text" value="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
-                    </div>
-                    <div class="col-md-4 comment">
-                        <input type="text" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
-                    </div>
-                    <div class="clearfix"> </div>
-                    <textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-
-                    <input type="submit" value="Send" >
-
-                </form>
-            </div>
         </div>
     </div>
 

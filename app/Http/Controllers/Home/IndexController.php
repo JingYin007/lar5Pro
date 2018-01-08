@@ -27,20 +27,13 @@ class IndexController extends Controller
         return view('home.index.index', $assign);
     }
 
-
     public function about(){
         return view('home.index.about');
-    }
-    public function gallery(){
-        return view('home.index.gallery');
     }
     public function contact(){
         return view('home.index.contact');
     }
 
-    public function shortcodes(){
-        return view('home.index.shortcodes');
-    }
     public function review(){
         return view('home.index.review');
     }

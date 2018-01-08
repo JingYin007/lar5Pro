@@ -7,17 +7,8 @@
     <link href="{{asset('home/css/style.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('home/css/zhang.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{asset('home/css/lightbox.css')}}">
-
     <!-- jQuery (necessary JavaScript plugins) -->
     <script type='text/javascript' src="{{asset('home/js/jquery-1.11.1.min.js')}}"></script>
-    <!-- Custom Theme files -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Titillium+Web:400,600,700,300' rel='stylesheet' type='text/css'>
-    <!-- Custom Theme files -->
-    <!--//theme-style-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Game Spot Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 </head>
 <body>
@@ -57,24 +48,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </li>
                                 <li class="
                                 @php
-                                    echo strpos(url()->current(),'about')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('about')}}">简介</a></li>
-                                <li class="
-                                @php
                                     echo (strpos(url()->current(),'review')||strpos(url()->current(),'article'))? 'active':'';
                                 @endphp
                                 "><a href="{{url('review')}}">文章</a></li>
-                                <li class="
-                                @php
-                                    echo strpos(url()->current(),'gallery')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('gallery')}}">精图</a></li>
-                                <li class="
-                                @php
-                                    echo strpos(url()->current(),'shortcodes')? 'active':'';
-                                @endphp
-                                        "><a href="{{url('shortcodes')}}">图标</a></li>
                                 <li class="
                                 @php
                                     echo strpos(url()->current(),'contact')? 'active':'';
@@ -96,38 +72,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 @yield('content')
 <script src="{{asset('home/js/lightbox-plus-jquery.min.js')}}"></script>
-
+@include('layouts.layui')
+@yield('single-content')
 <!-- footer -->
 <div class="footer">
     <div class="container">
         <div class="footer-grids">
             <div class="col-md-6 news-ltr">
-                <h4>Newsletter</h4>
-                <p>Aenean sagittis est eget elit pulvinar cursus. Lorem ipsum consectetur adipiscing elit. Phasellus non purus at risus consequat finibus.</p>
-                <form>
-                    <input type="text" class="text" value="Enter Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter Email';}">
-                    <input type="submit" value="Subscribe">
-                    <div class="clearfix"></div>
-                </form>
+                <h4> 相遇，相识，分离，怨别</h4>
+                <p>爱淡成词，瘦了纤纤素指下一阙阙相思，心若近，天涯海角都是相依；心若远，终日相聚也无法会意.</p>
+                <p>月下花影，笑看世间情恨，红尘千丈，诉不尽繁花似锦。铃悬檐下，檐为铃守，铃不知； 风动铃心，铃为风歌，风不解；
+                    世人谓， 无情最是如风过； 我谓，檐痴铃傻风何错！</p>
             </div>
             <div class="col-md-3 ftr-grid">
-                <h3>Categories</h3>
+                <h3>心静</h3>
                 <ul class="ftr-list">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Racing</a></li>
-                    <li><a href="#">Adventure</a></li>
-                    <li><a href="#">Simulation</a></li>
-                    <li><a href="#">Bike</a></li>
+                    <li><a href="#">有时，放弃是另一种坚持，你错失了夏花绚烂，必将会走进秋叶静美</a></li>
+                    <li><a href="#">不管黑夜怎么长，白昼总会到来，生命必须有裂缝，阳光才照得进来</a></li>
                 </ul>
             </div>
             <div class="col-md-3 ftr-grid">
-                <h3>Platform</h3>
+                <h3>风语</h3>
                 <ul class="ftr-list">
-                    <li><a href="#">Pc</a></li>
-                    <li><a href="#">Ps4</a></li>
-                    <li><a href="#">XBOX 360</a></li>
-                    <li><a href="#">XBOX ONE</a></li>
-                    <li><a href="#">PSP</a></li>
+                    <li><a href="#">时间好比一部列车，它能承载我们驶向成功的未来；</a></li>
+                    <li><a href="#">时间好比一位老人，它能帮助我们学到人生的真谛.</a></li>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -137,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->
 <div class="copywrite">
     <div class="container">
-        <p>Copyright &copy; moTzxx 你若盛开 清风自来</p>
+        <p>Copyright &copy; moTzxx 你若盛开 清风自来 心若浮沉 浅笑安然</p>
     </div>
 </div>
 <!---->

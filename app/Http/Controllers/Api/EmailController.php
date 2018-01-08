@@ -30,10 +30,6 @@ class EmailController extends Controller
         return view('mail',['title' => '你若盛开，清风自来','author' => '木心']);
     }
 
-    public function test(){
-
-    }
-
     /**
      * 测试邮件发送案例
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
