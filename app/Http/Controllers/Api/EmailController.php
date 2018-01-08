@@ -22,12 +22,12 @@ class EmailController extends Controller
         $type = $request->input('type');
         $viewData = ['title' => '你若盛开，清风自来','author' => '木心'];
         if ($type == 'text'){
-            $this->sendText($emailData);
+            $tag = $this->sendText($emailData);
         }else{
-            $this->sendHtml('mail',$viewData,$emailData);
+            $tag = $this->sendHtml('home.index.mail',$viewData,$emailData);
         }
         //TODO  $tag 判断发送是否成功，进行后续代码开发
-        return showMsg(1,'发送成功');
+        return showMsg($tag,'发送成功');
     }
 
     /**

@@ -43,7 +43,7 @@ Route::group(['namespace' => 'Cms'], function () {
 
 Route::namespace('Api')->group(function (){
     Route::prefix('api')->group(function (){
-        Route::any('email/send', 'EmailController@send');
+        Route::post('email/send', 'EmailController@send');
         Route::post('upload/img_file', 'UploadController@img_file');
     });
 

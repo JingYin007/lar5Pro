@@ -1354,9 +1354,6 @@ p.sed {
     .banner-info {
         margin-top: 7em;
     }
-    .banner {
-        min-height: 631px;
-    }
     .banner2 {
         min-height: 230px;
     }
@@ -1413,9 +1410,7 @@ p.sed {
         font-size: 4em;
         letter-spacing: 2px;
     }
-    .banner {
-        min-height: 603px;
-    }
+
     .welcome-info {
         width: 74%;
     }
