@@ -27,7 +27,7 @@ class EmailController extends Controller
             $this->sendHtml('mail',$viewData,$emailData);
         }
         //TODO  $tag 判断发送是否成功，进行后续代码开发
-        return view('mail',['title' => '你若盛开，清风自来','author' => '木心']);
+        return showMsg(1,'发送成功');
     }
 
     /**

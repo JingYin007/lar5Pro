@@ -48,5 +48,13 @@
     margin-left: 350px;
 }
 .btn-submit-email{
+    background-color: #1ab7ea;
+    font-weight: 700;
+    padding: 3px 10px;
+    border:2px #2bbbff;
+    border-radius:25px;
     float: right;
+}
+.btn-submit-email:hover{
+    background-color: #FF9233;
 }
