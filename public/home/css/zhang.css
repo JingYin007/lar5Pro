@@ -60,7 +60,7 @@
 .p-article-abstract{
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     overflow: hidden;
 }
 .div-article-view{
@@ -79,4 +79,10 @@
 }
 .div-article-gallery .gallery-grid-pic img{
     height: 88px;
+}
+.info-pic img{
+    border-radius:80%;
+}
+.word-from{
+    float: right;
 }

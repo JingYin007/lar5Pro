@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\model\Article;
+use App\model\TodayWord;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,9 +11,11 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     private $articleModel;
+    private $todayWordModel;
     public function __construct()
     {
         $this->articleModel = new Article();
+        $this->todayWordModel = new TodayWord();
     }
 
     /**
@@ -23,11 +26,13 @@ class IndexController extends Controller
     public function index()
     {
         $data = $this->articleModel->getArticleList();
+        $todayWord = $this->todayWordModel->getTodayWord();
         $recommendList = $this->articleModel->getRecommendList();
         $photos = $this->articleModel->getPhotos();
         $assign = [
             'list' => $data,
-            'active'=>'active',
+            'active' =>'active',
+            'todayWord' => $todayWord,
             'recommendList' => $recommendList,
             'photos' => $photos
         ];

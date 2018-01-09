@@ -8,13 +8,14 @@
         <div class="container">
             <div class="col-md-8 content-left">
                 <div class="information">
-                    <h4>一言一语</h4>
+                    <h4>今日赠言</h4>
                     <div class="information_grids">
                         <div class="info">
-                            <p>"谁的青春不迷茫，其实我们都一样！"</p>
+                            <p>"{{$todayWord['word']}}"</p>
+                            <p class="word-from">—— 《{{$todayWord['from']}}》</p>
                         </div>
                         <div class="info-pic">
-                            <img src="{{asset('home/images/ps.jpg')}}"
+                            <img src="{{asset($todayWord['picture'])}}"
                                  class="img-responsive " alt=""/>
                         </div>
                         <div class="clearfix"></div>

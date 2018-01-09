@@ -23,7 +23,7 @@ class Article extends Model
      */
     public function getArticleList($user_id = null){
         $res = $this
-            ->select('articles.id','title','created_at','abstract','picture')
+            ->select('articles.id','title','articles.created_at','abstract','picture')
             ->join('article_points as ap','ap.article_id','=','articles.id')
             ->where('ap.is_delete','<>',1)
             ->orderBy('ap.view', 'desc')
@@ -32,7 +32,7 @@ class Article extends Model
             ->get();
         if ($user_id){
             $res = $this
-                ->select('articles.id','title','created_at','abstract','picture')
+                ->select('articles.id','title','articles.created_at','abstract','picture')
                 ->join('article_points as ap','ap.article_id','=','articles.id')
                 ->where('ap.is_delete','<>',1)
                 ->orderBy('ap.view', 'desc')
