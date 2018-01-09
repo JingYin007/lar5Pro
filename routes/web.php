@@ -36,6 +36,10 @@ Route::group(['namespace' => 'Cms'], function () {
         Route::any('menu/edit/{id?}', 'NavMenuController@edit');
         Route::post('menu/ajaxOpForPage', 'NavMenuController@ajaxOpForPage');
 
+        Route::any('todayWords', 'TodayWordsController@index');
+        Route::any('todayWords/add', 'TodayWordsController@add');
+        Route::any('todayWords/edit/{id?}', 'TodayWordsController@edit');
+        Route::post('todayWords/ajaxOpForPage', 'TodayWordsController@ajaxOpForPage');
     });
 });
 
