@@ -78,6 +78,7 @@ yarn-error.log
 ```
 - 下载得到的框架，很多没有 `vendor` 目录，此时可以在项目根目录下运行命令：
 ```
+composer update
 composer install
 ```
 
