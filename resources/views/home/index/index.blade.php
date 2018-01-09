@@ -58,43 +58,16 @@
                 </div>
                 <div class="photo-gallery">
                     <h4>Photo Gallery</h4>
-                    <div class="gallery-1">
-                        <div class="col-md-4 gallery-grid-pic">
-                            <a class="example-image-link" href="{{asset('home/images/p2.jpg')}}" data-lightbox="example-set">
-                                <img class="example-image" src="{{asset('home/images/p2.jpg')}}" alt=""/></a>
-                        </div>
-                        <div class="col-md-4 gallery-grid-pic">
-                            <a class="example-image-link" href="{{asset('home/images/p1.jpg')}}" data-lightbox="example-set">
-                                <img class="example-image" src="{{asset('home/images/p1.jpg')}}" alt=""/></a>
-                        </div>
-                        <div class="col-md-4 gallery-grid-pic">
-                            <a class="example-image-link" href="{{asset('home/images/p3.jpg')}}" data-lightbox="example-set">
-                                <img class="example-image" src="{{asset('home/images/p3.jpg')}}" alt=""/></a>
-                        </div>
+                    <div class="gallery-1 div-article-gallery">
+                        @foreach($photos as $vo)
+                            <div class="col-md-4 gallery-grid-pic">
+                                <a class="example-image-link" href="{{asset($vo['picture'])}}" data-lightbox="example-set">
+                                    <img class="example-image" src="{{asset($vo['picture'])}}" alt=""/>
+                                </a>
+                            </div>
+                        @endforeach
                         <div class="clearfix"></div>
                     </div>
-                    <div class="gallery-1">
-                        <div class="col-md-4 gallery-grid-pic">
-                            <a class="example-image-link" href="{{asset('home/images/p1.jpg')}}"
-                               data-lightbox="example-set">
-                                <img class="example-image" src="{{asset('home/images/p1.jpg')}}" alt=""/>
-                            </a>
-                        </div>
-                        <div class="col-md-4 gallery-grid-pic">
-                            <a class="example-image-link" href="{{asset('home/images/p3.jpg')}}"
-                               data-lightbox="example-set">
-                                <img class="example-image" src="{{asset('home/images/p3.jpg')}}" alt=""/>
-                            </a>
-                        </div>
-                        <div class="col-md-4 gallery-grid-pic">
-                            <a class="example-image-link" href="{{asset('home/images/p4.jpg')}}"
-                               data-lightbox="example-set">
-                                <img class="example-image" src="{{asset('home/images/p4.jpg')}}" alt=""/>
-                            </a>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
                 </div>
 
             </div>

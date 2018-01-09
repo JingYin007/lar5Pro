@@ -41,6 +41,17 @@ class Article extends Model
         return $res->toArray();
     }
 
+    public function getPhotos(){
+        $res = $this
+            ->select('ap.picture')
+            ->join('article_points as ap','ap.article_id','=','articles.id')
+            ->orderBy('ap.view','desc')
+            ->limit(9)
+            ->inRandomOrder()
+            ->get()
+            ->toArray();
+        return $res;
+    }
     /**
      * 获取推荐文章
      * @return mixed

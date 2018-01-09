@@ -77,3 +77,6 @@
     white-space:nowrap;
     text-overflow:ellipsis;
 }
+.div-article-gallery .gallery-grid-pic img{
+    height: 88px;
+}

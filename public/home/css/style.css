@@ -511,7 +511,7 @@ a.list-group-item:hover {
 }
 .gallery-grid-pic {
     padding: 0;
-    margin: 0px 2%;
+    margin: 2% 2%;
     width: 29.3%;
 }
 .gallery-grid-pic img{

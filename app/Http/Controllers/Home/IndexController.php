@@ -24,10 +24,12 @@ class IndexController extends Controller
     {
         $data = $this->articleModel->getArticleList();
         $recommendList = $this->articleModel->getRecommendList();
+        $photos = $this->articleModel->getPhotos();
         $assign = [
             'list' => $data,
             'active'=>'active',
             'recommendList' => $recommendList,
+            'photos' => $photos
         ];
         return view('home.index.index', $assign);
     }
