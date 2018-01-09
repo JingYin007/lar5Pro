@@ -23,21 +23,37 @@ class Article extends Model
      */
     public function getArticleList($user_id = null){
         $res = $this
-            ->select('id','title','created_at','abstract','picture')
-            ->where('id','<>',0)
-            ->orderBy('view', 'desc')
+            ->select('articles.id','title','created_at','abstract','picture')
+            ->join('article_points as ap','ap.article_id','=','articles.id')
+            ->where('ap.is_delete','<>',1)
+            ->orderBy('ap.view', 'desc')
+            ->inRandomOrder()
             ->limit(6)
             ->get();
         if ($user_id){
             $res = $this
-                ->select('id','title','created_at','abstract','picture')
-                ->where('id','<>',0)
-                ->where('user_id',$user_id)
-                ->orderBy('view', 'desc')
+                ->select('articles.id','title','created_at','abstract','picture')
+                ->join('article_points as ap','ap.article_id','=','articles.id')
+                ->where('ap.is_delete','<>',1)
+                ->orderBy('ap.view', 'desc')
                 ->get();
         }
-
         return $res->toArray();
+    }
+
+    /**
+     * 获取推荐文章
+     * @return mixed
+     */
+    public function getRecommendList(){
+        $res = $this
+            ->select('articles.title','articles.id')
+            ->join('article_points as ap','ap.article_id','=','articles.id')
+            ->orderBy('ap.view','desc')
+            ->limit(6)
+            ->get()
+            ->toArray();
+        return $res;
     }
 
     public function updateData($map, $data){

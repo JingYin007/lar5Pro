@@ -23,7 +23,12 @@ class IndexController extends Controller
     public function index()
     {
         $data = $this->articleModel->getArticleList();
-        $assign = ['list' => $data,'active'=>'active'];
+        $recommendList = $this->articleModel->getRecommendList();
+        $assign = [
+            'list' => $data,
+            'active'=>'active',
+            'recommendList' => $recommendList,
+        ];
         return view('home.index.index', $assign);
     }
 
