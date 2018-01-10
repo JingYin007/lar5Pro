@@ -52,7 +52,11 @@ php artisan migrate
 php artisan db:seed
 ```
 
+## ③. 配置完成后的访问
+> 举例：配置的虚拟域名为 `lar5Pro.com` ,则入口网址为：
 
+- 前台 ： `lar5Pro.com/`
+- 后台 ： `lar5Pro.com/cms/index`
 
 # 注意
 
@@ -94,6 +98,12 @@ php artisan make:migration create_users_table
 
 # 参考图片
 
-## 前台
+## ①. 前台
 ![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/home1.png)
+![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/home2.png)
+![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/home3.png)
+
+## ②. CMS 后台
+![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/cms1.png)
+![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/cms2.png)
 
