@@ -14,15 +14,19 @@ class TodayWordsController extends Controller
     public function __construct()
     {
         $this->model = new TodayWord();
-        $this->page_limit = 5;
+        $this->page_limit = config('app.CMS_PAGE_SIZE');
     }
 
+    /**
+     * 今日赠言 列表首页
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request){
         $list = $this->model
             ->getTodayWordsForPage(1,$this->page_limit);
         $search = $request->input('str_search');
         $record_num = $this->model->getTodayWordsCount();
-
 
         return view('cms.todayWords.index',
             [
@@ -32,6 +36,12 @@ class TodayWordsController extends Controller
                 'page_limit' => $this->page_limit,
             ]);
     }
+
+    /**
+     * 增加新赠言
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function add(Request $request){
         $Tag = $request->getMethod();
         if ($Tag == 'POST'){
@@ -42,6 +52,13 @@ class TodayWordsController extends Controller
             return view('cms.todayWords.add');
         }
     }
+
+    /**
+     * 编辑新赠言
+     * @param Request $request
+     * @param $id 赠言标识 ID
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     */
     public function edit(Request $request,$id){
         $Tag = $request->getMethod();
         $todayWordData = $this->model->getTodayWord($id);
@@ -57,6 +74,11 @@ class TodayWordsController extends Controller
             ]);
         }
     }
+
+    /**
+     * ajax 获取新一页的赠言数据
+     * @param Request $request
+     */
     public function ajaxOpForPage(Request $request){
         $curr_page = $request->input('curr_page',1);
         $list = $this->model->getTodayWordsForPage($curr_page,$this->page_limit);

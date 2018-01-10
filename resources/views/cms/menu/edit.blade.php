@@ -62,8 +62,16 @@
         <div class="layui-form-item">
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
-                <input type="radio" name="status" value="1" title="正常" checked>
-                <input type="radio" name="status" value="-1" title="无效">
+                <input type="radio" name="status" value="1" title="正常"
+                       @if ($menuData['status'] == 1)
+                       checked
+                       @endif;
+                >
+                <input type="radio" name="status" value="-1" title="无效"
+                       @if ($menuData['status'] == -1)
+                       checked
+                       @endif;
+                >
             </div>
         </div>
 

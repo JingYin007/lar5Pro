@@ -56,7 +56,6 @@ class NavMenu extends Model
                 ->where(
                     [
                         ['id','>',0],
-                        ['status','=',1],
                         ['name','like','%'.$search.'%'],
                     ])
                 //->orWhere('action','like','%'.$search.'%')
@@ -67,7 +66,6 @@ class NavMenu extends Model
             $res = $this
                 ->select('*')
                 ->where('id','>',0)
-                ->where('status',1)
                 ->orderBy('list_order','desc')
                 ->orderBy('created_at','desc')
                 ->count();
@@ -80,7 +78,6 @@ class NavMenu extends Model
             ->where(
                 [
                     ['id','>',0],
-                    ['status','=',1],
                     ['name','like','%'.$search.'%'],
                 ])
             //->orWhere('action','like','%'.$search.'%')
@@ -90,6 +87,13 @@ class NavMenu extends Model
             ->limit($limit)
             ->get()
             ->toArray();
+        foreach ($res as $key => $v){
+            if ($v['status'] == 1){
+                $res[$key]['status_tip'] = "<span class=\"layui-badge layui-bg-blue\">正常</span>";
+            }else{
+                $res[$key]['status_tip'] = "<span class=\"layui-badge layui-bg-cyan\">删除</span>";
+            }
+        }
         return $res;
     }
 

@@ -15,7 +15,7 @@ function ToOpTodayWords(op_url,tag) {
         moveOut: true,
         title: title,
         maxmin: true, //开启最大化最小化按钮
-        area: ['50%', '55%'],
+        area: ['50%', '65%'],
         content: op_url, //可以出现滚动条
         //content: [op_url, 'no'], //如果你不想让iframe出现滚动条
     });
@@ -107,17 +107,18 @@ function ToAjaxOpForPage(toUrl,postData) {
                         "<tr class=\"tr-menu-"+e.id+"\">\n" +
                         "                <td>"+e.id+"</td>\n" +
                         "                <td>"+e.from+"</td>\n" +
-                        "                <td class=\"td-menu\"><img src='"+e.picture+"'></td>\n" +
+                        "                <td class=\"td-menu\"><img class='layui-circle' src='"+e.picture+"'></td>\n" +
                         "                <td>"+e.word+"</td>\n" +
-                        "                <td>"+e.created_at+"</td>\n" +
+                        "                <td>"+e.created_at +"</td>\n" +
+                        "                <td>" +e.status_tip +"</td>\n" +
                         "                <td>\n" +
                         "                    <div class=\"layui-btn-group\">\n" +
                         "                        <button class=\"layui-btn layui-btn-sm\"\n" +
-                        "                                onclick=\"editNavMenu('"+e.id+"')\">\n" +
+                        "                                onclick=\"editTodayWord('"+e.id+"')\">\n" +
                         "                            <i class=\"layui-icon\"></i>\n" +
                         "                        </button>\n" +
                         "                        <button class=\"layui-btn layui-btn-sm\"\n" +
-                        "                                onclick=\"delNavMenu('"+e.id+"')\">\n" +
+                        "                                onclick=\"delTodayWord('"+e.id+"')\">\n" +
                         "                            <i class=\"layui-icon\"></i>\n" +
                         "                        </button>\n" +
                         "                    </div>\n" +

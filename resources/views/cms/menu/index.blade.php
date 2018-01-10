@@ -38,6 +38,7 @@
             <th>父级ID</th>
             <th>排序</th>
             <th>创建时间</th>
+            <th>状态</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -51,6 +52,13 @@
                 <td>{{$vo['parent_id']}}</td>
                 <td>{{$vo['list_order']}}</td>
                 <td>{{$vo['created_at']}}</td>
+                <td>
+                    @if($vo['status'] == 1)
+                        <span class="layui-badge layui-bg-blue">正常</span>
+                    @else
+                        <span class="layui-badge layui-bg-cyan">删除</span>
+                    @endif
+                </td>
                 <td>
                     <div class="layui-btn-group">
                         <button class="layui-btn layui-btn-sm"

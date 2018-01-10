@@ -14,7 +14,7 @@ class NavMenuController extends Controller
     public function __construct()
     {
         $this->menuModel = new NavMenu();
-        $this->page_limit = 5;
+        $this->page_limit = config('app.CMS_PAGE_SIZE');
     }
 
     /**
@@ -35,11 +35,21 @@ class NavMenuController extends Controller
             ]);
     }
 
+    /**
+     * ajax 获取当前页面数据
+     * @param Request $request
+     */
     public function ajaxOpForPage(Request $request){
         $curr_page = $request->input('curr_page',1);
         $list = $this->menuModel->getNavMenusForPage($curr_page,$this->page_limit);
         return showMsg(1,'**',$list);
     }
+
+    /**
+     * 增加新导航标题 功能
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     */
     public function add(Request $request){
         $Tag = $request->getMethod();
         $rootMenus = $this->menuModel->getNavMenusShow();
@@ -53,6 +63,13 @@ class NavMenuController extends Controller
             ]);
         }
     }
+
+    /**
+     * 编辑导航菜单数据
+     * @param Request $request
+     * @param $id 菜单 ID
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     */
     public function edit(Request $request,$id){
         $Tag = $request->getMethod();
         $rootMenus = $this->menuModel->getNavMenusShow();

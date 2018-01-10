@@ -24,6 +24,7 @@
             <col width="10%">
             <col width="45%">
             <col width="10%">
+            <col width="5%">
             <col width="15%">
         </colgroup>
         <thead>
@@ -33,6 +34,7 @@
             <th>图片</th>
             <th>内容</th>
             <th>创建时间</th>
+            <th>状态</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -41,9 +43,18 @@
             <tr class="tr-menu-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
                 <td>《{{$vo['from']}}》</td>
-                <td class="td-menu"><img src="{{$vo['picture']}}"></td>
+                <td class="td-menu">
+                        <img src="{{$vo['picture']}}" class="layui-circle">
+                </td>
                 <td>{{$vo['word']}}</td>
                 <td>{{$vo['created_at']}}</td>
+                <td>
+                    @if($vo['status'] == 1)
+                        <span class="layui-badge layui-bg-blue">正常</span>
+                    @else
+                        <span class="layui-badge layui-bg-cyan">删除</span>
+                    @endif
+                </td>
                 <td>
                     <div class="layui-btn-group">
                         <button class="layui-btn layui-btn-sm"

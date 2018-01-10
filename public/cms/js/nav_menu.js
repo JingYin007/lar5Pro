@@ -112,6 +112,7 @@ function ToAjaxOpForPage(toUrl,postData) {
                         "                <td>"+e.parent_id+"</td>\n" +
                         "                <td>"+e.list_order+"</td>\n" +
                         "                <td>"+e.created_at+"</td>\n" +
+                        "                <td>"+e.status_tip +"</td>\n" +
                         "                <td>\n" +
                         "                    <div class=\"layui-btn-group\">\n" +
                         "                        <button class=\"layui-btn layui-btn-sm\"\n" +

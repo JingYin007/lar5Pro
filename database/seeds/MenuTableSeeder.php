@@ -63,7 +63,7 @@ class MenuTableSeeder extends Seeder
         $db->icon = '/cms/images/icon/nav_default.png';
         $db->created_at = time();
         $db->updated_at = time();
-        $db->list_order = 0;
+        $db->list_order = 3;
         $db->status = 1;
         $db->save();
     }

@@ -18,7 +18,7 @@
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
-                <img class="layui-upload-img img-upload-view"
+                <img class="layui-upload-img img-upload-view layui-circle"
                      src="{{asset('cms/images/icon/nav_default.png')}}">
             </div>
         </div>
