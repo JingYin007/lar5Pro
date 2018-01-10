@@ -91,3 +91,9 @@ composer install
 php artisan make:migration create_users_table
 ```
 
+
+# 参考图片
+
+## 前台
+![]({{asset('cms/images/home1.jpg')}})
+
