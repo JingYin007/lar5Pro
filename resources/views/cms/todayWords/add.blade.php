@@ -1,19 +1,19 @@
 @extends('cms.layouts.cms')
 @section('body-content')
-    <form class="layui-form form-opNavMenu layui-form-pane">
+    <form class="layui-form form-opTodayWords layui-form-pane">
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
-            <label class="layui-form-label">导航标题：</label>
+            <label class="layui-form-label">赠言出处：</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" required lay-verify="required"
+                <input type="text" name="from" required lay-verify="required"
                        placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
-            <div class="layui-form-mid layui-word-aux">请七个字以内</div>
+            <div class="layui-form-mid layui-word-aux">请十个字以内</div>
         </div>
 
 
         <div class="layui-form-item">
-            <label class="layui-form-label">个性图标：</label>
+            <label class="layui-form-label">代表图片：</label>
             <div class="layui-upload layui-input-inline">
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
@@ -23,37 +23,9 @@
             </div>
         </div>
 
-        <input type="hidden" name="icon" class="menu-icon"
+        <input type="hidden" name="picture" class="menu-icon"
                value="{{asset('cms/images/icon/nav_default.png')}}">
-        <div class="layui-form-item">
-            <label class="layui-form-label">父级导航：</label>
-            <div class="layui-input-block">
-                <select name="parent_id" lay-verify="required">
-                    <option value="0">根级导航</option>
-                    @foreach($rootMenus as $vo)
-                        <option value="{{$vo['id']}}">{{$vo['name']}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
 
-        <div class="layui-form-item">
-            <label class="layui-form-label">action：</label>
-            <div class="layui-input-inline">
-                <input type="text" name="action" required lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">(example:cms/menu)根级导航不需写</div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">排序：</label>
-            <div class="layui-input-inline">
-                <input type="number" name="list_order" value="0" required lay-verify="required"
-                       placeholder="请输入密码" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">(数字越大，排序越靠前)</div>
-        </div>
         <div class="layui-form-item">
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
@@ -62,9 +34,17 @@
             </div>
         </div>
 
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">精选内容：</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" name="word" required
+                          lay-verify="required" class="layui-textarea"></textarea>
+            </div>
+        </div>
+
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="addNewNavMenu()"
+                <button class="layui-btn" type="button" onclick="addNewTodayWord()"
                         lay-submit lay-filter="formDemo">添加</button>
                 <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
             </div>
@@ -74,13 +54,13 @@
 @endsection
 
 @section('single-content')
-    <script src="{{asset('cms/js/nav_menu.js')}}"></script>
+    <script src="{{asset('cms/js/today_words.js')}}"></script>
     <script>
 
-        function addNewNavMenu() {
-            var postData = $(".form-opNavMenu").serialize();
-            var toUrl = "{{url('cms/menu/add')}}";
-            ToPostDeal(toUrl,postData);
+        function addNewTodayWord() {
+            var postData = $(".form-opTodayWords").serialize();
+            var toUrl = "{{url('cms/todayWords/add')}}";
+            ToPostWordsDeal(toUrl,postData);
         }
 
 

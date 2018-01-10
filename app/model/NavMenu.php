@@ -16,7 +16,7 @@ class NavMenu extends Model
             ->select('*')
             ->where('id','>',0)
             ->where('parent_id',0)
-            ->where('status',0)
+            ->where('status',1)
             ->orderBy('list_order','desc')
             ->get()
             ->toArray();
@@ -24,7 +24,7 @@ class NavMenu extends Model
             $parent_id = $value['id'];
             $childRes = $this
                 ->where('parent_id',$parent_id)
-                ->where('status',0)
+                ->where('status',1)
                 ->orderBy('list_order','desc')
                 ->get()
                 ->toArray();
@@ -56,7 +56,7 @@ class NavMenu extends Model
                 ->where(
                     [
                         ['id','>',0],
-                        ['status','=',0],
+                        ['status','=',1],
                         ['name','like','%'.$search.'%'],
                     ])
                 //->orWhere('action','like','%'.$search.'%')
@@ -67,7 +67,7 @@ class NavMenu extends Model
             $res = $this
                 ->select('*')
                 ->where('id','>',0)
-                ->where('status',0)
+                ->where('status',1)
                 ->orderBy('list_order','desc')
                 ->orderBy('created_at','desc')
                 ->count();
@@ -80,7 +80,7 @@ class NavMenu extends Model
             ->where(
                 [
                     ['id','>',0],
-                    ['status','=',0],
+                    ['status','=',1],
                     ['name','like','%'.$search.'%'],
                 ])
             //->orWhere('action','like','%'.$search.'%')

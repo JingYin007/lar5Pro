@@ -9,6 +9,7 @@
 @include('layouts.layui')
 <!-- 加载公共文件  -->
     <link  href="{{asset('cms/css/style.css')}}" rel="stylesheet">
+    <link  href="{{asset('cms/css/zhang.css')}}" rel="stylesheet">
 </head>
 <body>
 <div class="div-body-show">

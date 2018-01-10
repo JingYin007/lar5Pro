@@ -19,7 +19,7 @@ class TodayWordsController extends Controller
 
     public function index(Request $request){
         $list = $this->model
-            ->getNavMenusForPage(1,$this->page_limit);
+            ->getTodayWordsForPage(1,$this->page_limit);
         $search = $request->input('str_search');
         $record_num = $this->model->getTodayWordsCount();
 
@@ -33,14 +33,33 @@ class TodayWordsController extends Controller
             ]);
     }
     public function add(Request $request){
-        return 'Hello';
+        $Tag = $request->getMethod();
+        if ($Tag == 'POST'){
+            $input = $request->except('_token');
+            $this->model->addTodayWord($input);
+            return showMsg(1,'添加成功');
+        }else{
+            return view('cms.todayWords.add');
+        }
     }
     public function edit(Request $request,$id){
-        return 'Hello';
+        $Tag = $request->getMethod();
+        $todayWordData = $this->model->getTodayWord($id);
+        if ($Tag == 'POST'){
+            //TODO 修改对应的菜单
+            $input = $request->except('_token');
+            $opID = $input['id'];
+            $tag = $this->model->editTodayWord($opID,$input);
+            return showMsg($tag,'修改成功');
+        }else{
+            return view('cms.todayWords.edit',[
+                'todayWordData' => $todayWordData
+            ]);
+        }
     }
     public function ajaxOpForPage(Request $request){
         $curr_page = $request->input('curr_page',1);
-        $list = $this->model->getNavMenusForPage($curr_page,$this->page_limit);
+        $list = $this->model->getTodayWordsForPage($curr_page,$this->page_limit);
         return showMsg(1,'**',$list);
     }
 }

@@ -3,7 +3,7 @@
 @section('body-content')
 
     <button class="layui-btn layui-btn-normal"
-            onclick="addNavMenu()">
+            onclick="addTodayWords()">
         <i class="layui-icon" >&#xe608;</i> 添加赠言
     </button>
     <div class="layui-inline">
@@ -40,18 +40,18 @@
         @foreach($menus as $vo)
             <tr class="tr-menu-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
-                <td>{{$vo['from']}}</td>
+                <td>《{{$vo['from']}}》</td>
                 <td class="td-menu"><img src="{{$vo['picture']}}"></td>
                 <td>{{$vo['word']}}</td>
                 <td>{{$vo['created_at']}}</td>
                 <td>
                     <div class="layui-btn-group">
                         <button class="layui-btn layui-btn-sm"
-                                onclick="editNavMenu('{{$vo['id']}}')">
+                                onclick="editTodayWord('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                         <button class="layui-btn layui-btn-sm"
-                                onclick="delNavMenu('{{$vo['id']}}')">
+                                onclick="delTodayWord('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                     </div>
@@ -91,9 +91,9 @@
     </script>
     <script>
         //根据菜单ID 删除菜单记录
-        function delNavMenu(id) {
-            var toUrl = "{{url('cms/menu/edit/0')}}";
-            ToDelNavMenu(id,toUrl);
+        function delTodayWord(id) {
+            var toUrl = "{{url('cms/todayWords/edit/0')}}";
+            ToDelTodayWord(id,toUrl);
         }
         $(".btn-search-navMenu").on('click',function () {
             //var str_search = $(".search_input").val();
@@ -107,14 +107,14 @@
             ToAjaxOpForPage(toUrl,postData);
         }
         //添加导航菜单
-        function addNavMenu() {
-            var toUrl = "{{url('cms/menu/add')}}";
-            ToOpNavMenu(toUrl,'add');
+        function addTodayWords() {
+            var toUrl = "{{url('cms/todayWords/add')}}";
+            ToOpTodayWords(toUrl,'add');
         }
         //根据菜单ID修改菜单信息
-        function editNavMenu(id) {
-            var toUrl = "{{url('cms/menu/edit/0')}}"+id;
-            ToOpNavMenu(toUrl,'edit');
+        function editTodayWord(id) {
+            var toUrl = "{{url('cms/todayWords/edit/0')}}"+id;
+            ToOpTodayWords(toUrl,'edit');
         }
     </script>
 

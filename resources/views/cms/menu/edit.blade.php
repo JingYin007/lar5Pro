@@ -62,7 +62,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
-                <input type="radio" name="status" value="0" title="正常" checked>
+                <input type="radio" name="status" value="1" title="正常" checked>
                 <input type="radio" name="status" value="-1" title="无效">
             </div>
         </div>

@@ -3,19 +3,19 @@
  * @param op_url
  * @param tag
  */
-function ToOpNavMenu(op_url,tag) {
+function ToOpTodayWords(op_url,tag) {
     var title = '';
     if(tag == 'add'){
-        title = '添加导航菜单';
+        title = '添加今日赠言';
     }else {
-        title = '菜单信息修改';
+        title = '今日赠言修改';
     }
     layer.open({
         type: 2,
         moveOut: true,
         title: title,
         maxmin: true, //开启最大化最小化按钮
-        area: ['50%', '65%'],
+        area: ['50%', '55%'],
         content: op_url, //可以出现滚动条
         //content: [op_url, 'no'], //如果你不想让iframe出现滚动条
     });
@@ -27,7 +27,7 @@ function ToOpNavMenu(op_url,tag) {
  * @param postData
  * @constructor
  */
-function ToPostDeal(toUrl,postData) {
+function ToPostWordsDeal(toUrl,postData) {
     $.post(
         toUrl,
         postData,
@@ -51,14 +51,14 @@ function ToPostDeal(toUrl,postData) {
  * @param toUrl 请求 URL
  * @constructor
  */
-function ToDelNavMenu(id,toUrl) {
+function ToDelTodayWord(id,toUrl) {
     var tag_token = $(".tag_token").val();
     var postData = {'id':id,'tag':'del','_token':tag_token};
-    layer.msg('确定要删除此菜单吗？', {
+    layer.msg('确定要删除此赠言吗？', {
         time: 0 //不自动关闭
         ,btn: ['确定', '离开']
         ,yes: function(index){
-            afterDelNavMenu(toUrl,postData,id);
+            afterDelTodayWord(toUrl,postData,id);
         }
     });
 }
@@ -69,7 +69,7 @@ function ToDelNavMenu(id,toUrl) {
  * @param postData
  * @param id
  */
-function afterDelNavMenu(toUrl,postData,id) {
+function afterDelTodayWord(toUrl,postData,id) {
     $.post(
         toUrl,
         postData,

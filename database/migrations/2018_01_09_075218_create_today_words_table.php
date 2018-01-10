@@ -20,6 +20,9 @@ class CreateTodayWordsTable extends Migration
             $table->string('picture')->nullable()->comment('插图');
             $table->tinyInteger('status')->default(1)->comment('状态，1：正常，-1：删除');
             $table->timestamps();
+            $table->engine = 'MyISAM ';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
         });
     }
 
