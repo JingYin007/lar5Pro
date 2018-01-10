@@ -95,5 +95,5 @@ php artisan make:migration create_users_table
 # 参考图片
 
 ## 前台
-![]({{asset('cms/images/home1.jpg')}})
+![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/home1.png)
 
