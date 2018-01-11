@@ -5,18 +5,19 @@
  */
 
 // Home 模块
-Route::group(['namespace' => 'Home'], function () {
+Route::namespace('Home')->group(function () {
     Route::get('/', 'IndexController@index');
     Route::get('home', 'IndexController@index');
     Route::get('contact', 'IndexController@contact');
-
-    Route::get('article/{id?}', 'ArticleController@index');
-    Route::get('article/edit/{id?}', 'ArticleController@edit');
-    Route::post('article/store', 'ArticleController@store');
     Route::get('review', 'ArticleController@lists');
-
     Route::get('email', 'IndexController@email');
 
+    Route::prefix('article')->group(function (){
+        Route::get('index/{id?}', 'ArticleController@index');
+        Route::get('edit/{id?}', 'ArticleController@edit');
+        Route::post('store', 'ArticleController@store');
+
+    });
 });
 
 
@@ -25,21 +26,26 @@ Route::group(['namespace' => 'Home'], function () {
  * 使用 namespace 方法将相同的 PHP 命名空间分配给路由组的中所有的控制器
  * // 在 "App\Http\Controllers\Cms" 命名空间下的控制器
  */
-Route::group(['namespace' => 'Cms'], function () {
+Route::namespace('Cms')->prefix('cms')->group( function () {
+
+    Route::get('index', 'IndexController@index');
+    Route::get('home', 'IndexController@home');
+
 
     //路由前缀#
-    Route::prefix('cms')->group(function () {
-        Route::get('index', 'IndexController@index');
-        Route::get('home', 'IndexController@home');
-        Route::any('menu', 'NavMenuController@index');
-        Route::any('menu/add', 'NavMenuController@add');
-        Route::any('menu/edit/{id?}', 'NavMenuController@edit');
-        Route::post('menu/ajaxOpForPage', 'NavMenuController@ajaxOpForPage');
+    Route::prefix('menu')->group(function () {
+        Route::any('index', 'NavMenuController@index');
+        Route::any('add', 'NavMenuController@add');
+        Route::any('edit/{id?}', 'NavMenuController@edit');
+        Route::post('ajaxOpForPage', 'NavMenuController@ajaxOpForPage');
+    });
 
-        Route::any('todayWords', 'TodayWordsController@index');
-        Route::any('todayWords/add', 'TodayWordsController@add');
-        Route::any('todayWords/edit/{id?}', 'TodayWordsController@edit');
-        Route::post('todayWords/ajaxOpForPage', 'TodayWordsController@ajaxOpForPage');
+    Route::prefix('todayWords')->group(function (){
+        Route::any('index', 'TodayWordsController@index');
+        Route::any('add', 'TodayWordsController@add');
+        Route::any('edit/{id?}', 'TodayWordsController@edit');
+        Route::post('ajaxOpForPage', 'TodayWordsController@ajaxOpForPage');
+
     });
 });
 
@@ -47,12 +53,9 @@ Route::group(['namespace' => 'Cms'], function () {
 
 /*-------------------一条奇怪的分界线------------------------就是为了让你奇怪！-----------------------------*/
 
-Route::namespace('Api')->group(function (){
-    Route::prefix('api')->group(function (){
-        Route::post('email/send', 'EmailController@send');
-        Route::post('upload/img_file', 'UploadController@img_file');
-    });
-
+Route::namespace('Api')->prefix('api')->group(function (){
+    Route::post('email/send', 'EmailController@send');
+    Route::post('upload/img_file', 'UploadController@img_file');
 });
 
 

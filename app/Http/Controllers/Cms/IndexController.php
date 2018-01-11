@@ -19,7 +19,6 @@ class IndexController extends Controller
      */
     public function index(){
         $menuList = $this->menuModel->getNavMenusShow();
-        //var_dump($menuList);
         return view('cms.index',['menus'=>$menuList]);
     }
     /**

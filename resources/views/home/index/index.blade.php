@@ -26,18 +26,18 @@
                         <div class="game-grid-left">
                             <div class="grid1 div-index-grid">
                                 <h5 class="act">
-                                    <a href="{{url('article/'.$vo['id'])}}">Action</a></h5>
-                                <a href="{{url('article/'.$vo['id'])}}">
+                                    <a href="{{url('article/index/'.$vo['id'])}}">Action</a></h5>
+                                <a href="{{url('article/index/'.$vo['id'])}}">
                                     <img src="{{asset($vo['picture'])}}"
                                          class="img-responsive index-img-responsive" alt=""/></a>
                                 <div class="grid1-info index-grid1-info div-article-view">
                                     <h4>
-                                        <a href="{{url('article/'.$vo['id'])}}">{{$vo['title']}}</a>
+                                        <a href="{{url('article/index/'.$vo['id'])}}">{{$vo['title']}}</a>
                                     </h4>
                                     <p class="p-article-abstract">{{$vo['abstract']}}</p>
                                 </div>
                                 <div class="more">
-                                    <a href="{{url('article/'.$vo['id'])}}">Read more</a>
+                                    <a href="{{url('article/index/'.$vo['id'])}}">Read more</a>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                     <h4>Top Articles</h4>
                     <div class="list-group">
                         @foreach($recommendList as $vo)
-                            <a href="{{url('article/'.$vo['id'])}}" class="list-group-item a-article-recommend">
+                            <a href="{{url('article/index/'.$vo['id'])}}" class="list-group-item a-article-recommend">
                                 {{$vo['title']}}
                             </a>
                         @endforeach

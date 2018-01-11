@@ -9,12 +9,12 @@
                     <div class="col-md-6 revw">
                         <div class="rft-grid">
                             <div class="col-md-5 rft-pic">
-                                <a href="{{url('article/'.$value['id'])}}">
+                                <a href="{{url('article/index/'.$value['id'])}}">
                                     <img src="{{asset($value['picture'])}}"
                                          class="img-responsive review-img-responsive" alt=""/></a>
                             </div>
                             <div class="col-md-7 rft-pic-info div-article-view">
-                                <h4><a href="{{url('article/'.$value['id'])}}">{{$value['title']}}</a></h4>
+                                <h4><a href="{{url('article/index/'.$value['id'])}}">{{$value['title']}}</a></h4>
                                 <p class="p-article-abstract"> {{$value['abstract']}}</p>
                             </div>
                             <div class="clearfix article-clearfix"></div>

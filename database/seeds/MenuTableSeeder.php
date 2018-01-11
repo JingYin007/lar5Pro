@@ -47,7 +47,7 @@ class MenuTableSeeder extends Seeder
         $db->id = 2;
         $db->name = '菜单列表';
         $db->parent_id = 1;
-        $db->action = 'cms/menu';
+        $db->action = 'cms/menu/index';
         $db->icon = '/cms/images/icon/menu_list.png';
         $db->created_at = time();
         $db->updated_at = time();
@@ -59,7 +59,7 @@ class MenuTableSeeder extends Seeder
         $db->id = 3;
         $db->name = '今日赠言';
         $db->parent_id = 0;
-        $db->action = 'cms/todayWords';
+        $db->action = 'cms/todayWords/index';
         $db->icon = '/cms/images/icon/nav_default.png';
         $db->created_at = time();
         $db->updated_at = time();
