@@ -18,7 +18,7 @@ class CreateArticlePointsTable extends Migration
             $table->integer('article_id')->nullable()->comment('文章标识');
             $table->integer('view')->default(0)->comment('文章浏览量');
             $table->string('keywords',30)->default('')->comment('关键词');
-            $table->string('picture',25)->nullable()->comment('文章配图');
+            $table->string('picture',100)->nullable()->comment('文章配图');
             $table->string('abstract')->nullable()->comment('文章摘要');
             $table->tinyInteger('is_delete')->default(0)->comment('删除标记');
             $table->timestamps();
