@@ -83,6 +83,7 @@
 
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
+    <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
         layui.use(['laypage', 'layer'], function() {
             var laypage = layui.laypage;
@@ -108,7 +109,7 @@
         //根据菜单ID 删除菜单记录
         function delNavMenu(id) {
             var toUrl = "{{url('cms/menu/edit/0')}}";
-            ToDelNavMenu(id,toUrl);
+            ToDelItem(id,toUrl,'.tr-menu-'+id);
         }
         $(".btn-search-navMenu").on('click',function () {
             //var str_search = $(".search_input").val();
@@ -124,12 +125,12 @@
         //添加导航菜单
         function addNavMenu() {
             var toUrl = "{{url('cms/menu/add')}}";
-            ToOpNavMenu(toUrl,'add');
+            ToOpenPopups(toUrl,'添加导航菜单');
         }
         //根据菜单ID修改菜单信息
         function editNavMenu(id) {
             var toUrl = "{{url('cms/menu/edit/0')}}"+id;
-            ToOpNavMenu(toUrl,'edit');
+            ToOpenPopups(toUrl,'菜单信息修改');
         }
     </script>
 

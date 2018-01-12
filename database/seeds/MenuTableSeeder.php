@@ -57,13 +57,37 @@ class MenuTableSeeder extends Seeder
 
         $db = new NavMenu();
         $db->id = 3;
-        $db->name = '今日赠言';
+        $db->name = '前台管理';
         $db->parent_id = 0;
-        $db->action = 'cms/todayWords/index';
-        $db->icon = '/cms/images/icon/nav_default.png';
+        $db->action = '';
+        $db->icon = '/cms/images/icon/desktop.png';
         $db->created_at = time();
         $db->updated_at = time();
-        $db->list_order = 3;
+        $db->list_order = 1;
+        $db->status = 1;
+        $db->save();
+
+        $db = new NavMenu();
+        $db->id = 4;
+        $db->name = '今日赠言';
+        $db->parent_id = 3;
+        $db->action = 'cms/todayWords/index';
+        $db->icon = '/cms/images/icon/diplom.png';
+        $db->created_at = time();
+        $db->updated_at = time();
+        $db->list_order = 0;
+        $db->status = 1;
+        $db->save();
+
+        $db = new NavMenu();
+        $db->id = 5;
+        $db->name = '文章列表';
+        $db->parent_id = 3;
+        $db->action = 'cms/article/index';
+        $db->icon = '/cms/images/icon/adaptive.png';
+        $db->created_at = time();
+        $db->updated_at = time();
+        $db->list_order = 0;
         $db->status = 1;
         $db->save();
     }

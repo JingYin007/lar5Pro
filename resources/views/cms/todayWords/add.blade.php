@@ -55,12 +55,13 @@
 
 @section('single-content')
     <script src="{{asset('cms/js/today_words.js')}}"></script>
+    <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
 
         function addNewTodayWord() {
             var postData = $(".form-opTodayWords").serialize();
             var toUrl = "{{url('cms/todayWords/add')}}";
-            ToPostWordsDeal(toUrl,postData);
+            ToPostPopupsDeal(toUrl,postData);
         }
 
 

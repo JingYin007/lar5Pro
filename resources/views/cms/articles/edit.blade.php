@@ -1,72 +1,78 @@
 @extends('cms.layouts.cms')
 @section('body-content')
-    <form class="layui-form form-opNavMenu layui-form-pane">
+    <form class="layui-form form-opArticle layui-form-pane" >
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
-            <label class="layui-form-label">导航标题：</label>
+            <label class="layui-form-label">文章标题：</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" required lay-verify="required"
-                       placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="title" required lay-verify="required"
+                       value="{{$article['title']}}"
+                       placeholder="请输入标题" autocomplete="off" class="layui-input article-title">
             </div>
-            <div class="layui-form-mid layui-word-aux">请七个字以内</div>
         </div>
 
-
         <div class="layui-form-item">
-            <label class="layui-form-label">个性图标：</label>
+            <label class="layui-form-label">文章配图：</label>
             <div class="layui-upload layui-input-inline">
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
-                <img class="layui-upload-img img-upload-view"
-                     src="{{asset('cms/images/icon/nav_default.png')}}">
+                <img class="layui-upload-img img-upload-view" src="{{$article['picture']}}">
             </div>
         </div>
 
-        <input type="hidden" name="icon" class="menu-icon"
-               value="{{asset('cms/images/icon/nav_default.png')}}">
-        <div class="layui-form-item">
-            <label class="layui-form-label">父级导航：</label>
+        <input type="hidden" name="id" value="{{$article['id']}}">
+        <input type="hidden" name="picture" class="menu-icon" value="{{$article['picture']}}">
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">文章摘要：</label>
             <div class="layui-input-block">
-                <select name="parent_id" lay-verify="required">
-                    <option value="0">根级导航</option>
-                    @foreach($rootMenus as $vo)
-                        <option value="{{$vo['id']}}">{{$vo['name']}}</option>
-                    @endforeach
-                </select>
+                <textarea placeholder="请输入内容" name="abstract"  required
+                          lay-verify="required" class="layui-textarea">{{$article['abstract']}}
+                </textarea>
             </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">action：</label>
-            <div class="layui-input-inline">
-                <input type="text" name="action" required
-                       autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">(example:cms/menu)根级导航不需写</div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">排序：</label>
-            <div class="layui-input-inline">
-                <input type="number" name="list_order" value="0" required lay-verify="required"
-                       placeholder="请输入密码" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">(数字越大，排序越靠前)</div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
-                <input type="radio" name="status" value="1" title="正常" checked>
-                <input type="radio" name="status" value="-1" disabled="" title="无效">
+                <input type="radio" name="status" value="1" title="显示"
+                       @if ($article['status'] == 1)
+                       checked
+                       @endif;
+                >
+                <input type="radio" name="status" value="-1" title="删除"
+                       @if ($article['status'] == -1)
+                       checked
+                       @endif;
+                >
             </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序：</label>
+            <div class="layui-input-inline">
+                <input type="number" name="list_order"
+                       value="{{$article['list_order']}}" required lay-verify="required"
+                       autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">(数字越大，排序越靠前)</div>
+        </div>
+
+
+        <div class="layui-form-item layui-form-text ">
+            <label class="layui-form-label">文章内容：</label>
+            <div class="layui-input-block div-article-content">
+                <script id="ue-container" name="content"  type="text/plain">
+                    @php
+                        echo htmlspecialchars_decode($article['content']);
+                    @endphp
+                </script>
+            </div>
+
         </div>
 
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="addNewNavMenu()"
-                        lay-submit lay-filter="formDemo">添加</button>
-                <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
+                <button class="layui-btn" type="button" onclick="editArticle()">提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">放弃</button>
             </div>
         </div>
     </form>
@@ -74,16 +80,16 @@
 @endsection
 
 @section('single-content')
-    <script src="{{asset('cms/js/nav_menu.js')}}"></script>
+    <script src="{{asset('cms/js/today_words.js')}}"></script>
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
+    @include('home.layouts.ueditor-js')
     <script>
-
-        function addNewNavMenu() {
-            var postData = $(".form-opNavMenu").serialize();
-            var toUrl = "{{url('cms/menu/add')}}";
+        //修改按钮的点击事件
+        function editArticle() {
+            var toUrl = "{{url('cms/article/edit/0')}}";
+            var postData = $(".form-opArticle").serialize();
             ToPostPopupsDeal(toUrl,postData);
         }
-
 
         layui.use('upload', function(){
             var upload = layui.upload;

@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title',50)->default('')->comment('标题');
             $table->integer('user_id')->default(0)->comment('作者ID');
             $table->timestamps();
-            $table->integer('sort')->default(0)->comment('排序标识 越大越靠前');
+            $table->integer('list_order')->default(0)->comment('排序标识 越大越靠前');
             $table->text('content')->comment('文章内容');
             //$table->softDeletes(); //	加入 deleted_at 字段用于软删除操作。
             //$table->engine = 'InnoDB';

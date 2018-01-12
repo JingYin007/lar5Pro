@@ -20,7 +20,7 @@ class CreateArticlePointsTable extends Migration
             $table->string('keywords',30)->default('')->comment('关键词');
             $table->string('picture',100)->nullable()->comment('文章配图');
             $table->string('abstract')->nullable()->comment('文章摘要');
-            $table->tinyInteger('is_delete')->default(0)->comment('删除标记');
+            $table->tinyInteger('status')->default(1)->comment('删除标记');
             $table->timestamps();
 
             $table->engine = 'MyISAM ';

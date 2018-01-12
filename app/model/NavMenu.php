@@ -100,7 +100,7 @@ class NavMenu extends Model
     public function addNavMenu($data){
         $this->name = $data['name'];
         $this->parent_id = $data['parent_id'];
-        $this->action = $data['action'];
+        $this->action = $data['action']?$data['action']:'';
         $this->icon = $data['icon']?$data['icon']:'';
         $this->created_at = time();
         $this->updated_at = time();
@@ -124,7 +124,7 @@ class NavMenu extends Model
                         'icon' => $data['icon'],
                         'list_order' => $data['list_order'],
                         'parent_id' => $data['parent_id'],
-                        'action' => $data['action'],
+                        'action' => $data['action']?$data['action']:'',
                         'status' => $data['status'],
                     ]);
         }

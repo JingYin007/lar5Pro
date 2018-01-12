@@ -39,13 +39,23 @@ Route::namespace('Cms')->prefix('cms')->group( function () {
         Route::any('edit/{id?}', 'NavMenuController@edit');
         Route::post('ajaxOpForPage', 'NavMenuController@ajaxOpForPage');
     });
-
+    /**
+     * 今日赠言 管理
+     */
     Route::prefix('todayWords')->group(function (){
         Route::any('index', 'TodayWordsController@index');
         Route::any('add', 'TodayWordsController@add');
         Route::any('edit/{id?}', 'TodayWordsController@edit');
         Route::post('ajaxOpForPage', 'TodayWordsController@ajaxOpForPage');
-
+    });
+    /**
+     * 文章列表 管理
+     */
+    Route::prefix('article')->group(function (){
+        Route::any('index','ArticleController@index');
+        Route::any('add','ArticleController@add');
+        Route::any('edit/{id?}', 'ArticleController@edit');
+        Route::post('ajaxOpForPage', 'ArticleController@ajaxOpForPage');
     });
 });
 

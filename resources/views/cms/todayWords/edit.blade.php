@@ -64,12 +64,13 @@
 
 @section('single-content')
     <script src="{{asset('cms/js/today_words.js')}}"></script>
+    <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
         //菜单修改按钮的点击事件
         function editNavMenu() {
             var postData = $(".form-opTodayWords").serialize();
             var toUrl = $(".post-url").val();
-            ToPostWordsDeal(toUrl,postData);
+            ToPostPopupsDeal(toUrl,postData);
         }
 
         layui.use('upload', function(){

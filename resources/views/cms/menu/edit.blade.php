@@ -43,7 +43,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">action：</label>
             <div class="layui-input-inline">
-                <input type="text" name="action" required lay-verify="required"
+                <input type="text" name="action" required
                        value="{{$menuData['action']}}"
                        autocomplete="off" class="layui-input">
             </div>
@@ -88,12 +88,13 @@
 
 @section('single-content')
     <script src="{{asset('cms/js/nav_menu.js')}}"></script>
+    <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
         //菜单修改按钮的点击事件
         function editNavMenu() {
             var postData = $(".form-opNavMenu").serialize();
             var toUrl = $(".post-url").val();
-            ToPostDeal(toUrl,postData);
+            ToPostPopupsDeal(toUrl,postData);
         }
 
         layui.use('upload', function(){
