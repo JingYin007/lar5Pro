@@ -127,7 +127,7 @@ function ToOpenPopups(op_url,title) {
         moveOut: true,
         title: title,
         maxmin: true, //开启最大化最小化按钮
-        area: ['50%', '65%'],
+        area: ['70%', '65%'],
         content: op_url, //可以出现滚动条
         //content: [op_url, 'no'], //如果你不想让iframe出现滚动条
     });

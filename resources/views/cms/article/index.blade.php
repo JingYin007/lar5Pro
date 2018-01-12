@@ -10,8 +10,6 @@
         <div class="layui-input-inline">
             <form class="form-search" action="{{url('cms/article/index')}}" method="post">
                 <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
-                <input type="hidden" name="record_num" class="record_num" value="<?php echo $record_num; ?>">
-                <input type="hidden" name="page_limit" class="page_limit" value="{{$page_limit}}">
                 <input type="hidden" name="curr_page" class="curr_page" value="1">
             </form>
         </div>
@@ -37,7 +35,7 @@
             <th>操作</th>
         </tr>
         </thead>
-        <tbody class="tbody-navMenus">
+        <tbody class="tbody-articles">
         @foreach($articles as $vo)
             <tr class="tr-article-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
@@ -45,7 +43,9 @@
                 <td class="td-article">
                     <img src="{{$vo['picture']}}" class="">
                 </td>
-                <td>{{$vo['abstract']}}</td>
+                <td>
+                    <p class="p-article-abstract">{{$vo['abstract']}}</p>
+                </td>
                 <td>{{$vo['created_at']}}</td>
                 <td>
                     @if($vo['status'] == 1)

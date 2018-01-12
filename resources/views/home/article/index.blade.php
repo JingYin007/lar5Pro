@@ -16,9 +16,6 @@
                             <a href="#">{{$article['user_name']}}</a>  |
                             <a href="#">{{count($comments)}} Comments</a> |
                             <span class="created_time">{{$article['created_at']}}</span>
-                            <span class="span-article-edit">
-                                <a href="{{url('article/edit/'.$article['id'])}}">编辑</a>
-                            </span>
                         </p>
 
 

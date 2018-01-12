@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 @include('layouts.layui')
 <!-- 加载公共文件  -->
-    <link  href="{{asset('cms/css/style.css')}}" rel="stylesheet">
     <link  href="{{asset('cms/css/zhang.css')}}" rel="stylesheet">
 </head>
 <body>

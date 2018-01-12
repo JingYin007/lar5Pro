@@ -14,9 +14,6 @@ Route::namespace('Home')->group(function () {
 
     Route::prefix('article')->group(function (){
         Route::get('index/{id?}', 'ArticleController@index');
-        Route::get('edit/{id?}', 'ArticleController@edit');
-        Route::post('store', 'ArticleController@store');
-
     });
 });
 
@@ -30,7 +27,6 @@ Route::namespace('Cms')->prefix('cms')->group( function () {
 
     Route::get('index', 'IndexController@index');
     Route::get('home', 'IndexController@home');
-
 
     //路由前缀#
     Route::prefix('menu')->group(function () {

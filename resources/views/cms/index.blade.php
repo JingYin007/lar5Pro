@@ -10,7 +10,7 @@
     <!-- load layui -->
 @include('layouts.layui')
 <!-- 加载公共文件  -->
-    <link  href="{{asset('cms/css/style.css')}}" rel="stylesheet">
+    <link  href="{{asset('cms/css/zhang.css')}}" rel="stylesheet">
     <script type='text/javascript' src="{{asset('cms/js/moZhang.js')}}" ></script>
 </head>
 <body class="layui-layout-body">

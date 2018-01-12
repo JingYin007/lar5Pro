@@ -34,36 +34,6 @@ class ArticleController extends Controller
                 'active'=>$this->active
             ]);
     }
-
-    /**
-     * 文章编辑页面
-     * @param $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function edit($id){
-            $article = $this->model->getArticleByID($id);
-            $comments = $this->comment_model->getComment($id);
-            return view('home.article.edit',
-                [
-                    'article'=>$article,
-                    'comments'=> $comments,
-                    'active'=>$this->active
-                ]);
-
-    }
-
-    public function store(Request $request){
-
-        $map = [
-            'id' => $request->input('article_id')
-        ];
-        $data = $request->except('_token','article_id');
-        $this->model->updateData($map, $data);
-
-        return redirect()->back();
-
-    }
-
     /**
      * 获取所有的文章 按照时间、阅读量排序
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

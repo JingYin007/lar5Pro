@@ -31,11 +31,11 @@ class ArticleController extends Controller
             'record_num' => $record_num,
             'page_limit' => $this->page_limit,
         ];
-        return view('cms.articles.index',$data);
+        return view('cms.article.index',$data);
     }
     public function add(Request $request){
 
-        return view('cms.articles.add');
+        return view('cms.article.add');
     }
     public function edit(Request $request,$id){
         $method = $request->method();
@@ -50,7 +50,7 @@ class ArticleController extends Controller
                     'article'=>$article,
                     'comments'=> $comments,
                 ];
-            return view('cms.articles.edit',$data);
+            return view('cms.article.edit',$data);
         }
     }
 }
