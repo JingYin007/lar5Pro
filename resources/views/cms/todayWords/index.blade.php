@@ -38,12 +38,12 @@
             <th>操作</th>
         </tr>
         </thead>
-        <tbody class="tbody-navMenus">
+        <tbody class="tbody-todayWords">
         @foreach($menus as $vo)
             <tr class="tr-menu-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
                 <td>《{{$vo['from']}}》</td>
-                <td class="td-menu">
+                <td class="td-todayWord">
                         <img src="{{$vo['picture']}}" class="layui-circle">
                 </td>
                 <td>{{$vo['word']}}</td>
