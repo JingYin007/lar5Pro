@@ -41,7 +41,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', false),
-
+    'Debugbar' => Barryvdh\Debugbar\Facade::class,
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -179,7 +179,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Stevenyangecho\UEditor\UEditorServiceProvider::class
+        Stevenyangecho\UEditor\UEditorServiceProvider::class,
+        //注册 Debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 

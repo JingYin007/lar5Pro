@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Foundation\Testing\HttpException;
+use Symfony\Component\Debug\Exception\FlattenException;
 
 class Handler extends ExceptionHandler
 {
@@ -51,7 +52,9 @@ class Handler extends ExceptionHandler
     {
         /* 错误页面 */
         if ($exception) {
-            $code = $exception->getStatusCode();
+            //TODO Laravel5.5 框架中 Exception 类不存在 getStatusCode（）方法
+            //$code = $exception->getStatusCode();
+            $code = FlattenException::create($exception)->getStatusCode();
             return response()->view('error.' . $code, [], $code);
         }
         return parent::render($request, $exception);

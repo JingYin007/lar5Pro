@@ -7,6 +7,7 @@ use App\model\TodayWord;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Symfony\Component\Debug\Exception\FlattenException;
 
 class IndexController extends Controller
 {
@@ -25,7 +26,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        gfg;
+
         $data = $this->articleModel->getArticleList();
         $todayWord = $this->todayWordModel->getTodayWord();
         $recommendList = $this->articleModel->getRecommendList();
