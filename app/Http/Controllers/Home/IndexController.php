@@ -25,6 +25,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+        gfg;
         $data = $this->articleModel->getArticleList();
         $todayWord = $this->todayWordModel->getTodayWord();
         $recommendList = $this->articleModel->getRecommendList();

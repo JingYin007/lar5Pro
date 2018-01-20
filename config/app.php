@@ -123,7 +123,8 @@ return [
     */
 
     'log' => env('APP_LOG', 'single'),
-
+    //配置日志保存天数
+    'log_max_files' => 30,
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
     /*
