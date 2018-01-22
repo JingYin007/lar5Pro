@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>404页面</title>
+@extends('home.layouts.home')
+
+@section('content')
+    <div class="contact">
+        <div id="box">
+            <img src="{{ asset('images/error/404.jpg') }}" alt="404">
+            <p>将在 <span id="mes">5</span> 秒钟后返回 <a href="{{ url('/') }}">首页</a></p>
+            <p class="hint">非常抱歉 - 您可能输入了错误的网址，或者该网页已删除或移动</p>
+        </div>
+    </div>
+
+@endsection
+
+@section('single-content')
     <style>
         #box{
             margin: 0 auto;
             width: 540px;
             height: 540px;
         }
-        p{
+        #box p{
             margin-bottom: 60px;
             width: 540px;
             height: 20px;
@@ -20,10 +29,10 @@
             font-size: 30px;
             color: red;
         }
-        .hint{
+        #box .hint{
             color: #999;
         }
-        a{
+        #box a{
             color: #259AEA;
             text-decoration:none
         }
@@ -40,12 +49,4 @@
             i--;
         }
     </script>
-</head>
-<body>
-<div id="box">
-    <img src="{{ asset('images/error/404.jpg') }}" alt="404">
-    <p>将在 <span id="mes">5</span> 秒钟后返回 <a href="{{ url('/') }}">首页</a></p>
-    <p class="hint">非常抱歉 - 您可能输入了错误的网址，或者该网页已删除或移动</p>
-</div>
-</body>
-</html>
+@endsection

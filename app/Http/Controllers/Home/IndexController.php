@@ -26,7 +26,6 @@ class IndexController extends Controller
      */
     public function index()
     {
-
         $data = $this->articleModel->getArticleList();
         $todayWord = $this->todayWordModel->getTodayWord();
         $recommendList = $this->articleModel->getRecommendList();
@@ -41,9 +40,7 @@ class IndexController extends Controller
         return view('home.index.index', $assign);
     }
 
-    public function about(){
-        return view('home.index.about');
-    }
+
     public function contact(){
         return view('home.index.contact');
     }
