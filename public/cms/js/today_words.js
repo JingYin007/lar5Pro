@@ -4,7 +4,7 @@
  * @param postData
  * @constructor
  */
-function ToAjaxOpForPage(toUrl,postData) {
+function ToAjaxOpForPageTodayWords(toUrl,postData) {
     $.post(
         toUrl,
         postData,
@@ -34,7 +34,7 @@ function ToAjaxOpForPage(toUrl,postData) {
                         "                </td>\n" +
                         "            </tr>";
                 });
-                $(".tbody-navMenus").html(str_html);
+                $(".tbody-todayWords").html(str_html);
             }else{
                 //失败
                 layer.msg(result.message);

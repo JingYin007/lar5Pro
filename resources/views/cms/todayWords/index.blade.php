@@ -78,7 +78,7 @@
 @endsection
 
 @section('single-content')
-    <script src="{{asset('cms/js/nav_menu.js')}}"></script>
+    <script src="{{asset('cms/js/today_words.js')}}"></script>
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
         layui.use(['laypage', 'layer'], function() {
@@ -116,7 +116,7 @@
             var toUrl = "{{url('cms/todayWords/ajaxOpForPage')}}";
             $(".curr_page").val(curr_page);
             var postData = $(".form-search").serialize();
-            ToAjaxOpForPage(toUrl,postData);
+            ToAjaxOpForPageTodayWords(toUrl,postData);
         }
         //添加导航菜单
         function addTodayWords() {
