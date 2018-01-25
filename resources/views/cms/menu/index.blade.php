@@ -108,7 +108,8 @@
     <script>
         //根据菜单ID 删除菜单记录
         function delNavMenu(id) {
-            var toUrl = "{{url('cms/menu/edit/0')}}";
+            var toUrl = "{{url('cms/menu/edit',['id'=>'NMID'])}}";
+            toUrl = toUrl.replace('NMID',id);
             ToDelItem(id,toUrl,'.tr-menu-'+id);
         }
         $(".btn-search-navMenu").on('click',function () {
@@ -129,7 +130,8 @@
         }
         //根据菜单ID修改菜单信息
         function editNavMenu(id) {
-            var toUrl = "{{url('cms/menu/edit/0')}}"+id;
+            var toUrl = "{{url('cms/menu/edit',['id'=>'NMID'])}}";
+            toUrl = toUrl.replace('NMID',id);
             ToOpenPopups(toUrl,'菜单信息修改');
         }
     </script>

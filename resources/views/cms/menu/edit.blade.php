@@ -21,9 +21,6 @@
                 <img class="layui-upload-img img-upload-view" src="{{$menuData['icon']}}">
             </div>
         </div>
-
-        <input type="hidden" class="post-url" value="{{url('cms/menu/edit/0')}}">
-        <input type="hidden" name="id" value="{{$menuData['id']}}">
         <input type="hidden" name="icon" class="menu-icon" value="{{$menuData['icon']}}">
         <div class="layui-form-item">
             <label class="layui-form-label">父级导航：</label>
@@ -77,7 +74,7 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="editNavMenu()"
+                <button class="layui-btn" type="button" onclick="editNavMenu({{$menuData['id']}})"
                         lay-submit lay-filter="formDemo">提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">放弃</button>
             </div>
@@ -91,9 +88,10 @@
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
         //菜单修改按钮的点击事件
-        function editNavMenu() {
+        function editNavMenu(id) {
             var postData = $(".form-opNavMenu").serialize();
-            var toUrl = $(".post-url").val();
+            var toUrl = "{{url('cms/menu/edit/AID')}}";
+            toUrl = toUrl.replace('AID',id);
             ToPostPopupsDeal(toUrl,postData);
         }
 

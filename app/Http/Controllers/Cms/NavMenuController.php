@@ -77,8 +77,7 @@ class NavMenuController extends Controller
         if ($Tag == 'POST'){
             //TODO 修改对应的菜单
             $input = $request->except('_token');
-            $opID = $input['id'];
-            $tag = $this->menuModel->editNavMenu($opID,$input);
+            $tag = $this->menuModel->editNavMenu($id,$input);
             return showMsg($tag,'修改成功');
         }else{
             return view('cms.menu.edit',[
