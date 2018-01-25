@@ -16,7 +16,7 @@ function ToAjaxOpForPageTodayWords(toUrl,postData) {
                         "<tr class=\"tr-menu-"+e.id+"\">\n" +
                         "                <td>"+e.id+"</td>\n" +
                         "                <td>"+e.from+"</td>\n" +
-                        "                <td class=\"td-menu\"><img class='layui-circle' src='"+e.picture+"'></td>\n" +
+                        "                <td class=\"td-todayWord\"><img class='layui-circle' src='"+e.picture+"'></td>\n" +
                         "                <td>"+e.word+"</td>\n" +
                         "                <td>"+e.created_at +"</td>\n" +
                         "                <td>" +e.status_tip +"</td>\n" +
