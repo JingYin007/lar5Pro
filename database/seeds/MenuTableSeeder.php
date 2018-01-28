@@ -90,5 +90,41 @@ class MenuTableSeeder extends Seeder
         $db->list_order = 0;
         $db->status = 1;
         $db->save();
+
+        $db = new NavMenu();
+        $db->id = 6;
+        $db->name = '管理员';
+        $db->parent_id = 0;
+        $db->action = '';
+        $db->icon = '/cms/images/icon/manage.png';
+        $db->created_at = time();
+        $db->updated_at = time();
+        $db->list_order = 0;
+        $db->status = 1;
+        $db->save();
+
+        $db = new NavMenu();
+        $db->id = 7;
+        $db->name = '管理员列表';
+        $db->parent_id = 6;
+        $db->action = 'cms/admin/index';
+        $db->icon = '/cms/images/icon/admin.png';
+        $db->created_at = time();
+        $db->updated_at = time();
+        $db->list_order = 0;
+        $db->status = 1;
+        $db->save();
+
+        $db = new NavMenu();
+        $db->id = 8;
+        $db->name = '角色列表';
+        $db->parent_id = 6;
+        $db->action = 'cms/adminRole/index';
+        $db->icon = '/cms/images/icon/role.png';
+        $db->created_at = time();
+        $db->updated_at = time();
+        $db->list_order = 0;
+        $db->status = 1;
+        $db->save();
     }
 }

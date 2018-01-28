@@ -53,6 +53,16 @@ Route::namespace('Cms')->prefix('cms')->group( function () {
         Route::any('edit/{id?}', 'ArticleController@edit');
         Route::post('ajaxOpForPage', 'ArticleController@ajaxOpForPage');
     });
+
+    /**
+     * 管理员管理
+     */
+    Route::prefix('admin')->group(function (){
+        Route::any('index','AdminController@index');
+        Route::any('add','AdminController@add');
+        Route::any('edit/{id?}', 'AdminController@edit');
+        Route::post('ajaxOpForPage', 'AdminController@ajaxOpForPage');
+    });
 });
 
 
