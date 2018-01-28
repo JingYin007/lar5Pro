@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
          $this->call(MenuTableSeeder::class);
          $this->call(ArticlePointsTableSeeder::class);
          $this->call(TodayWordsTableSeeder::class);
+         $this->call(AdminTableSeeder::class);
+         $this->call(AdminRoleTableSeeder::class);
     }
 }

@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminRoleTableSeeder' => $baseDir . '/database/seeds/AdminRoleTableSeeder.php',
+    'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Api\\EmailController' => $baseDir . '/app/Http/Controllers/Api/EmailController.php',

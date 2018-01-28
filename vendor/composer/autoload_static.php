@@ -335,6 +335,8 @@ class ComposerStaticInitbdb68b1d40cbf2bd8377d6ec0e68a5bf
     );
 
     public static $classMap = array (
+        'AdminRoleTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminRoleTableSeeder.php',
+        'AdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminTableSeeder.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Api\\EmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/EmailController.php',
