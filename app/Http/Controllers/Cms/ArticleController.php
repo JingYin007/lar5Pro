@@ -34,8 +34,14 @@ class ArticleController extends Controller
         return view('cms.article.index',$data);
     }
     public function add(Request $request){
-
-        return view('cms.article.add');
+        $method = $request->getMethod();
+        if($method == 'POST'){
+            $input = $request->input();
+            $this->model->addArticle($input);
+            return showMsg(1,'文章添加成功');
+        }else{
+            return view('cms.article.add');
+        }
     }
     public function edit(Request $request,$id){
         $method = $request->method();

@@ -67,7 +67,21 @@ class Article extends Model
         return $res;
     }
 
+    /**
+     * 进行新文章的添加操作
+     * @param $data
+     */
+    public function addArticle($data){
+        $this->title = $data['title'];
+        $this->list_order = $data['list_order'];
+        $this->content = $data['content'];
+        $this->user_id = 1;
+        $this->created_at = time();
+        $this->updated_at = time();
+        $this->save();
 
+        $this->articlePointModel->addByAID($data,$this->id);
+    }
 
     public function getPhotos(){
         $res = $this
