@@ -34,4 +34,24 @@ class AdminController extends Controller
                 'page_limit' => $this->page_limit,
             ]);
     }
+
+    /**
+     * @param Request $request
+     * @param $id 标识ID
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Request $request,$id){
+        $method = $request->getMethod();
+        if ($method == 'POST'){
+
+        }else{
+            return view('cms.admin.edit');
+        }
+    }
+
+
+
+
+
+
 }
