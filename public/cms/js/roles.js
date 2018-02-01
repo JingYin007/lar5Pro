@@ -4,7 +4,7 @@
  * @param postData
  * @constructor
  */
-function ToAjaxOpForPageAdmins(toUrl,postData) {
+function ToAjaxOpForPageRoles(toUrl,postData) {
     $.post(
         toUrl,
         postData,
@@ -21,6 +21,8 @@ function ToAjaxOpForPageAdmins(toUrl,postData) {
                         bgStr2 = "green";
                     }else if(tag == 3){
                         bgStr2 = "cyan";
+                    }else if(tag == 4){
+                        bgStr2 = "black";
                     }else {
                         bgStr2 = "blue";
                     }

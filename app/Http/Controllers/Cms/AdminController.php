@@ -20,6 +20,11 @@ class AdminController extends Controller
         $this->page_limit = config('app.CMS_PAGE_SIZE');
     }
 
+    /**
+     * 管理员数据列表
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request){
         $list = $this->model
             ->getadminsForPage(1,$this->page_limit);
@@ -42,7 +47,7 @@ class AdminController extends Controller
      */
     public function add(Request $request){
         $method = $request->getMethod();
-        $adminRoles = $this->ar_model->getAllRoles();
+        $adminRoles = $this->ar_model->getNormalRoles();
         if ($method == 'POST'){
             $input = $request->input();
             $tag = $this->model->addAdmin($input);
@@ -64,7 +69,7 @@ class AdminController extends Controller
      */
     public function edit(Request $request,$id){
         $method = $request->getMethod();
-        $adminRoles = $this->ar_model->getAllRoles();
+        $adminRoles = $this->ar_model->getNormalRoles();
         $adminData = $this->model->getAdminData($id);
         if ($method == 'POST'){
             $input = $request->input();
@@ -78,11 +83,75 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * 分页获取数据
+     * @param Request $request
+     */
     public function ajaxOpForPage(Request $request){
         $curr_page = $request->input('curr_page',1);
         $list = $this->model->getadminsForPage($curr_page,$this->page_limit);
         return showMsg(1,'**',$list);
     }
+
+    /*TODO -------------------------------------角色管理------------------------------*/
+    /**
+     * 读取角色列表
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function role(Request $request){
+        $adminRoles = $this->ar_model->getAllRoles();
+        $method = $request->getMethod();
+        if ($method == 'POST'){
+            var_dump($adminRoles);
+            die;
+        }else{
+            return view('cms.admin.role',[
+                'roles' => $adminRoles
+            ]);
+        }
+    }
+
+    /**
+     * 角色添加功能
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     */
+    public function addRole(Request $request){
+        $method = $request->getMethod();
+        if ($method == 'POST'){
+            $input = $request->input();
+            $tag = $this->ar_model->addRole($input);
+            if ($tag){
+                return showMsg(1,'新角色添加成功');
+            }else{
+                return showMsg(0,'新角色添加失败');
+            }
+        }else{
+            return view('cms.admin.add_role');
+        }
+    }
+
+    public function editRole(Request $request,$id){
+        $method = $request->getMethod();
+        $roleData = $this->ar_model->getRoleData($id);
+        if ($method == 'POST'){
+            $input = $request->input();
+            $tag = $this->ar_model->editRole($id,$input);
+            return showMsg($tag,'角色信息修改成功');
+        }else{
+            return view('cms.admin.edit_Role',[
+                'role' => $roleData,
+            ]);
+        }
+    }
+
+
+
+
+
+
+
 
 
 

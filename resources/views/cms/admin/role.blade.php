@@ -3,15 +3,13 @@
 @section('body-content')
 
     <button class="layui-btn layui-btn-normal"
-            onclick="addAdmins()">
-        <i class="layui-icon" >&#xe608;</i> 添加管理员
+            onclick="addRoles()">
+        <i class="layui-icon" >&#xe608;</i> 添加角色
     </button>
     <div class="layui-inline">
         <div class="layui-input-inline">
-            <form class="form-search" action="{{url('cms/admin/index')}}" method="post">
+            <form class="form-search">
                 <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
-                <input type="hidden" name="record_num" class="record_num" value="<?php echo $record_num; ?>">
-                <input type="hidden" name="page_limit" class="page_limit" value="{{$page_limit}}">
                 <input type="hidden" name="curr_page" class="curr_page" value="1">
             </form>
         </div>
@@ -29,21 +27,19 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>称呼</th>
             <th>角色</th>
             <th>注册时间</th>
             <th>状态</th>
             <th>操作</th>
         </tr>
         </thead>
-        <tbody class="tbody-admins">
-        @foreach($admins as $vo)
-            <tr class="tr-admin-{{$vo['id']}}">
+        <tbody class="tbody-roles">
+        @foreach($roles as $vo)
+            <tr class="tr-role-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
-                <td>{{$vo['user_name']}}</td>
                 <td><span class="layui-badge-dot
                     @php
-                        $tag = intval($vo['role_id'])%5;
+                        $tag = intval($vo['id'])%5;
                         $bgStr = "layui-bg-";
                         if($tag == 1){
                         $bgStr2 = "orange";
@@ -57,7 +53,7 @@
                     echo $bgStr.$bgStr2;
                     @endphp
                             "></span>
-                    &nbsp;&nbsp;{{$vo['role_name']}}</td>
+                    &nbsp;&nbsp;{{$vo['user_name']}}</td>
                 <td>{{$vo['created_at']}}</td>
                 <td>
                     @if($vo['status'] == 1)
@@ -69,11 +65,11 @@
                 <td>
                     <div class="layui-btn-group">
                         <button class="layui-btn layui-btn-sm"
-                                onclick="editAdmin('{{$vo['id']}}')">
+                                onclick="editRole('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                         <button class="layui-btn layui-btn-sm"
-                                onclick="delAdmin('{{$vo['id']}}')">
+                                onclick="delRole('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                     </div>
@@ -82,64 +78,28 @@
         @endforeach
         </tbody>
     </table>
-
-
-    <div id="demo2-1"></div>
-
 @endsection
 
 @section('single-content')
-    <script src="{{asset('cms/js/admins.js')}}"></script>
+    <script src="{{asset('cms/js/roles.js')}}"></script>
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
-        layui.use(['laypage', 'layer'], function() {
-            var laypage = layui.laypage;
-            var page_limit = $(".page_limit").val();
-            var record_num = $(".record_num").val();
-            laypage.render({
-                elem: 'demo2-1'
-                ,limit:page_limit
-                ,count: record_num
-                ,jump: function(obj, first){
-                    //obj包含了当前分页的所有参数
-                    //首次不执行
-                    if(!first){
-                        //layer.msg(obj.curr);
-                        ajaxOpForPage(obj.curr);
-                    }
-                }
-                ,theme: '#FF5722'
-            });
-        });
-    </script>
-    <script>
         //根据菜单ID 删除菜单记录
-        function delAdmin(id) {
-            var toUrl = "{{url('cms/admin/edit',['id'=>'AdminID'])}}";
-            toUrl = toUrl.replace('AdminID',id);
-            ToDelItem(id,toUrl,'.tr-admin-'+id);
-        }
-        $(".btn-search-navMenu").on('click',function () {
-            //var str_search = $(".search_input").val();
-            $(".form-search").submit();
-        });
-        //通过ajax 获取分页数据
-        function ajaxOpForPage(curr_page) {
-            var toUrl = "{{url('cms/admin/ajaxOpForPage')}}";
-            $(".curr_page").val(curr_page);
-            var postData = $(".form-search").serialize();
-            ToAjaxOpForPageAdmins(toUrl,postData);
+        function delRole(id) {
+            var toUrl = "{{url('cms/admin/editRole',['id'=>'RoleID'])}}";
+            toUrl = toUrl.replace('RoleID',id);
+            ToDelItem(id,toUrl,'.tr-role-'+id);
         }
         //添加导航菜单
-        function addAdmins() {
-            var toUrl = "{{url('cms/admin/add')}}";
+        function addRoles() {
+            var toUrl = "{{url('cms/admin/addRole')}}";
             ToOpenPopups(toUrl,'添加管理员');
         }
         //根据菜单ID修改菜单信息
-        function editAdmin(id) {
-            var toUrl = "{{url('cms/admin/edit',['id'=>'AdminID'])}}";
-            toUrl = toUrl.replace('AdminID',id);
-            ToOpenPopups(toUrl,'管理员信息修改');
+        function editRole(id) {
+            var toUrl = "{{url('cms/admin/editRole',['id'=>'RoleID'])}}";
+            toUrl = toUrl.replace('RoleID',id);
+            ToOpenPopups(toUrl,'角色信息修改');
         }
     </script>
 

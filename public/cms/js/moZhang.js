@@ -74,7 +74,7 @@ $(document).ready(function () {
             $(".span-dot").addClass('layui-bg-orange');
             tip = '两次密码输入一致！';
         }else {
-            $(".span-dot").removeClass('layui-bg-orange');
+            $(".span-dot").removeClass('layui-bg-green');
             tip = '两次密码输入不一致！'
         }
        $(".form-opAdmins .tip-pwd").html(tip);

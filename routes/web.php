@@ -62,6 +62,10 @@ Route::namespace('Cms')->prefix('cms')->group( function () {
         Route::any('add','AdminController@add');
         Route::any('edit/{id?}', 'AdminController@edit');
         Route::post('ajaxOpForPage', 'AdminController@ajaxOpForPage');
+
+        Route::any('role','AdminController@role');
+        Route::any('addRole','AdminController@addRole');
+        Route::any('editRole/{id?}', 'AdminController@editRole');
     });
 });
 
