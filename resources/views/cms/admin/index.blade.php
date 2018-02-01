@@ -41,7 +41,25 @@
             <tr class="tr-admin-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
                 <td>{{$vo['user_name']}}</td>
-                <td>{{$vo['role_name']}}</td>
+                <td><span class="layui-badge-dot
+                    @php
+                        $tag = intval($vo['role_id'])%5;
+                        $bgStr = "layui-bg-";
+                        if($tag == 1){
+                        $bgStr2 = "orange";
+                        }elseif ($tag == 2){
+                        $bgStr2 = "green";
+                        }elseif ($tag == 3){
+                        $bgStr2 = "cyan";
+                        }elseif ($tag == 4){
+                        $bgStr2 = "black";
+                        }else{
+                        $bgStr2 = "blue";
+                        }
+                    echo $bgStr.$bgStr2;
+                    @endphp
+                            "></span>
+                    &nbsp;&nbsp;{{$vo['role_name']}}</td>
                 <td>{{$vo['created_at']}}</td>
                 <td>
                     @if($vo['status'] == 1)
