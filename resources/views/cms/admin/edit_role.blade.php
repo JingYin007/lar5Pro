@@ -37,8 +37,8 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="addNewRole()"
-                        lay-submit lay-filter="formDemo">添加</button>
+                <button class="layui-btn" type="button" onclick="editRole({{$role['id']}})"
+                        lay-submit lay-filter="formDemo">提交</button>
                 <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -51,9 +51,10 @@
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
 
-        function addNewRole() {
+        function editRole(id) {
             var postData = $(".form-opRoles").serialize();
-            var toUrl = "{{url('cms/admin/addRole')}}";
+            var toUrl = "{{url('cms/admin/editRole',['id'=>'RoleID'])}}";
+            toUrl = toUrl.replace('RoleID',id);
             ToPostPopupsDeal(toUrl,postData);
         }
     </script>

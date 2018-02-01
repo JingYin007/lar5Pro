@@ -22,6 +22,8 @@ class AdminRole extends Model
     public function getAllRoles(){
         $res = $this
             ->where('status','<>',0)
+            ->orderBy('status','desc')
+            ->orderBy('created_at','desc')
             ->get()->toArray();
         foreach ($res as $key => $v){
             if ($v['status'] == 1){
