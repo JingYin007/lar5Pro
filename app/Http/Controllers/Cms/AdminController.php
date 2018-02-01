@@ -36,10 +36,14 @@ class AdminController extends Controller
     }
     public function add(Request $request){
         $method = $request->getMethod();
+        $adminRoles = $this->ar_model->getAllRoles();
         if ($method == 'POST'){
-
+            //var_dump($request->input());
+            return showMsg(1,'OK');
         }else{
-            return view('cms.admin.add',[]);
+            return view('cms.admin.add',[
+                'adminRoles'=>$adminRoles
+            ]);
         }
     }
 

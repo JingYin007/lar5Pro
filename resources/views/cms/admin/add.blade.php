@@ -45,7 +45,16 @@
 
             </div>
         </div>
-
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色选择：</label>
+            <div class="layui-input-block">
+                <select name="parent_id" lay-verify="required">
+                    @foreach($adminRoles as $vo)
+                        <option value="{{$vo['id']}}">{{$vo['user_name']}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <div class="layui-form-item">
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
