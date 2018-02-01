@@ -69,9 +69,10 @@ class TodayWordsController extends Controller
             $tag = $this->model->editTodayWord($opID,$input);
             return showMsg($tag,'修改成功');
         }else{
-            return view('cms.todayWords.edit',[
-                'todayWordData' => $todayWordData
-            ]);
+            return view('cms.todayWords.edit',
+                [
+                    'todayWordData' => $todayWordData
+                ]);
         }
     }
 

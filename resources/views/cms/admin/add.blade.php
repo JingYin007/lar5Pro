@@ -1,30 +1,50 @@
 @extends('cms.layouts.cms')
 @section('body-content')
-    <form class="layui-form form-opTodayWords layui-form-pane">
+    <form class="layui-form form-opAdmins layui-form-pane">
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
-            <label class="layui-form-label">赠言出处：</label>
+            <label class="layui-form-label">管理昵称：</label>
             <div class="layui-input-inline">
-                <input type="text" name="from" required lay-verify="required"
-                       placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="user_name" required lay-verify="required"
+                       placeholder="请输入昵称" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">请十个字以内</div>
         </div>
-
-
         <div class="layui-form-item">
-            <label class="layui-form-label">代表图片：</label>
+            <label class="layui-form-label">个性头像：</label>
             <div class="layui-upload layui-input-inline">
                 <button type="button" name="img_upload" class="layui-btn btn_upload_img">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
                 <img class="layui-upload-img img-upload-view layui-circle"
-                     src="{{asset('cms/images/icon/nav_default.png')}}">
+                     src="{{asset('cms/images/user.jpg')}}">
             </div>
         </div>
-
         <input type="hidden" name="picture" class="menu-icon"
-               value="{{asset('cms/images/icon/nav_default.png')}}">
+               value="{{asset('cms/images/user.jpg')}}">
+
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">设置密码：</label>
+            <div class="layui-input-inline">
+                <input type="password" name="password" required lay-verify="required"
+                       placeholder="请输入密码" autocomplete="off" class="layui-input input-pwd">
+            </div>
+            <div class="layui-form-mid layui-word-aux">尽量字母、数字拼套</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认密码：</label>
+            <div class="layui-input-inline">
+                <input type="password" required lay-verify="required"
+                       placeholder="请确认密码" autocomplete="off" class="layui-input input-pwd-re">
+            </div>
+            <span class="layui-badge-dot span-dot"></span>
+            <div class="div-tip layui-form-mid">
+                <span class="layui-badge tip-pwd span-dot">此处还要确认密码呦！</span>
+
+            </div>
+        </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">状态</label>
@@ -35,16 +55,16 @@
         </div>
 
         <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">精选内容：</label>
+            <label class="layui-form-label">备注信息：</label>
             <div class="layui-input-block">
-                <textarea placeholder="请输入内容" name="word" required
+                <textarea placeholder="请输入内容" name="content" required
                           lay-verify="required" class="layui-textarea"></textarea>
             </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="addNewTodayWord()"
+                <button class="layui-btn" type="button" onclick="addNewAdmin()"
                         lay-submit lay-filter="formDemo">添加</button>
                 <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
             </div>
@@ -54,13 +74,13 @@
 @endsection
 
 @section('single-content')
-    <script src="{{asset('cms/js/today_words.js')}}"></script>
+    <script src="{{asset('cms/js/admins.js')}}"></script>
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
 
-        function addNewTodayWord() {
-            var postData = $(".form-opTodayWords").serialize();
-            var toUrl = "{{url('cms/todayWords/add')}}";
+        function addNewAdmin() {
+            var postData = $(".form-opAdmins").serialize();
+            var toUrl = "{{url('cms/admin/add')}}";
             ToPostPopupsDeal(toUrl,postData);
         }
 

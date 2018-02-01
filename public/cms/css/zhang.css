@@ -96,6 +96,7 @@
 }
 .form-opNavMenu .div-form-op,
 .form-opTodayWords .div-form-op,
+.form-opAdmins .div-form-op,
 .form-opArticle .div-form-op{
     margin-right: 10px;
     float: right;
@@ -108,8 +109,9 @@
 .layui-inline .btn-search-navMenu:hover{
     background-color: #00aa00;
 }
-.form-opTodayWords .img-upload-view{
+.form-opTodayWords .img-upload-view,.form-opAdmins .img-upload-view{
     width: 100px;
+    height: 100px;
     margin: -25px 0px 2px 150px;
 }
 .form-opArticle .article-title{
@@ -144,4 +146,7 @@
 .td-article img:hover{
     position:relative;
     z-index:100;
+}
+.tbody-navMenus .td-menu img{
+    width: 50px;
 }

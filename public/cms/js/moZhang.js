@@ -66,6 +66,19 @@ $(document).ready(function () {
     });
 
 
+    $(".form-opAdmins .input-pwd-re").blur(function () {
+        var pwd = $(".form-opAdmins .input-pwd").val();
+        var pwd_re = $(".form-opAdmins .input-pwd-re").val();
+        var tip = '';
+        if ( pwd!='' && (pwd == pwd_re)){
+            $(".span-dot").addClass('layui-bg-orange');
+            tip = '两次密码输入一致！';
+        }else {
+            $(".span-dot").removeClass('layui-bg-orange');
+            tip = '两次密码输入不一致！'
+        }
+       $(".form-opAdmins .tip-pwd").html(tip);
+    });
 
 
 

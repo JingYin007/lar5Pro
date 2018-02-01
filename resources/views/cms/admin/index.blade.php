@@ -20,11 +20,10 @@
     <table class="layui-table table-body" lay-even="" lay-skin="row">
         <colgroup>
             <col width="5%">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
             <col width="15%">
-            <col width="10%">
-            <col width="45%">
-            <col width="10%">
-            <col width="5%">
             <col width="15%">
         </colgroup>
         <thead>
@@ -37,9 +36,9 @@
             <th>操作</th>
         </tr>
         </thead>
-        <tbody class="tbody-todayWords">
-        @foreach($menus as $vo)
-            <tr class="tr-menu-{{$vo['id']}}">
+        <tbody class="tbody-admins">
+        @foreach($admins as $vo)
+            <tr class="tr-admin-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
                 <td>{{$vo['user_name']}}</td>
                 <td>{{$vo['role_name']}}</td>
@@ -54,11 +53,11 @@
                 <td>
                     <div class="layui-btn-group">
                         <button class="layui-btn layui-btn-sm"
-                                onclick="editTodayWord('{{$vo['id']}}')">
+                                onclick="editAdmin('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                         <button class="layui-btn layui-btn-sm"
-                                onclick="delTodayWord('{{$vo['id']}}')">
+                                onclick="delAdmin('{{$vo['id']}}')">
                             <i class="layui-icon"></i>
                         </button>
                     </div>
@@ -99,9 +98,10 @@
     </script>
     <script>
         //根据菜单ID 删除菜单记录
-        function delTodayWord(id) {
-            var toUrl = "{{url('cms/todayWords/edit/0')}}";
-            ToDelItem(id,toUrl,'.tr-menu-'+id);
+        function delAdmin(id) {
+            var toUrl = "{{url('cms/admin/edit',['id'=>'AdminID'])}}";
+            toUrl = toUrl.replace('AdminID',id);
+            ToDelItem(id,toUrl,'.tr-admin-'+id);
         }
         $(".btn-search-navMenu").on('click',function () {
             //var str_search = $(".search_input").val();
@@ -115,14 +115,15 @@
             ToAjaxOpForPageTodayWords(toUrl,postData);
         }
         //添加导航菜单
-        function addTodayWords() {
-            var toUrl = "{{url('cms/todayWords/add')}}";
-            ToOpenPopups(toUrl,'添加今日赠言');
+        function addAdmins() {
+            var toUrl = "{{url('cms/admin/add')}}";
+            ToOpenPopups(toUrl,'添加管理员');
         }
         //根据菜单ID修改菜单信息
-        function editTodayWord(id) {
-            var toUrl = "{{url('cms/todayWords/edit/0')}}"+id;
-            ToOpenPopups(toUrl,'今日赠言修改');
+        function editAdmin(id) {
+            var toUrl = "{{url('cms/admin/edit',['id'=>'AdminID'])}}";
+            toUrl = toUrl.replace('AdminID',id);
+            ToOpenPopups(toUrl,'管理员信息修改');
         }
     </script>
 

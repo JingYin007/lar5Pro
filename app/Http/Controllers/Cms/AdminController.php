@@ -28,11 +28,19 @@ class AdminController extends Controller
 
         return view('cms.admin.index',
             [
-                'menus' => $list,
+                'admins' => $list,
                 'search' => $search,
                 'record_num' => $record_num,
                 'page_limit' => $this->page_limit,
             ]);
+    }
+    public function add(Request $request){
+        $method = $request->getMethod();
+        if ($method == 'POST'){
+
+        }else{
+            return view('cms.admin.add',[]);
+        }
     }
 
     /**
