@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\model\Admin;
 use App\model\AdminRole;
+use App\model\NavMenu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,11 +13,13 @@ class AdminController extends Controller
     //
     private $model;
     private $ar_model;
+    private $menuModel;
     private $page_limit;
     public function __construct()
     {
         $this->model = new Admin();
         $this->ar_model = new AdminRole();
+        $this->menuModel = new NavMenu();
         $this->page_limit = config('app.CMS_PAGE_SIZE');
     }
 
@@ -100,16 +103,12 @@ class AdminController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function role(Request $request){
-        $adminRoles = $this->ar_model->getAllRoles();
         $method = $request->getMethod();
-        if ($method == 'POST'){
-            var_dump($adminRoles);
-            die;
-        }else{
-            return view('cms.admin.role',[
-                'roles' => $adminRoles
-            ]);
-        }
+        $adminRoles = $this->ar_model->getAllRoles();
+        return view('cms.admin.role',[
+            'roles' => $adminRoles
+        ]);
+
     }
 
     /**
@@ -128,7 +127,12 @@ class AdminController extends Controller
                 return showMsg(0,'新角色添加失败');
             }
         }else{
-            return view('cms.admin.add_role');
+            //TODO 获取所有课分配的权限菜单
+            $viewMenus = $this->menuModel->getNavMenusShow();
+            //var_dump($viewMenus);
+            return view('cms.admin.add_role',[
+                'menus'=>$viewMenus,
+            ]);
         }
     }
 
