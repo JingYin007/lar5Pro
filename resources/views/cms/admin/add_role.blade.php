@@ -23,29 +23,28 @@
         <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">权限分配：</label>
             <div class="layui-input-block">
-                <textarea placeholder="请输入内容" name="nav_menu_ids" required
-                          lay-verify="required" class="layui-textarea"></textarea>
+                <table class="layui-table table-nav-menus">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    @foreach($menus as $vo)
+                        <tr>
+                            @foreach($vo['child'] as $voi)
+                                <td><input type="checkbox" name="" title="{{$voi['name']}}"></td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+
+
+                    </tbody>
+                </table>
             </div>
 
-            <table class="layui-table table-nav-menus">
-                <colgroup>
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col>
-                </colgroup>
-                <tbody>
-                @foreach($menus as $vo)
-                    <tr>
-                        @foreach($vo['child'] as $voi)
-                            <td><input type="checkbox" name="" title="{{$voi['name']}}"></td>
-                        @endforeach
-                    </tr>
-                @endforeach
 
-
-                </tbody>
-            </table>
 
 
         </div>

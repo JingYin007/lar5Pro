@@ -119,7 +119,7 @@ class MenuTableSeeder extends Seeder
         $db->id = 8;
         $db->name = '角色列表';
         $db->parent_id = 6;
-        $db->action = 'cms/adminRole/index';
+        $db->action = 'cms/admin/role';
         $db->icon = '/cms/images/icon/role.png';
         $db->created_at = time();
         $db->updated_at = time();
