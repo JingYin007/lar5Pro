@@ -73,7 +73,7 @@
 @endsection
 
 @section('single-content')
-    <script src="{{asset('cms/js/today_words.js')}}"></script>
+    <script src="{{asset('cms/js/admins.js')}}"></script>
     <script src="{{asset('cms/js/moZhang.js')}}"></script>
     <script>
         layui.use(['laypage', 'layer'], function() {
@@ -109,10 +109,10 @@
         });
         //通过ajax 获取分页数据
         function ajaxOpForPage(curr_page) {
-            var toUrl = "{{url('cms/todayWords/ajaxOpForPage')}}";
+            var toUrl = "{{url('cms/admin/ajaxOpForPage')}}";
             $(".curr_page").val(curr_page);
             var postData = $(".form-search").serialize();
-            ToAjaxOpForPageTodayWords(toUrl,postData);
+            ToAjaxOpForPageAdmins(toUrl,postData);
         }
         //添加导航菜单
         function addAdmins() {

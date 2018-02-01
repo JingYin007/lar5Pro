@@ -4,7 +4,7 @@
  * @param postData
  * @constructor
  */
-function ToAjaxOpForPageTodayWords(toUrl,postData) {
+function ToAjaxOpForPageAdmins(toUrl,postData) {
     $.post(
         toUrl,
         postData,
@@ -13,28 +13,27 @@ function ToAjaxOpForPageTodayWords(toUrl,postData) {
                 var str_html = '';
                 $.each(result.data,function (i,e) {
                     str_html +=
-                        "<tr class=\"tr-menu-"+e.id+"\">\n" +
+                        "<tr class=\"tr-admin-"+e.id+"\">\n" +
                         "                <td>"+e.id+"</td>\n" +
-                        "                <td>"+e.from+"</td>\n" +
-                        "                <td class=\"td-todayWord\"><img class='layui-circle' src='"+e.picture+"'></td>\n" +
-                        "                <td>"+e.word+"</td>\n" +
+                        "                <td>"+e.user_name+"</td>\n" +
+                        "                <td>"+e.role_name+"</td>\n" +
                         "                <td>"+e.created_at +"</td>\n" +
                         "                <td>" +e.status_tip +"</td>\n" +
                         "                <td>\n" +
                         "                    <div class=\"layui-btn-group\">\n" +
                         "                        <button class=\"layui-btn layui-btn-sm\"\n" +
-                        "                                onclick=\"editTodayWord('"+e.id+"')\">\n" +
+                        "                                onclick=\"editAdmin('"+e.id+"')\">\n" +
                         "                            <i class=\"layui-icon\"></i>\n" +
                         "                        </button>\n" +
                         "                        <button class=\"layui-btn layui-btn-sm\"\n" +
-                        "                                onclick=\"delTodayWord('"+e.id+"')\">\n" +
+                        "                                onclick=\"delAdmin('"+e.id+"')\">\n" +
                         "                            <i class=\"layui-icon\"></i>\n" +
                         "                        </button>\n" +
                         "                    </div>\n" +
                         "                </td>\n" +
                         "            </tr>";
                 });
-                $(".tbody-todayWords").html(str_html);
+                $(".tbody-admins").html(str_html);
             }else{
                 //失败
                 layer.msg(result.message);

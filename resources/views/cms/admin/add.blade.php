@@ -17,11 +17,11 @@
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
                 <img class="layui-upload-img img-upload-view layui-circle"
-                     src="{{asset('cms/images/user.jpg')}}">
+                     src="{{asset('cms/images/user.png')}}">
             </div>
         </div>
         <input type="hidden" name="picture" class="menu-icon"
-               value="{{asset('cms/images/user.jpg')}}">
+               value="{{asset('cms/images/user.png')}}">
 
 
 
@@ -48,7 +48,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">角色选择：</label>
             <div class="layui-input-block">
-                <select name="parent_id" lay-verify="required">
+                <select name="role_id" lay-verify="required">
                     @foreach($adminRoles as $vo)
                         <option value="{{$vo['id']}}">{{$vo['user_name']}}</option>
                     @endforeach

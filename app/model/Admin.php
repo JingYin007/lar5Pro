@@ -26,6 +26,10 @@ class Admin extends Model
         return $res;
     }
 
+    /**
+     * 获取后台可显示管理员用户的数目
+     * @return mixed
+     */
     public function getAdminsCount(){
         $res = $this
             ->select('*')
@@ -33,4 +37,77 @@ class Admin extends Model
             ->count();
         return $res;
     }
+
+    public function getAdminData($id){
+        $res = $this
+            ->select('admins.*','ar.user_name as role_name')
+            ->join('admin_roles as ar','ar.id','=','admins.role_id')
+            ->where('admins.id',$id)
+            ->first()->toArray();
+        return $res;
+    }
+
+    public function addAdmin($input){
+        $sameTag = $this->chkSameUserName($input['user_name']);
+        if ($sameTag){
+            return showMsg(0,'此昵称已被占用，请换一个！');
+        }else{
+            $this->user_name = $input['user_name'];
+            $this->picture = $input['picture'];
+            $this->password = md5(base64_encode($input['password']));
+            $this->created_at = time();
+            $this->updated_at = time();
+            $this->role_id = $input['role_id'];
+            $this->status = $input['status'];
+            $this->content = $input['content'];
+            $this->save();
+            return $this->id;
+        }
+    }
+
+    public function editAdmin($id,$input){
+        $opTag = isset($input['tag']) ? $input['tag']:'edit';
+        if ($opTag == 'del'){
+            $tag = $this
+                ->where('id',$id)
+                ->update(['status' => -1]);
+        }else{
+            $sameTag = $this->chkSameUserName($input['user_name'],$id);
+            if ($sameTag){
+                return showMsg(0,'此昵称已被占用，请换一个！');
+            }else{
+                $saveData = [
+                    'user_name' => $input['user_name'],
+                    'picture' => $input['picture'],
+                    'role_id' => $input['role_id'],
+                    'status' => $input['status'],
+                    'content' => $input['content'],
+                ];
+                //TODO 如果输入了新密码
+                if ($input['password']){
+                    $saveData['password'] = md5(base64_encode($input['password']));
+                }
+                $tag = $this
+                    ->where('id',$id)
+                    ->update($saveData);
+            }
+        }
+        return $tag;
+    }
+
+    /**
+     * 判断当前数据库中是否有重名的管理员
+     * @param $user_name
+     * @param int $id
+     * @return mixed
+     */
+    public function chkSameUserName($user_name,$id = 0){
+        $tag = $this
+            ->select('user_name')
+            ->where('user_name',$user_name)
+            ->where('id','<>',$id)
+            ->first();
+        return $tag;
+    }
+
 }

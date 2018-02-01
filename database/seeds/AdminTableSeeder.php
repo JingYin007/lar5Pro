@@ -17,6 +17,7 @@ class AdminTableSeeder extends Seeder
         $db = new Admin();
         $db->id = 1;
         $db->user_name = '百里守约';
+        $db->picture = '/cms/images/user.png';
         $db->password = md5(base64_encode('123456'));
         $db->role_id = 1;
         $db->created_at = time();
@@ -27,6 +28,7 @@ class AdminTableSeeder extends Seeder
         $db = new Admin();
         $db->id = 2;
         $db->user_name = '百里玄策';
+        $db->picture = '/cms/images/user.png';
         $db->password = md5(base64_encode('123456'));
         $db->role_id = 2;
         $db->created_at = time();

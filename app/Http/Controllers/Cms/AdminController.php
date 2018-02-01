@@ -34,19 +34,29 @@ class AdminController extends Controller
                 'page_limit' => $this->page_limit,
             ]);
     }
+
+    /**
+     * 添加新用户
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     */
     public function add(Request $request){
         $method = $request->getMethod();
         $adminRoles = $this->ar_model->getAllRoles();
         if ($method == 'POST'){
-            //var_dump($request->input());
-            return showMsg(1,'OK');
+            $input = $request->input();
+            $tag = $this->model->addAdmin($input);
+            if (is_numeric($tag) && $tag > 0){
+                return showMsg(1,'新用户添加成功');
+            }else{
+                return showMsg(0,'Sorry,新用户添加失败');
+            }
         }else{
             return view('cms.admin.add',[
                 'adminRoles'=>$adminRoles
             ]);
         }
     }
-
     /**
      * @param Request $request
      * @param $id 标识ID
@@ -54,13 +64,25 @@ class AdminController extends Controller
      */
     public function edit(Request $request,$id){
         $method = $request->getMethod();
+        $adminRoles = $this->ar_model->getAllRoles();
+        $adminData = $this->model->getAdminData($id);
         if ($method == 'POST'){
-
+            $input = $request->input();
+            $tag = $this->model->editAdmin($id,$input);
+            return showMsg($tag,'用户信息修改成功');
         }else{
-            return view('cms.admin.edit');
+            return view('cms.admin.edit',[
+                'admin' => $adminData,
+                'adminRoles' => $adminRoles
+            ]);
         }
     }
 
+    public function ajaxOpForPage(Request $request){
+        $curr_page = $request->input('curr_page',1);
+        $list = $this->model->getadminsForPage($curr_page,$this->page_limit);
+        return showMsg(1,'**',$list);
+    }
 
 
 

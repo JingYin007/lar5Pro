@@ -52,7 +52,7 @@
             </li>
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="{{asset('cms/images/user.jpg')}}" class="layui-nav-img">
+                    <img src="{{asset('cms/images/user.png')}}" class="layui-nav-img">
                     moTzxx
                 </a>
                 <dl class="layui-nav-child">
@@ -71,7 +71,7 @@
         <div class="layui-side-scroll">
             <div class="user-info">
                 <div class="photo-view">
-                    <img src="{{asset('cms/images/user.jpg')}}">
+                    <img src="{{asset('cms/images/user.png')}}">
                 </div>
                 <p>moTzxx 您好，欢迎登录！</p>
             </div>
