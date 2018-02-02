@@ -151,3 +151,10 @@
 .tbody-navMenus .td-menu img{
     width: 50px;
 }
+.table-nav-menus .td-menu-parent{
+    text-align: center;
+    vertical-align:middle;
+}
+.td-menu-parent .layui-form-switch{
+    margin-left: 0px;
+}
