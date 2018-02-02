@@ -80,12 +80,15 @@
         //父级菜单的选择
         $(".table-nav-menus .td-menu-parent").click(function () {
             //判断当前是否选中状态
-            var tag = $(this).children("input[type='checkbox']").is(':checked')
+            var tag = $(this).children("input[type='checkbox']").is(':checked');
+            layer.msg(tag);
             if(!tag){
                 //TODO 此时为未选中状态
                 $(this).next().children(".layui-form-checkbox").removeClass("layui-form-checked");
+                $(this).next().children(".cb-nav-menu").attr('checked','');
             }else {
                 $(this).next().children(".layui-form-checkbox").addClass("layui-form-checked");
+                $(this).next().children(".cb-nav-menu").attr('checked','checked');
             }
         });
         /**
