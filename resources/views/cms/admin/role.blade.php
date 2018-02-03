@@ -93,7 +93,7 @@
         //添加导航菜单
         function addRoles() {
             var toUrl = "{{url('cms/admin/addRole')}}";
-            ToOpenPopups(toUrl,'添加管理员');
+            ToOpenPopups(toUrl,'添加新角色');
         }
         //根据菜单ID修改菜单信息
         function editRole(id) {

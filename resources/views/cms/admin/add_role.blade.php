@@ -26,7 +26,7 @@
             <div class="layui-input-block">
                 <table class="layui-table table-nav-menus">
                     <colgroup>
-                        <col width="10%">
+                        <col width="20%">
                         <col>
                     </colgroup>
                     <tbody>

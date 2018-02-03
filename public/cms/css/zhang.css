@@ -152,9 +152,12 @@
     width: 50px;
 }
 .table-nav-menus .td-menu-parent{
-    text-align: center;
+    text-align: right;
     vertical-align:middle;
 }
 .td-menu-parent .layui-form-switch{
     margin-left: 0px;
+}
+.td-menu-parent{
+
 }
