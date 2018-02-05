@@ -28,11 +28,48 @@
         </div>
 
         <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">备注信息：</label>
+
+            <label class="layui-form-label">权限分配：</label>
+            <input type="hidden" name="nav_menu_ids" class="nav_menu_ids" value="{{$role['nav_menu_ids']}}">
             <div class="layui-input-block">
-                <textarea placeholder="请输入内容" name="nav_menu_ids" required
-                          lay-verify="required" class="layui-textarea">{{$role['nav_menu_ids']}}</textarea>
+                <table class="layui-table table-nav-menus">
+                    <colgroup>
+                        <col width="12%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    @foreach($menus as $vo)
+                        <tr>
+                            <td class="td-menu-parent td-nav-menu">
+                                <p>{{$vo['name']}}</p>
+                                <input type="checkbox" class="cb-nav-menu" value="{{$vo['id']}}"
+                                       lay-skin="switch" lay-text="ON|OFF"
+                                        @php
+                                            if(in_array($vo['id'],$menuSelf))
+                                            {
+                                                echo " checked";
+                                            }
+                                        @endphp
+                                >
+                            </td>
+                            <td class="td-menu-child td-nav-menu">
+                                @foreach($vo['child'] as $voi)
+                                    <input type="checkbox" class="cb-nav-menu" value="{{$voi['id']}}"
+                                           title="{{$voi['name']}}"
+                                            @php
+                                                if(in_array($voi['id'],$menuSelf)){
+                                                    echo " checked";
+                                                }
+                                            @endphp
+                                    >
+                                @endforeach
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
+
         </div>
 
         <div class="layui-form-item">
@@ -52,6 +89,7 @@
     <script>
 
         function editRole(id) {
+            dealSelNavMenuIDs();
             var postData = $(".form-opRoles").serialize();
             var toUrl = "{{url('cms/admin/editRole',['id'=>'RoleID'])}}";
             toUrl = toUrl.replace('RoleID',id);

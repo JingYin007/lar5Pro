@@ -26,7 +26,7 @@
             <div class="layui-input-block">
                 <table class="layui-table table-nav-menus">
                     <colgroup>
-                        <col width="20%">
+                        <col width="12%">
                         <col>
                     </colgroup>
                     <tbody>
@@ -67,10 +67,10 @@
          * 添加新角色
          */
         function addNewRole() {
-            getNavmenuIDs();
+            dealSelNavMenuIDs();
             var postData = $(".form-opRoles").serialize();
             var toUrl = "{{url('cms/admin/addRole')}}";
-            //ToPostPopupsDeal(toUrl,postData);
+            ToPostPopupsDeal(toUrl,postData);
         }
     </script>
 @endsection

@@ -68,7 +68,6 @@ $(".table-nav-menus .td-menu-parent").click(function () {
         //TODO 此时为选中状态
         $(this).next().children(".layui-form-checkbox").addClass("layui-form-checked");
         var cb_menu = $(this).next().children(".cb-nav-menu");
-
         for (var i = 0; i < cb_menu.length; i++) {cb_menu[i].checked = true;}
         $(this).next().children(".cb-nav-menu").attr('disabled',false);
     }else {
@@ -82,12 +81,11 @@ $(".table-nav-menus .td-menu-parent").click(function () {
 /**
  * 获取所有被选中的导航菜单
  */
-function getNavmenuIDs() {
+function dealSelNavMenuIDs() {
     var navmenuIDs = "";
     $(".table-nav-menus input[type='checkbox']:checked").each(function(i)
     {
-        navmenuIDs += $(this).val()+",";
+        navmenuIDs += $(this).val()+"|";
     });
     $(".nav_menu_ids").val(navmenuIDs);
-    layer.msg(navmenuIDs);
 }
