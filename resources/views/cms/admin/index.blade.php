@@ -21,15 +21,17 @@
         <colgroup>
             <col width="5%">
             <col width="20%">
+            <col width="10%">
             <col width="20%">
             <col width="20%">
-            <col width="15%">
+            <col width="10%">
             <col width="15%">
         </colgroup>
         <thead>
         <tr>
             <th>ID</th>
             <th>称呼</th>
+            <th>头像</th>
             <th>角色</th>
             <th>注册时间</th>
             <th>状态</th>
@@ -41,6 +43,9 @@
             <tr class="tr-admin-{{$vo['id']}}">
                 <td>{{$vo['id']}}</td>
                 <td>{{$vo['user_name']}}</td>
+                <td class="td-admin">
+                    <img src="{{$vo['picture']}}" class="layui-circle">
+                </td>
                 <td><span class="layui-badge-dot
                     @php
                         $tag = intval($vo['role_id'])%5;
