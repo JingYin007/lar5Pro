@@ -109,5 +109,25 @@ class Admin extends Model
             ->first();
         return $tag;
     }
+    public function getAdminNavMenus($id = 1){
+        $res = $this
+            ->select('ar.nav_menu_ids')
+            ->join('admin_roles as ar','ar.id','admins.role_id')
+            ->where('admins.id',$id)
+            ->first();
+        return $res->nav_menu_ids;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

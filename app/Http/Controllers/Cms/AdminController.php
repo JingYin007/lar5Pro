@@ -128,7 +128,7 @@ class AdminController extends Controller
             }
         }else{
             //TODO 获取所有可以分配的权限菜单
-            $viewMenus = $this->menuModel->getNavMenusShow();
+            $viewMenus = $this->menuModel->getNavMenus();
             return view('cms.admin.add_role',[
                 'menus'=>$viewMenus,
             ]);
@@ -144,7 +144,7 @@ class AdminController extends Controller
             return showMsg($tag,'角色信息修改成功');
         }else{
             //TODO 获取所有可以分配的权限菜单
-            $viewMenus = $this->menuModel->getNavMenusShow();
+            $viewMenus = $this->menuModel->getNavMenus();
             $arrMenuSelf = explode('|',$roleData['nav_menu_ids']);
             return view('cms.admin.edit_Role',[
                 'role' => $roleData,

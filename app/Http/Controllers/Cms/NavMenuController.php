@@ -52,7 +52,7 @@ class NavMenuController extends Controller
      */
     public function add(Request $request){
         $Tag = $request->getMethod();
-        $rootMenus = $this->menuModel->getNavMenusShow();
+        $rootMenus = $this->menuModel->getNavMenus();
         if ($Tag == 'POST'){
             $input = $request->except('_token');
             $this->menuModel->addNavMenu($input);
@@ -72,7 +72,7 @@ class NavMenuController extends Controller
      */
     public function edit(Request $request,$id){
         $Tag = $request->getMethod();
-        $rootMenus = $this->menuModel->getNavMenusShow();
+        $rootMenus = $this->menuModel->getNavMenus();
         $menuData = $this->menuModel->getNavMenuByID($id);
         if ($Tag == 'POST'){
             //TODO 修改对应的菜单

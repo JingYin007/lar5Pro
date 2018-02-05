@@ -7,11 +7,17 @@ use Illuminate\Support\Facades\DB;
 
 class NavMenu extends Model
 {
+    private $adminModel;
+    public function __construct()
+    {
+        $this->adminModel = new Admin();
+    }
+
     /**
-     * 获取当前管理员权限下的 导航菜单
+     * 获取所有正常状态的菜单列表
      * @return mixed
      */
-    public function getNavMenusShow(){
+    public function getNavMenus(){
         $res = $this
             ->select('*')
             ->where('id','>',0)
@@ -34,6 +40,57 @@ class NavMenu extends Model
     }
 
     /**
+     * 获取当前管理员权限下的 导航菜单
+     * @return mixed
+     */
+    public function getNavMenusShow(){
+
+        $str = $this
+            ->adminModel
+            ->getAdminNavMenus(1);
+
+        $arr = explode('|',$str);
+        $res = $this
+            ->select('*')
+            ->where('id','>',0)
+            ->where('parent_id',0)
+            ->where('status',1)
+            ->orderBy('list_order','desc')
+            ->get()
+            ->toArray();
+        $res = $this->deal($res,$arr);
+        return $res;
+    }
+
+    public function deal($res,$arr){
+        foreach ($res as $key => $value){
+            $parent_id = $value['id'];
+            if (!in_array($parent_id,$arr)){
+                unset($res[$key]);
+            }else{
+                $childRes = $this
+                    ->where('parent_id',$parent_id)
+                    ->where('status',1)
+                    ->orderBy('list_order','desc')
+                    ->get()
+                    ->toArray();
+                $childRes = $this->deal2($childRes,$arr);
+                $res[$key]['child'] = $childRes;
+            }
+        }
+        return $res;
+    }
+
+    public function deal2($res,$arr){
+        foreach ($res as $key => $value){
+            $parent_id = $value['id'];
+            if (!in_array($parent_id,$arr)){
+                unset($res[$key]);
+            }
+        }
+        return $res;
+    }
+    /**
      * 获取全部可修改状态的 导航菜单数据
      * @param null $id 导航菜单 ID 标识
      * @return mixed
@@ -48,6 +105,11 @@ class NavMenu extends Model
         return $res->toArray();
     }
 
+    /**
+     * 获取导航菜单的数目
+     * @param null $search
+     * @return mixed
+     */
     public function getNavMenusCount($search = null){
         if ($search){
             //如果有查询限制
@@ -72,6 +134,14 @@ class NavMenu extends Model
         }
         return $res;
     }
+
+    /**
+     * 按页 获取菜单数据
+     * @param $curr_page
+     * @param $limit
+     * @param null $search
+     * @return mixed
+     */
     public function getNavMenusForPage($curr_page,$limit,$search = null){
         $res = $this
             ->select('*')
@@ -97,6 +167,10 @@ class NavMenu extends Model
         return $res;
     }
 
+    /**
+     * 添加新的导航菜单
+     * @param $data
+     */
     public function addNavMenu($data){
         $this->name = $data['name'];
         $this->parent_id = $data['parent_id'];
@@ -109,6 +183,12 @@ class NavMenu extends Model
         $this->save();
     }
 
+    /**
+     * 编辑惨淡内容
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
     public function editNavMenu($id,$data){
         $opTag = isset($data['tag']) ? $data['tag']:'edit';
         if($opTag == 'del'){
