@@ -25,35 +25,30 @@
             </li>
             <li class="layui-nav-item"><a href="">控制台</a></li>
             <li class="layui-nav-item">
-                <a href="">消息<span class="layui-badge">9</span></a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
-                </dl>
+                <a href="javascript:;">
+                    <img class="nav-icon" src="{{asset('cms/images/icon/cms_tip.png')}}">
+                    消息<span class="layui-badge">9</span></a>
             </li>
 
 
         </ul>
 
         <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item nav_weather">
+                <!-- 天气信息 -->
+                @include('layouts.weather')
+            </li>
             <li class="layui-nav-item" id="FullScreen">
-                <img class="img-FullScreen" src="{{asset('cms/images/icon/fullscreen.png')}}">
+                <img class="nav-icon" src="{{asset('cms/images/icon/fullscreen.png')}}">
                 <span>&nbsp;全屏</span>
             </li>
             <li class="layui-nav-item lockcms" id="LockScreen">
                 <a href="javascript:;">
-                    <img class="img-LockScreen" src="{{asset('cms/images/icon/lockScreen.png')}}">
+                    <img class="nav-icon" src="{{asset('cms/images/icon/lockScreen.png')}}">
                     <span>锁屏</span>
                 </a>
             </li>
-            <li class="layui-nav-item">
-                <!-- 天气信息 -->
-                @include('layouts.weather')
-            </li>
+
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="{{asset('cms/images/user.png')}}" class="layui-nav-img">
@@ -62,24 +57,19 @@
                 <dl class="layui-nav-child">
                     <dd>
                         <a href="">
-                            <img class="img-FullScreen" src="{{asset('cms/images/icon/cms_user.png')}}">
+                            <img class="nav-icon" src="{{asset('cms/images/icon/cms_user.png')}}">
                             基本资料
                         </a>
                     </dd>
                     <dd>
                         <a href="">
-                            消息<span class="layui-badge">9</span>
-                        </a>
-                    </dd>
-                    <dd>
-                        <a href="">
-                            <img class="img-FullScreen" src="{{asset('cms/images/icon/cms_secure.png')}}">
+                            <img class="nav-icon" src="{{asset('cms/images/icon/cms_secure.png')}}">
                             安全设置
                         </a>
                     </dd>
                     <dd>
                         <a href="">
-                            <img class="img-FullScreen" src="{{asset('cms/images/icon/cms_exit.png')}}">
+                            <img class="nav-icon" src="{{asset('cms/images/icon/cms_exit.png')}}">
                             退出
                         </a>
                     </dd>

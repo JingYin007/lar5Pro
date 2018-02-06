@@ -57,11 +57,14 @@
     color: white;
     font-weight: 600;
 }
-.layui-nav-item .img-FullScreen,
-.layui-nav-item .img-LockScreen
-{
+
+.layui-nav-item .nav-icon{
     width: 25px;
     height: 25px;
+}
+.layui-nav-item .layui-nav-child .nav-icon{
+    width: 20px;
+    height: 20px;
 }
 .admin-header-lock {
     width: 320px;
@@ -211,4 +214,7 @@
 }
 .td-menu-parent .layui-form-switch{
     margin-left: 0px;
+}
+.nav_weather{
+    margin-right: 20px;
 }
