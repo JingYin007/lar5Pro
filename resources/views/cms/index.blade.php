@@ -40,10 +40,14 @@
         </ul>
 
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item" >
-                <a href="#" id="FullScreen">
-                    <img class="img-FullScreen" src="{{asset('cms/images/icon/fullscreen.png')}}">
-                    <span>&nbsp;全屏</span>
+            <li class="layui-nav-item" id="FullScreen">
+                <img class="img-FullScreen" src="{{asset('cms/images/icon/fullscreen.png')}}">
+                <span>&nbsp;全屏</span>
+            </li>
+            <li class="layui-nav-item lockcms" id="LockScreen">
+                <a href="javascript:;">
+                    <img class="img-LockScreen" src="{{asset('cms/images/icon/lockScreen.png')}}">
+                    <span>锁屏</span>
                 </a>
             </li>
             <li class="layui-nav-item">
@@ -56,13 +60,31 @@
                     moTzxx
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">消息<span class="layui-badge">9</span></a></dd>
-
-                    <dd><a href="">安全设置</a></dd>
+                    <dd>
+                        <a href="">
+                            <img class="img-FullScreen" src="{{asset('cms/images/icon/cms_user.png')}}">
+                            基本资料
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="">
+                            消息<span class="layui-badge">9</span>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="">
+                            <img class="img-FullScreen" src="{{asset('cms/images/icon/cms_secure.png')}}">
+                            安全设置
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="">
+                            <img class="img-FullScreen" src="{{asset('cms/images/icon/cms_exit.png')}}">
+                            退出
+                        </a>
+                    </dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
         </ul>
     </div>
 
@@ -88,7 +110,7 @@
                 </li>
                 @foreach($menus as $menu)
                     <li class="layui-nav-item">
-                    @if($menu['child'])
+                        @if($menu['child'])
                             <a href="javascript:;">
                                 <i class="layui-icon"><img src="{{$menu['icon']}}"/></i>
                                 {{$menu['name']}}</a>
@@ -117,21 +139,21 @@
         </div>
     </div>
     <div class="layui-body">
-    <ul class="layui-tab-title">
-        <li class="layui-this title-selected" url="{{url('cms/home')}}">
-            <i class="layui-icon">&#xe68e;</i>
-            主页
-        </li>
-        {{--<li class="layui-this" url="{{url('test')}}">
-            <span>测试页面</span>
-            <i class="layui-icon  layui-tab-close">ဆ</i>
-        </li>--}}
-        <li class="layui-this refreshThis refresh">
-            <span>刷新当前页</span>
-            <i class="layui-icon  layui-tab-close">&#x1002</i>
-        </li>
-    </ul>
-    <!-- 内容主体区域 -->
+        <ul class="layui-tab-title">
+            <li class="layui-this title-selected" url="{{url('cms/home')}}">
+                <i class="layui-icon">&#xe68e;</i>
+                主页
+            </li>
+            {{--<li class="layui-this" url="{{url('test')}}">
+                <span>测试页面</span>
+                <i class="layui-icon  layui-tab-close">ဆ</i>
+            </li>--}}
+            <li class="layui-this refreshThis refresh">
+                <span>刷新当前页</span>
+                <i class="layui-icon  layui-tab-close">&#x1002</i>
+            </li>
+        </ul>
+        <!-- 内容主体区域 -->
 
         {{--@include('home.index.about')--}}
         <iframe class="iframe-body"

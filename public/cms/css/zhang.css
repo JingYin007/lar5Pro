@@ -57,10 +57,54 @@
     color: white;
     font-weight: 600;
 }
-.layui-nav-item .img-FullScreen{
-    width: 28px;
-    height: 28px;
+.layui-nav-item .img-FullScreen,
+.layui-nav-item .img-LockScreen
+{
+    width: 25px;
+    height: 25px;
 }
+.admin-header-lock {
+    width: 320px;
+    height: 170px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+.admin-header-lock-input {
+    width: 170px;
+    color: #fff;
+    background-color: #009688;
+    float: left;
+    margin: 0 10px 0 40px;
+    border: none;
+}
+.admin-header-lock-img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+.admin-header-lock-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+.admin-header-lock-name {
+    color: #009688;
+    margin: 8px 0 15px 0;
+}
+.input_btn {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+#unlock {
+    float: left;
+}
+#lock-box p {
+    color: #e60000;
+}
+
+
+
 .layui-logo span{
     color:white ;
 }

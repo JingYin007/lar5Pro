@@ -36,6 +36,32 @@ $(document).ready(function () {
         $(".layui-body .iframe-body").attr('src',action);
 
     });
+    $("#LockScreen").on("click",function(){
+        window.sessionStorage.setItem("lockCMS",true);
+        lockPage();
+    });
+
+    // 解锁
+    $("body").on("click","#unlock",function(){
+        if($(this).siblings(".admin-header-lock-input").val() == ''){
+            layer.msg("请输入解锁密码！");
+            $(this).siblings(".admin-header-lock-input").focus();
+        }else{
+            if($(this).siblings(".admin-header-lock-input").val() == "123456"){
+                window.sessionStorage.setItem("lockCMS",false);
+                $(this).siblings(".admin-header-lock-input").val('');
+                layer.closeAll("page");
+            }else{
+                layer.msg("密码错误，请重新输入！");
+                $(this).siblings(".admin-header-lock-input").val('').focus();
+            }
+        }
+    });
+    $(document).on('keydown', function() {
+        if(event.keyCode == 13) {
+            $("#unlock").click();
+        }
+    });
 
     // 全屏切换
     $("#FullScreen").click(function () {
@@ -80,10 +106,34 @@ $(document).ready(function () {
        $(".form-opAdmins .tip-pwd").html(tip);
     });
 
-
-
 });
-
+window.onload = function(){
+    //要初始化的东西 TODO 我就奇怪为啥有的代码在$(document).function()中就不行！！！
+    // 判断是否显示锁屏
+    if(window.sessionStorage.getItem("lockCMS") == "true"){
+        lockPage();
+    }
+};
+/*------------------------------------------------------------------------------------------------------*/
+//锁屏
+function lockPage(){
+    layer.open({
+        title : false,
+        type : 1,
+        content : '	<div class="admin-header-lock" id="lock-box">'+
+        '<div class="admin-header-lock-img"><img src="../cms/images/user.png"/></div>'+
+        '<div class="admin-header-lock-name" id="lockUserName">I am just a passenger</div>'+
+        '<div class="input_btn">'+
+        '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />'+
+        '<button class="layui-btn" id="unlock">解锁</button>'+
+        '</div>'+
+        '<p>请输入“123456”，否则不会解锁成功哦！！！</p>'+
+        '</div>',
+        closeBtn : 0,
+        shade : 0.9
+    })
+    $(".admin-header-lock-input").focus();
+}
 /**
  * 控制左侧导航栏 显示/隐藏
  * @param viewTag 对应标签
@@ -122,6 +172,9 @@ function exitFullScreen() {
     }
 }
 
+
+
+/*----------------------------------------------------------------------------------------------------*/
 // 除去页面所显示的记录 传递 div
 function ToRemoveDiv(tag) {
     $(tag).remove();
