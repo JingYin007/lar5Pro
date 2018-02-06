@@ -67,6 +67,13 @@ Route::namespace('Cms')->prefix('cms')->group( function () {
         Route::any('addRole','AdminController@addRole');
         Route::any('editRole/{id?}', 'AdminController@editRole');
     });
+    /**
+     * 管理员登录
+     */
+    Route::prefix('login')->group(function (){
+        Route::get('index','LoginController@index');
+        Route::any('ajaxLogin','LoginController@ajaxLogin');
+    });
 });
 
 

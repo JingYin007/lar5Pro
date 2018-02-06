@@ -68,7 +68,7 @@
                         </a>
                     </dd>
                     <dd>
-                        <a href="">
+                        <a href="{{url('cms/login/index')}}">
                             <img class="nav-icon" src="{{asset('cms/images/icon/cms_exit.png')}}">
                             退出
                         </a>
