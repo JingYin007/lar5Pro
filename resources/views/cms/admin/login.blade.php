@@ -40,7 +40,7 @@
         <input type="hidden" name="_token" class="tag_token" value="<?php echo csrf_token(); ?>">
         <div class="layui-form-item">
             <div class="layui-input-block div-form-op">
-                <button class="layui-btn" type="button" onclick="adminLogin()"
+                <button class="layui-btn btn-login" type="button" onclick="adminLogin()"
                         lay-submit lay-filter="formDemo">登录</button>
                 <button type="reset"  class="layui-btn layui-btn-primary">重置</button>
             </div>
@@ -60,7 +60,11 @@
             }
         }).resize();
     };
-
+    $(document).on('keydown', function() {
+        if(event.keyCode == 13) {
+            $(".btn-login").click();
+        }
+    });
     function adminLogin() {
         var toUrl = "{{url('cms/login/ajaxLogin')}}";
         var postData = $("#form-login").serialize();

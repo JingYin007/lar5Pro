@@ -238,7 +238,7 @@
     background-color: rgba(0,0,0,0.5);
 }
 #body-login .div-login{
-    padding: 50px 0 0 0;
+    padding: 35px 0 0 0;
     width: 450px;
     border: 2px solid #00a7d0;
     border-radius: 20px;
@@ -254,10 +254,13 @@
     z-index: 99;
 }
 #body-login .div-login .layui-form-item{
-    width: 310px;
+    width: 280px;
     margin-left: auto;
     margin-right: auto;
 }
 #body-login .div-login .div-form-op{
     float: right;
+}
+#body-login .div-login .layui-form-label{
+    width: 80px;
 }
