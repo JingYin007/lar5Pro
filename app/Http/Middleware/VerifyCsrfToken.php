@@ -13,5 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        'cms/login/ajaxCheckLoginStatus',
+        'cms/login/ajaxLogin'
     ];
 }
