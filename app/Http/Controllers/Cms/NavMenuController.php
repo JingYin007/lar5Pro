@@ -22,7 +22,6 @@ class NavMenuController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(Request $request){
-
         $search = $request->input('str_search');
         $record_num = $this->menuModel->getNavMenusCount($search);
         $list = $this->menuModel->getNavMenusForPage(1,$this->page_limit,$search);

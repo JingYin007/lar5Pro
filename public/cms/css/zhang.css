@@ -218,3 +218,46 @@
 .nav_weather{
     margin-right: 20px;
 }
+
+#body-login .video-player {
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#body-login  .video_mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 90;
+    background-color: rgba(0,0,0,0.5);
+}
+#body-login .div-login{
+    padding: 50px 0 0 0;
+    width: 450px;
+    border: 2px solid #00a7d0;
+    border-radius: 20px;
+    height: 180px;
+
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+}
+#body-login .div-login .layui-form-item{
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#body-login .div-login .div-form-op{
+    float: right;
+}

@@ -72,7 +72,8 @@ Route::namespace('Cms')->prefix('cms')->group( function () {
      */
     Route::prefix('login')->group(function (){
         Route::get('index','LoginController@index');
-        Route::any('ajaxLogin','LoginController@ajaxLogin');
+        Route::post('ajaxLogin','LoginController@ajaxLogin');
+        Route::post('ajaxCheckLoginStatus','LoginController@ajaxCheckLoginStatus');
     });
 });
 

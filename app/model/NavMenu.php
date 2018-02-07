@@ -41,25 +41,31 @@ class NavMenu extends Model
 
     /**
      * 获取当前管理员权限下的 导航菜单
+     * @param int $cmsAID
      * @return mixed
      */
-    public function getNavMenusShow(){
+    public function getNavMenusShow($cmsAID = 0){
 
-        $str = $this
-            ->adminModel
-            ->getAdminNavMenus(1);
+        if (!$cmsAID){
+            header('Location:http://lar5pro.com/cms/login/index');
+            die;
+        }else{
+            $str = $this
+                ->adminModel
+                ->getAdminNavMenus($cmsAID);
 
-        $arr = explode('|',$str);
-        $res = $this
-            ->select('*')
-            ->where('id','>',0)
-            ->where('parent_id',0)
-            ->where('status',1)
-            ->orderBy('list_order','desc')
-            ->get()
-            ->toArray();
-        $res = $this->deal($res,$arr);
-        return $res;
+            $arr = explode('|',$str);
+            $res = $this
+                ->select('*')
+                ->where('id','>',0)
+                ->where('parent_id',0)
+                ->where('status',1)
+                ->orderBy('list_order','desc')
+                ->get()
+                ->toArray();
+            $res = $this->deal($res,$arr);
+            return $res;
+        }
     }
 
     public function deal($res,$arr){

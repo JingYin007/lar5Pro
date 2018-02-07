@@ -51,8 +51,8 @@
 
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="{{asset('cms/images/user.png')}}" class="layui-nav-img">
-                    moTzxx
+                    <img src="{{$admin['picture']}}" class="layui-nav-img">
+                    {{$admin['user_name']}}
                 </a>
                 <dl class="layui-nav-child">
                     <dd>
@@ -83,9 +83,9 @@
         <div class="layui-side-scroll">
             <div class="user-info">
                 <div class="photo-view">
-                    <img src="{{asset('cms/images/user.png')}}">
+                    <img src="{{$admin['picture']}}">
                 </div>
-                <p>moTzxx 您好，欢迎登录！</p>
+                <p>{{$admin['user_name']}}，您好！</p>
             </div>
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 
@@ -98,6 +98,10 @@
                         后台首页
                     </a>
                 </li>
+                <input type="hidden" id="check_login"
+                       url="{{url('cms/login/ajaxCheckLoginStatus')}}"
+                       login="{{url('cms/login/index')}}"
+                       tag_token = '<?php echo csrf_token(); ?>' >
                 @foreach($menus as $menu)
                     <li class="layui-nav-item">
                         @if($menu['child'])

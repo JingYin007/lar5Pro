@@ -33,9 +33,25 @@ $(document).ready(function () {
 
     $(".layui-side-scroll .a-to-Url").click(function () {
         var action = $(this).attr('action');
-        $(".layui-body .iframe-body").attr('src',action);
-
+        //TODO 此处进行判断当前用户是否有权限进入
+        var checkUrl = $("#check_login").attr('url');
+        var loginUrl = $("#check_login").attr('login');
+        var tag_token = $("#check_login").attr('tag_token');
+        $.post(
+            checkUrl,
+            {'_token':tag_token},
+            function (result) {
+                if(result.status == 1){
+                    $(".layui-body .iframe-body").attr('src',action);
+                }else{
+                    //失败
+                    window.location.href = loginUrl;
+                }
+            },"JSON");
     });
+    /**
+     * 锁屏点击事件
+     */
     $("#LockScreen").on("click",function(){
         window.sessionStorage.setItem("lockCMS",true);
         lockPage();

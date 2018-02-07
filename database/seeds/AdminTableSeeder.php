@@ -35,5 +35,16 @@ class AdminTableSeeder extends Seeder
         $db->updated_at = time();
         $db->status = 1;
         $db->save();
+
+        $db = new Admin();
+        $db->id = 3;
+        $db->user_name = 'moTzxx@admin';
+        $db->picture = '/cms/images/user.png';
+        $db->password = md5(base64_encode('admin'));
+        $db->role_id = 1;
+        $db->created_at = time();
+        $db->updated_at = time();
+        $db->status = 1;
+        $db->save();
     }
 }

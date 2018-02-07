@@ -121,12 +121,12 @@ class Admin extends Model
         $userName = $input['user_name'];
         $pwd = $input['password'];
         $res = $this
-            ->select('password')
+            ->select('password','id')
             ->where('user_name',$userName)
             ->first();
         if ($res){
             if ($res->password == md5(base64_encode($pwd))){
-                return true;
+                return $res->id;
             }
         }
         return false;
