@@ -123,6 +123,7 @@ class Admin extends Model
         $res = $this
             ->select('password','id')
             ->where('user_name',$userName)
+            ->where('status',1)
             ->first();
         if ($res){
             if ($res->password == md5(base64_encode($pwd))){
