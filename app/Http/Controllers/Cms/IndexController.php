@@ -6,6 +6,7 @@ use App\model\Admin;
 use App\model\NavMenu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
@@ -22,9 +23,9 @@ class IndexController extends Controller
      */
     public function index(Request $request){
 
-        /*$redis = new \Redis();
-        $redis->connect('192.168.1.150', '6379');
-        //$redis->set('say','moTzxx say hello !');
+       /* $redis = new \Redis();
+        $redis->connect('127.0.0.1', '6379');
+        $redis->set('say','moTzxx say hello !');
         echo $redis->get('say');
         phpinfo();
         die;*/
