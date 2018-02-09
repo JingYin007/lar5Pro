@@ -23,12 +23,12 @@ class IndexController extends Controller
      */
     public function index(Request $request){
 
-        $redis = new \Redis();
-        $redis->connect('192.168.236.131', '6379');
+        /*$redis = new \Redis();
+        $redis->connect('127.0.0.1', '6379');
         //$redis->set('say','moTzxx say hello !');
         echo $redis->get('say');
         phpinfo();
-        die;
+        die;*/
 
         $cmsAID = $request->session()->get('cmsAID');
         if (!$cmsAID){header('Location:http://lar5pro.com/cms/login/index');die;}
