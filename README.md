@@ -53,10 +53,14 @@ php artisan db:seed
 ```
 
 ## ③. 配置完成后的访问
+
 > 举例：配置的虚拟域名为 `lar5Pro.com` ,则入口网址为：
 
 - 前台 ： `lar5Pro.com/`
 - 后台 ： `lar5Pro.com/cms/index`
+
+> 后台登录数据
+> [用户名]:moTzxx@admin [密码]:admin 
 
 # 注意
 
