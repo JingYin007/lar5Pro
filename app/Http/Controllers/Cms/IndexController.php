@@ -24,11 +24,7 @@ class IndexController extends Controller
     public function index(Request $request){
 
         /*$redis = new \Redis();
-<<<<<<< HEAD
-        $redis->connect('192.168.236.131', '6379');
-=======
         $redis->connect('127.0.0.1', '6379');
->>>>>>> 32f9d0ffa5c5f2f9cedb1c08e4a5bc8c33dcf753
         //$redis->set('say','moTzxx say hello !');
         echo $redis->get('say');
         phpinfo();
