@@ -111,3 +111,9 @@ php artisan make:migration create_users_table
 ![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/cms1.png)
 ![](https://raw.githubusercontent.com/JingYin007/lar5Pro/master/public/images/info/cms2.png)
 
+
+# 附录
+
+## 可参考博文
+> [moTzxx-CMS —— [一个基于PHP代码的后台管理系统]](http://blog.csdn.net/u011415782/article/details/79307673)
+ 
