@@ -38,7 +38,19 @@ class NavMenu extends Model
         }
         return $res;
     }
+    /**
+     * 检查当前的菜单是否在 该管理员的权限内
+     * @param int $nav_id 菜单ID
+     * @param int $cmsAID 管理员用户ID
+     * @return bool
+     */
+    public function checkNavMenuMan($nav_id = 0 ,$cmsAID = 0){
+        $str = $this->adminModel->getAdminNavMenus($cmsAID);
+        $navMenus = explode('|',$str);
+        $tag = in_array($nav_id,$navMenus);
+        return $tag;
 
+    }
     /**
      * 获取当前管理员权限下的 导航菜单
      * @param int $cmsAID

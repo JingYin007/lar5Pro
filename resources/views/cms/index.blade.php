@@ -112,7 +112,7 @@
                                 @foreach($menu['child'] as $vo)
                                     <dd>
                                         <a class="a-to-Url mul-to-Url" href="javascript:;"
-                                           action="{{url($vo['action'])}}">
+                                           nav_menu_id="{{$vo['id']}}" action="{{url($vo['action'])}}">
                                             <i class="layui-icon"><img src="{{$vo['icon']}}"/></i>
                                             {{$vo['name']}}
                                         </a>
@@ -122,7 +122,7 @@
                             </dl>
                         @else
                             <a class="a-to-Url single-to-Url" href="javascript:;"
-                               action="{{url($menu['action'])}}">
+                               nav_menu_id="{{$vo['id']}}" action="{{url($menu['action'])}}">
                                 <i class="layui-icon"><img src="{{$menu['icon']}}"/></i>
                                 {{$menu['name']}}
                             </a>
