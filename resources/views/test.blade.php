@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>完整demo</title>
+    <title>测试页面</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     @include('layouts.layui')
 </head>

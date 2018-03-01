@@ -22,14 +22,6 @@ class IndexController extends Controller
      * CMS 后台初始页
      */
     public function index(Request $request){
-
-        /*$redis = new \Redis();
-        $redis->connect('192.168.236.131', '6379');
-        //$redis->set('say','moTzxx say hello !');
-        echo $redis->get('say');
-        //phpinfo();
-        die;*/
-
         $cmsAID = $request->session()->get('cmsAID');
         if (!$cmsAID){header('Location:http://lar5pro.com/cms/login/index');die;}
         $menuList = $this->menuModel->getNavMenusShow($cmsAID);
