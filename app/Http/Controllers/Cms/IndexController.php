@@ -28,6 +28,7 @@ class IndexController extends Controller
         $adminInfo = $this->adminModel->getAdminData($cmsAID);
         return view('cms.index',['menus'=>$menuList,'admin'=>$adminInfo]);
     }
+    
     /**
      * CMS 后台首页
      */
