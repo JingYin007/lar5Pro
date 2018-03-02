@@ -7,19 +7,30 @@ class TestController extends Controller
 {
 
     public function index(){
-        $this->redisFun();
-       return view('test');
+        //$this->redisFun();
+        $this->redisUp();
+
+
+        die;
+        return view('test');
     }
 
+    /** Redis 升级训练 */
+    public function redisUp(){
+        $redis = new \Redis();
+        $redis->connect('192.168.236.131', '6379');
+        $redis->set('say','moTzxx say hello !');
+        echo $redis->get('say');
+    }
 
     /**
      * Redis 的使用测试
      */
     public function redisFun(){
         $redis = new \Redis();
-        $redis->pconnect('192.168.236.131', '6379');
+        $redis->connect('192.168.236.131', '6379');
         $redis->set('say','moTzxx say hello !');
-        //echo $redis->get('say');
+        echo $redis->get('say');
 
         $redis->delete('myname');
         $redis->set('myname','moTzxx');
@@ -27,8 +38,6 @@ class TestController extends Controller
 
         var_dump($redis->del('myname'));# 返回 TRUE(1)
         var_dump($redis->get('myname')); # 返回 bool(false)
-
-
 
         //$redis->set('tag',10);
         $redis->delete('tag');
@@ -85,14 +94,14 @@ class TestController extends Controller
         var_dump($val2);//array(4) { [0]=> string(4) "dog3" [1]=> string(4) "pig2" [2]=> string(7) "monkey2" [3]=> string(4) "cat1" }
         var_dump($redis->TYPE('pats')); //zset / int(4)
 
+        //事务处理
+        $redis->multi(1);
+        $redis->set('book-name','Welcome');
+        $redis->exec();
 
-
-
-
-
-
+        echo $redis->get('book-name'); #Welcome
+        
         //phpinfo();
-        die;
     }
 
 
